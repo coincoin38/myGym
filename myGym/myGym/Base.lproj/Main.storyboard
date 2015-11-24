@@ -5,30 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
-        <!--Séances-->
-        <scene sceneID="7PM-Cv-0TQ">
-            <objects>
-                <viewController id="jeE-9A-Ypj" customClass="ViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="iO8-Io-DSS"/>
-                        <viewControllerLayoutGuide type="bottom" id="tpk-bY-sm8"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="MPV-AQ-RSO">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Séances" id="3U4-0f-UCF"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3ZC-lj-xuV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="9" y="-146"/>
-        </scene>
         <!--News-->
         <scene sceneID="ju8-to-6gA">
             <objects>
-                <tableViewController id="gK6-Kr-Oud" sceneMemberID="viewController">
+                <tableViewController id="gK6-Kr-Oud" customClass="NewsTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="nWb-cZ-l9N">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -47,7 +27,7 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="gK6-Kr-Oud" id="yhL-S9-IVU"/>
+                            <outlet property="dataSource" destination="gK6-Kr-Oud" id="BNL-93-tCu"/>
                             <outlet property="delegate" destination="gK6-Kr-Oud" id="Fkc-QO-0gs"/>
                         </connections>
                     </tableView>
@@ -56,6 +36,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pb4-KO-sEB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-779" y="960"/>
+        </scene>
+        <!--Séances-->
+        <scene sceneID="KLb-B5-fi3">
+            <objects>
+                <viewController id="qNC-9N-32P" customClass="SessionsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gVG-12-z8S"/>
+                        <viewControllerLayoutGuide type="bottom" id="Xcb-Uo-jxu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QPr-aa-Jha">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OhJ-RV-OOR" customClass="FSCalendar">
+                                <rect key="frame" x="0.0" y="28" width="600" height="523"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="OhJ-RV-OOR" firstAttribute="top" secondItem="gVG-12-z8S" secondAttribute="bottom" constant="8" id="Oyl-BM-heV"/>
+                            <constraint firstItem="Xcb-Uo-jxu" firstAttribute="top" secondItem="OhJ-RV-OOR" secondAttribute="bottom" id="TNG-eS-bIM"/>
+                            <constraint firstItem="OhJ-RV-OOR" firstAttribute="leading" secondItem="QPr-aa-Jha" secondAttribute="leading" id="YCE-3M-ZIg"/>
+                            <constraint firstAttribute="trailing" secondItem="OhJ-RV-OOR" secondAttribute="trailing" id="nhF-cy-KEf"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Séances" id="YqY-NL-cFS"/>
+                    <connections>
+                        <outlet property="myCalendar" destination="OhJ-RV-OOR" id="zZN-7f-Mbl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bMr-mH-FTM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-38" y="973"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="17q-wW-ddg">
@@ -68,8 +84,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="jeE-9A-Ypj" kind="relationship" relationship="viewControllers" id="XR1-P0-3MO"/>
                         <segue destination="gK6-Kr-Oud" kind="relationship" relationship="viewControllers" id="cGu-Ch-Gsw"/>
+                        <segue destination="qNC-9N-32P" kind="relationship" relationship="viewControllers" id="mxN-s6-qoY"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YvW-Dq-XtB" userLabel="First Responder" sceneMemberID="firstResponder"/>

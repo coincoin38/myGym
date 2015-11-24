@@ -10,16 +10,19 @@
 
 @implementation JsonManager
 
-+ (void)groupsFromJSON:(NSData *)objectNotation withType:(NSString *)dataType completion:(void(^)(NSArray * valueAlpha,NSError *error))completionBlock{
++ (void)groupsFromFile:(NSString *)fileName withKey:(NSString*)key completion:(void(^)(NSArray * valueAlpha,NSError *error))completionBlock{
+    
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:fileName
+                                                         ofType:kJsonExtension];
+    
+    NSData *dataJson = [NSData dataWithContentsOfFile:filePath];
     
     NSError *localError = nil;
-    NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:objectNotation options:0 error:&localError];
-    NSArray *results = [parsedObject valueForKey:dataType];
-    
-    if (localError)
-        completionBlock(nil,localError);
-    
-    completionBlock(results,nil);
+    NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:dataJson
+                                                                 options:0
+                                                                   error:&localError];
+    NSArray *results = [parsedObject valueForKey:key];
+    completionBlock(results,localError);
 }
 
 @end

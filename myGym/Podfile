@@ -1,2 +1,6 @@
-platform :ios, '8.0'
-pod 'Realm+JSON', '~> 0.2'
+platform :ios, '8.3'
+
+link_with 'myGym'
+use_frameworks!
+pod 'Realm', '~> 0.96'
+pod 'FSCalendar', '~> 1.7'

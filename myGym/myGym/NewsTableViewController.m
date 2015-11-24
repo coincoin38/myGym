@@ -7,7 +7,6 @@
 //
 
 #import "NewsTableViewController.h"
-#import "JsonManager.h"
 
 @interface NewsTableViewController ()
 
@@ -28,18 +27,23 @@ static NSString * const kNewsKey = @"news";
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     //if off-line
-    [self loadDataFromStubs];
+    [self loadDataFromStubs:^(BOOL success) {
+        if (success){
+            NSLog(@"success");
+        }
+        else{
+            NSLog(@"failure");
+        }
+    }];
 }
 
-- (void)loadDataFromStubs{
+- (void)loadDataFromStubs:(void(^)(BOOL success))completionBlock{
     
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:kNewsStub
-                                                         ofType:@"json"];
-    
-    NSData *dataJson = [NSData dataWithContentsOfFile:filePath];
-    
-    [JsonManager groupsFromJSON:dataJson withType:kNewsKey completion:^(NSArray *valueAlpha, NSError *error) {
+    [JsonManager groupsFromFile:kNewsStub withKey:kNewsKey completion:^(NSArray *valueAlpha, NSError *error) {
+        if (error)
+            completionBlock(NO);
         
+        completionBlock(YES);
     }];
 
 }

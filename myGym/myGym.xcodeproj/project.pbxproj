@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1360D1271BFFCBD300F5B8BF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1360D1261BFFCBD300F5B8BF /* ViewController.m */; };
 		13C238051BFFC910007ADC93 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C238041BFFC910007ADC93 /* main.m */; };
 		13C238081BFFC910007ADC93 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C238071BFFC910007ADC93 /* AppDelegate.m */; };
 		13C2380E1BFFC910007ADC93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13C2380C1BFFC910007ADC93 /* Main.storyboard */; };
@@ -19,13 +18,12 @@
 		38EEE2111C0491CD00AF8363 /* teachersFeed.json in Resources */ = {isa = PBXBuildFile; fileRef = 38EEE2101C0491CD00AF8363 /* teachersFeed.json */; settings = {ASSET_TAGS = (); }; };
 		38EEE2151C04940F00AF8363 /* JsonManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EEE2141C04940F00AF8363 /* JsonManager.m */; settings = {ASSET_TAGS = (); }; };
 		38EEE2191C04991000AF8363 /* JsonConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EEE2181C04991000AF8363 /* JsonConstants.m */; settings = {ASSET_TAGS = (); }; };
-		953C69AFBD48C909A2BE37E6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F76A982DD8608108DBFC224 /* libPods.a */; };
+		38F326071C04C1F90053AB19 /* SessionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F326061C04C1F90053AB19 /* SessionsViewController.m */; settings = {ASSET_TAGS = (); }; };
+		63758C676AAA45CE081C4A16 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5758697E1E52024CD23E19F /* Pods.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0729AE5A730A191505FFF260 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		1360D1251BFFCBD300F5B8BF /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		1360D1261BFFCBD300F5B8BF /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		13C238001BFFC910007ADC93 /* myGym.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myGym.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13C238041BFFC910007ADC93 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		13C238061BFFC910007ADC93 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -44,8 +42,10 @@
 		38EEE2171C04991000AF8363 /* JsonConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonConstants.h; sourceTree = "<group>"; };
 		38EEE2181C04991000AF8363 /* JsonConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonConstants.m; sourceTree = "<group>"; };
 		38EEE21A1C049A3500AF8363 /* MyPrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPrefixHeader.pch; sourceTree = "<group>"; };
+		38F326051C04C1F90053AB19 /* SessionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionsViewController.h; sourceTree = "<group>"; };
+		38F326061C04C1F90053AB19 /* SessionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionsViewController.m; sourceTree = "<group>"; };
 		83C8F7E9F7984F352C95B8A2 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		8F76A982DD8608108DBFC224 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5758697E1E52024CD23E19F /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				953C69AFBD48C909A2BE37E6 /* libPods.a in Frameworks */,
+				63758C676AAA45CE081C4A16 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,15 +81,13 @@
 		13C238021BFFC910007ADC93 /* myGym */ = {
 			isa = PBXGroup;
 			children = (
+				385155751C04A75200EFB00E /* TableViewControllers */,
+				385155711C04A71600EFB00E /* ViewControllers */,
 				38EEE2161C0498E800AF8363 /* Constants */,
 				38EEE2121C0493D800AF8363 /* Managers */,
 				38EEE2091C048C5A00AF8363 /* Stubs */,
-				1360D1251BFFCBD300F5B8BF /* ViewController.h */,
-				1360D1261BFFCBD300F5B8BF /* ViewController.m */,
 				13C238061BFFC910007ADC93 /* AppDelegate.h */,
 				13C238071BFFC910007ADC93 /* AppDelegate.m */,
-				38EEE2061C048A0800AF8363 /* NewsTableViewController.h */,
-				38EEE2071C048A0800AF8363 /* NewsTableViewController.m */,
 				13C2380C1BFFC910007ADC93 /* Main.storyboard */,
 				13C2380F1BFFC910007ADC93 /* Assets.xcassets */,
 				13C238111BFFC910007ADC93 /* LaunchScreen.storyboard */,
@@ -106,6 +104,24 @@
 				13C238041BFFC910007ADC93 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		385155711C04A71600EFB00E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				38F326051C04C1F90053AB19 /* SessionsViewController.h */,
+				38F326061C04C1F90053AB19 /* SessionsViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		385155751C04A75200EFB00E /* TableViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				38EEE2061C048A0800AF8363 /* NewsTableViewController.h */,
+				38EEE2071C048A0800AF8363 /* NewsTableViewController.m */,
+			);
+			name = TableViewControllers;
 			sourceTree = "<group>";
 		};
 		38EEE2091C048C5A00AF8363 /* Stubs */ = {
@@ -148,7 +164,7 @@
 		A59F4CDED0C7612D86BD7B96 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8F76A982DD8608108DBFC224 /* libPods.a */,
+				E5758697E1E52024CD23E19F /* Pods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -279,8 +295,8 @@
 			files = (
 				38EEE2081C048A0800AF8363 /* NewsTableViewController.m in Sources */,
 				38EEE2191C04991000AF8363 /* JsonConstants.m in Sources */,
-				1360D1271BFFCBD300F5B8BF /* ViewController.m in Sources */,
 				13C238081BFFC910007ADC93 /* AppDelegate.m in Sources */,
+				38F326071C04C1F90053AB19 /* SessionsViewController.m in Sources */,
 				38EEE2151C04940F00AF8363 /* JsonManager.m in Sources */,
 				13C238051BFFC910007ADC93 /* main.m in Sources */,
 			);
@@ -334,7 +350,8 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/MyPrefixHeader.pch";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/myGym/MyPrefixHeader.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -377,7 +394,8 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/MyPrefixHeader.pch";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/myGym/MyPrefixHeader.pch";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -397,8 +415,12 @@
 			baseConfigurationReference = 83C8F7E9F7984F352C95B8A2 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = myGym/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = julieng38.myGym;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -410,8 +432,12 @@
 			baseConfigurationReference = 0729AE5A730A191505FFF260 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = myGym/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = julieng38.myGym;
 				PRODUCT_NAME = "$(TARGET_NAME)";
