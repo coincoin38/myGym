@@ -22,6 +22,7 @@
     
     _myCalendar.delegate = self;
     _myCalendar.dataSource = self;
+    _myCalendar.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"fr_BI"];
 }
 
 - (void)didReceiveMemoryWarning {
