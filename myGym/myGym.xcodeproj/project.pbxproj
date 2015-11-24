@@ -13,6 +13,12 @@
 		13C2380E1BFFC910007ADC93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13C2380C1BFFC910007ADC93 /* Main.storyboard */; };
 		13C238101BFFC910007ADC93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13C2380F1BFFC910007ADC93 /* Assets.xcassets */; };
 		13C238131BFFC910007ADC93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13C238111BFFC910007ADC93 /* LaunchScreen.storyboard */; };
+		38EEE2081C048A0800AF8363 /* NewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EEE2071C048A0800AF8363 /* NewsTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		38EEE20B1C048C8F00AF8363 /* newsFeed.json in Resources */ = {isa = PBXBuildFile; fileRef = 38EEE20A1C048C8F00AF8363 /* newsFeed.json */; settings = {ASSET_TAGS = (); }; };
+		38EEE20D1C048EA800AF8363 /* sessionFeed.json in Resources */ = {isa = PBXBuildFile; fileRef = 38EEE20C1C048EA800AF8363 /* sessionFeed.json */; settings = {ASSET_TAGS = (); }; };
+		38EEE2111C0491CD00AF8363 /* teachersFeed.json in Resources */ = {isa = PBXBuildFile; fileRef = 38EEE2101C0491CD00AF8363 /* teachersFeed.json */; settings = {ASSET_TAGS = (); }; };
+		38EEE2151C04940F00AF8363 /* JsonManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EEE2141C04940F00AF8363 /* JsonManager.m */; settings = {ASSET_TAGS = (); }; };
+		38EEE2191C04991000AF8363 /* JsonConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EEE2181C04991000AF8363 /* JsonConstants.m */; settings = {ASSET_TAGS = (); }; };
 		953C69AFBD48C909A2BE37E6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F76A982DD8608108DBFC224 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +34,16 @@
 		13C2380F1BFFC910007ADC93 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		13C238121BFFC910007ADC93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		13C238141BFFC910007ADC93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		38EEE2061C048A0800AF8363 /* NewsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTableViewController.h; sourceTree = "<group>"; };
+		38EEE2071C048A0800AF8363 /* NewsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsTableViewController.m; sourceTree = "<group>"; };
+		38EEE20A1C048C8F00AF8363 /* newsFeed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = newsFeed.json; sourceTree = "<group>"; };
+		38EEE20C1C048EA800AF8363 /* sessionFeed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sessionFeed.json; sourceTree = "<group>"; };
+		38EEE2101C0491CD00AF8363 /* teachersFeed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = teachersFeed.json; sourceTree = "<group>"; };
+		38EEE2131C04940F00AF8363 /* JsonManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonManager.h; sourceTree = "<group>"; };
+		38EEE2141C04940F00AF8363 /* JsonManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonManager.m; sourceTree = "<group>"; };
+		38EEE2171C04991000AF8363 /* JsonConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonConstants.h; sourceTree = "<group>"; };
+		38EEE2181C04991000AF8363 /* JsonConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonConstants.m; sourceTree = "<group>"; };
+		38EEE21A1C049A3500AF8363 /* MyPrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPrefixHeader.pch; sourceTree = "<group>"; };
 		83C8F7E9F7984F352C95B8A2 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		8F76A982DD8608108DBFC224 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -65,10 +81,15 @@
 		13C238021BFFC910007ADC93 /* myGym */ = {
 			isa = PBXGroup;
 			children = (
+				38EEE2161C0498E800AF8363 /* Constants */,
+				38EEE2121C0493D800AF8363 /* Managers */,
+				38EEE2091C048C5A00AF8363 /* Stubs */,
 				1360D1251BFFCBD300F5B8BF /* ViewController.h */,
 				1360D1261BFFCBD300F5B8BF /* ViewController.m */,
 				13C238061BFFC910007ADC93 /* AppDelegate.h */,
 				13C238071BFFC910007ADC93 /* AppDelegate.m */,
+				38EEE2061C048A0800AF8363 /* NewsTableViewController.h */,
+				38EEE2071C048A0800AF8363 /* NewsTableViewController.m */,
 				13C2380C1BFFC910007ADC93 /* Main.storyboard */,
 				13C2380F1BFFC910007ADC93 /* Assets.xcassets */,
 				13C238111BFFC910007ADC93 /* LaunchScreen.storyboard */,
@@ -81,9 +102,38 @@
 		13C238031BFFC910007ADC93 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				38EEE21A1C049A3500AF8363 /* MyPrefixHeader.pch */,
 				13C238041BFFC910007ADC93 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		38EEE2091C048C5A00AF8363 /* Stubs */ = {
+			isa = PBXGroup;
+			children = (
+				38EEE20A1C048C8F00AF8363 /* newsFeed.json */,
+				38EEE20C1C048EA800AF8363 /* sessionFeed.json */,
+				38EEE2101C0491CD00AF8363 /* teachersFeed.json */,
+			);
+			name = Stubs;
+			sourceTree = "<group>";
+		};
+		38EEE2121C0493D800AF8363 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				38EEE2131C04940F00AF8363 /* JsonManager.h */,
+				38EEE2141C04940F00AF8363 /* JsonManager.m */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
+		38EEE2161C0498E800AF8363 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				38EEE2171C04991000AF8363 /* JsonConstants.h */,
+				38EEE2181C04991000AF8363 /* JsonConstants.m */,
+			);
+			name = Constants;
 			sourceTree = "<group>";
 		};
 		6E484C0D15A3C3FBCB9ECF02 /* Pods */ = {
@@ -165,7 +215,10 @@
 			files = (
 				13C238131BFFC910007ADC93 /* LaunchScreen.storyboard in Resources */,
 				13C238101BFFC910007ADC93 /* Assets.xcassets in Resources */,
+				38EEE2111C0491CD00AF8363 /* teachersFeed.json in Resources */,
+				38EEE20D1C048EA800AF8363 /* sessionFeed.json in Resources */,
 				13C2380E1BFFC910007ADC93 /* Main.storyboard in Resources */,
+				38EEE20B1C048C8F00AF8363 /* newsFeed.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,8 +277,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38EEE2081C048A0800AF8363 /* NewsTableViewController.m in Sources */,
+				38EEE2191C04991000AF8363 /* JsonConstants.m in Sources */,
 				1360D1271BFFCBD300F5B8BF /* ViewController.m in Sources */,
 				13C238081BFFC910007ADC93 /* AppDelegate.m in Sources */,
+				38EEE2151C04940F00AF8363 /* JsonManager.m in Sources */,
 				13C238051BFFC910007ADC93 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,6 +334,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/MyPrefixHeader.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -320,6 +377,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/MyPrefixHeader.pch";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;

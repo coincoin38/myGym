@@ -1,0 +1,86 @@
+{
+    "page": 1,
+    "page_count": 1,
+    "sessions": [
+                 {
+                 "_id": "56115e11c38648281fe8b965",
+                 "name": "Mon titre",
+                 "description": "Coucou",
+                 "teachers": [
+                              {
+                              "_id": "pouic"
+                              },
+                              {
+                              "_id": "pouic"
+                              }
+                              ],
+                 "timestamp": "2015-10-04T17:12:49.667Z",
+                 "location": "En salle de pause",
+                 "agency": "Lyon"
+                 },
+                 {
+                 "_id": "56115e11c38648281fe8b965",
+                 "name": "Mon titre",
+                 "description": "Coucou",
+                 "teachers": [
+                              {
+                              "_id": "pouic"
+                              },
+                              {
+                              "_id": "pouic"
+                              }
+                              ],
+                 "timestamp": "2015-10-04T17:12:49.667Z",
+                 "location": "En salle de pause",
+                 "agency": "Lyon"
+                 },
+                 {
+                 "_id": "56115e11c38648281fe8b965",
+                 "name": "Mon titre",
+                 "description": "Coucou",
+                 "teachers": [
+                              {
+                              "_id": "pouic"
+                              },
+                              {
+                              "_id": "pouic"
+                              }
+                              ],
+                 "timestamp": "2015-10-04T17:12:49.667Z",
+                 "location": "En salle de pause",
+                 "agency": "Lyon"
+                 },
+                 {
+                 "_id": "56115e11c38648281fe8b965",
+                 "name": "Mon titre",
+                 "description": "Coucou",
+                 "teachers": [
+                              {
+                              "_id": "pouic"
+                              },
+                              {
+                              "_id": "pouic"
+                              }
+                              ],
+                 "timestamp": "2015-10-04T17:12:49.667Z",
+                 "location": "En salle de pause",
+                 "agency": "Lyon"
+                 },
+                 {
+                 "_id": "56115e11c38648281fe8b965",
+                 "name": "Mon titre",
+                 "description": "Coucou",
+                 "teachers": [
+                              {
+                              "_id": "pouic"
+                              },
+                              {
+                              "_id": "pouic"
+                              }
+                              ],
+                 "timestamp": "2015-10-04T17:12:49.667Z",
+                 "location": "En salle de pause",
+                 "agency": "Lyon"
+                 }
+                 ]
+}
