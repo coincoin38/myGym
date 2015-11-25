@@ -23,6 +23,7 @@
     _myCalendar.delegate = self;
     _myCalendar.dataSource = self;
     _myCalendar.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"fr_BI"];
+    _myCalendar.appearance.headerMinimumDissolvedAlpha = 0.0;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,14 +34,13 @@
 // FSCalendarDelegate
 - (void)calendar:(FSCalendar *)calendar didSelectDate:(NSDate *)date
 {
-    NSLog(@"Wesh GROS");
+    [self performSegueWithIdentifier:@"showDetailDay" sender:nil];
 }
 
 - (void)calendar:(FSCalendar *)calendar didDeselectDate:(NSDate *)date{
     
-    NSLog(@"Wesh GROS");
 }
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -48,6 +48,5 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
 
 @end

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kFE-oV-KMA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kFE-oV-KMA">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <scenes>
         <!--News-->
@@ -67,11 +67,67 @@
                     <tabBarItem key="tabBarItem" title="Séances" id="YqY-NL-cFS"/>
                     <connections>
                         <outlet property="myCalendar" destination="OhJ-RV-OOR" id="zZN-7f-Mbl"/>
+                        <segue destination="LDb-Uu-AhX" kind="presentation" identifier="showDetailDay" id="Hch-SL-U6b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bMr-mH-FTM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-38" y="973"/>
+        </scene>
+        <!--Day View Controller-->
+        <scene sceneID="7i8-R8-Nwf">
+            <objects>
+                <viewController id="LDb-Uu-AhX" customClass="DayViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Iq2-2x-nlD"/>
+                        <viewControllerLayoutGuide type="bottom" id="h1Z-8r-e2R"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="x1B-EB-h1F">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gs1-Jf-vOl">
+                                <rect key="frame" x="0.0" y="28" width="600" height="523"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PAN-0s-uQP">
+                                <rect key="frame" x="0.0" y="551" width="600" height="49"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7WJ-qx-Y6M">
+                                        <rect key="frame" x="535" y="11" width="49" height="30"/>
+                                        <animations/>
+                                        <state key="normal" title="Fermer"/>
+                                        <connections>
+                                            <action selector="dismissAnyModel:" destination="LDb-Uu-AhX" eventType="touchUpInside" id="Ts2-OP-Qrx"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <animations/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="7WJ-qx-Y6M" secondAttribute="bottom" constant="8" id="PTu-SM-hhq"/>
+                                    <constraint firstAttribute="trailing" secondItem="7WJ-qx-Y6M" secondAttribute="trailing" constant="16" id="Tak-h7-Kd6"/>
+                                    <constraint firstAttribute="height" constant="49" id="sa0-mF-S1i"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="PAN-0s-uQP" secondAttribute="trailing" id="9s5-bJ-7Gf"/>
+                            <constraint firstItem="PAN-0s-uQP" firstAttribute="leading" secondItem="x1B-EB-h1F" secondAttribute="leading" id="GwZ-Hc-xdz"/>
+                            <constraint firstItem="h1Z-8r-e2R" firstAttribute="top" secondItem="PAN-0s-uQP" secondAttribute="bottom" id="KUB-DC-GE0"/>
+                            <constraint firstItem="gs1-Jf-vOl" firstAttribute="top" secondItem="Iq2-2x-nlD" secondAttribute="bottom" constant="8" id="RDi-s8-wfK"/>
+                            <constraint firstAttribute="trailing" secondItem="gs1-Jf-vOl" secondAttribute="trailing" id="gSE-fI-ozs"/>
+                            <constraint firstItem="h1Z-8r-e2R" firstAttribute="top" secondItem="gs1-Jf-vOl" secondAttribute="bottom" constant="49" id="kCO-ue-C91"/>
+                            <constraint firstItem="gs1-Jf-vOl" firstAttribute="leading" secondItem="x1B-EB-h1F" secondAttribute="leading" id="sm4-PC-vd6"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AQ6-aZ-poZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="633" y="973"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="17q-wW-ddg">
