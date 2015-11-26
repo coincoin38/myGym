@@ -27,24 +27,24 @@ static NSString * const kNewsKey = @"news";
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     //if off-line
-    [self loadDataFromStubs:^(BOOL success) {
+    /*[self loadDataFromStubs:^(BOOL success) {
         if (success){
             NSLog(@"success");
         }
         else{
             NSLog(@"failure");
         }
-    }];
+    }];*/
 }
 
 - (void)loadDataFromStubs:(void(^)(BOOL success))completionBlock{
     
-    [JsonManager groupsFromFile:kNewsStub withKey:kNewsKey completion:^(NSArray *valueAlpha, NSError *error) {
+    /*[JsonManager groupsFromFile:kNewsStub withKey:kNewsKey completion:^(NSArray *valueAlpha, NSError *error) {
         if (error)
             completionBlock(NO);
         
         completionBlock(YES);
-    }];
+    }];*/
 
 }
 

@@ -33,12 +33,12 @@ static NSString * const kDaysKey = @"days";
 
 - (void)loadDataFromStubs:(void(^)(BOOL success))completionBlock{
     
-    [JsonManager groupsFromFile:kDaysStub withKey:kDaysKey completion:^(NSArray *valueAlpha, NSError *error) {
+    /*[JsonManager groupsFromFile:kDaysStub withKey:kDaysKey completion:^(NSArray *valueAlpha, NSError *error) {
         if (error)
             completionBlock(NO);
         
         completionBlock(YES);
-    }];
+    }];*/
     
 }
 

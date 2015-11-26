@@ -6,16 +6,10 @@
                  "_id": "56115e11c38648281fe8b965",
                  "name": "Mon titre",
                  "_description": "Coucou",
-                 "teacher": [
-                             {
-                             "_id": "pouic"
-                             }
-                             ],
                  "from": "9.30",
                  "to": "10.30",
-                 "timestamp": "2015-10-04T17:12:49.667Z",
-                 "location": "En salle de pause",
-                 "agency": "Lyon"
+                 "day": "2015-11-26",
+                 "location": "En salle de pause"
                  },
                  {
                  "_id": "56115e11c38648281fe8b965",
@@ -23,14 +17,8 @@
                  "_description": "Coucou",
                  "from": "10.30",
                  "to": "12.00",
-                 "teachers": [
-                              {
-                              "_id": "pouic"
-                              }
-                              ],
-                 "timestamp": "2015-10-04T17:12:49.667Z",
-                 "location": "En salle de pause",
-                 "agency": "Lyon"
+                 "day": "2015-11-26",
+                 "location": "En salle de pause"
                  },
                  {
                  "_id": "56115e11c38648281fe8b965",
@@ -38,14 +26,8 @@
                  "_description": "Coucou",
                  "from": "10.30",
                  "to": "12.00",
-                 "teachers": [
-                              {
-                              "_id": "pouic"
-                              }
-                              ],
-                 "timestamp": "2015-10-04T17:12:49.667Z",
-                 "location": "En salle de pause",
-                 "agency": "Lyon"
+                 "day": "2015-11-26",
+                 "location": "En salle de pause"
                  },
                  {
                  "_id": "56115e11c38648281fe8b965",
@@ -53,14 +35,8 @@
                  "_description": "Coucou",
                  "from": "10.30",
                  "to": "12.00",
-                 "teachers": [
-                              {
-                              "_id": "pouic"
-                              }
-                              ],
-                 "timestamp": "2015-10-04T17:12:49.667Z",
-                 "location": "En salle de pause",
-                 "agency": "Lyon"
+                 "day": "2015-11-26",
+                 "location": "En salle de pause"
                  },
                  {
                  "_id": "56115e11c38648281fe8b965",
@@ -68,14 +44,8 @@
                  "_description": "Coucou",
                  "from": "10.30",
                  "to": "12.00",
-                 "teachers": [
-                              {
-                              "_id": "pouic"
-                              }
-                              ],
-                 "timestamp": "2015-10-04T17:12:49.667Z",
-                 "location": "En salle de pause",
-                 "agency": "Lyon"
+                 "day": "2015-11-26",
+                 "location": "En salle de pause"
                  }
                  ]
 }

@@ -7,11 +7,9 @@
 //
 
 #import <Realm/Realm.h>
-#import "SessionModel.h"
 
 @interface DayModel : RLMObject
 @property NSString *_id;
 @property NSDate *day;
-@property RLMArray<SessionModel*><SessionModel>*sessionModel;
 
 @end

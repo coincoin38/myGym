@@ -10,7 +10,7 @@
 
 @implementation JsonManager
 
-+ (void)groupsFromFile:(NSString *)fileName withKey:(NSString*)key completion:(void(^)(NSArray * valueAlpha,NSError *error))completionBlock{
++ (void)groupsFromFile:(NSString *)fileName withKey:(NSString*)key completion:(void(^)(NSMutableDictionary*dictionary,NSError *error))completionBlock{
     
     NSString *filePath = [[NSBundle mainBundle] pathForResource:fileName
                                                          ofType:kJsonExtension];
@@ -21,8 +21,7 @@
     NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:dataJson
                                                                  options:0
                                                                    error:&localError];
-    NSArray *results = [parsedObject valueForKey:key];
-    completionBlock(results,localError);
+    completionBlock([parsedObject valueForKey:key],localError);
 }
 
 @end
