@@ -12,11 +12,34 @@
 
 @end
 
+static NSString * const kDaysStub = @"daysFeed";
+static NSString * const kDaysKey = @"days";
+
 @implementation DayViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    //if off-line
+    [self loadDataFromStubs:^(BOOL success) {
+        if (success){
+            NSLog(@"success");
+        }
+        else{
+            NSLog(@"failure");
+        }
+    }];
+}
+
+- (void)loadDataFromStubs:(void(^)(BOOL success))completionBlock{
+    
+    [JsonManager groupsFromFile:kDaysStub withKey:kDaysKey completion:^(NSArray *valueAlpha, NSError *error) {
+        if (error)
+            completionBlock(NO);
+        
+        completionBlock(YES);
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning {
