@@ -9,12 +9,16 @@
 #import <Realm/Realm.h>
 
 @interface SessionModel : RLMObject
-@property (nonatomic,strong)NSString *_id;
-@property (nonatomic,strong)NSString *name;
-@property (nonatomic,strong)NSString *_description;
-@property (nonatomic,strong)NSString *from;
-@property (nonatomic,strong)NSString *to;
-@property (nonatomic,strong)NSDate *day;
-@property (nonatomic,strong)NSString *location;
+@property NSString *_id;
+@property NSString *name;
+@property NSString *_description;
+@property NSString *from;
+@property NSString *to;
+@property NSDate *day;
+@property NSString *location;
+
+- (instancetype)initWithJson:(NSDictionary*)session;
 
 @end
+
+RLM_ARRAY_TYPE(SessionModel)

@@ -13,12 +13,16 @@
 		13C238101BFFC910007ADC93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13C2380F1BFFC910007ADC93 /* Assets.xcassets */; };
 		13C238131BFFC910007ADC93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13C238111BFFC910007ADC93 /* LaunchScreen.storyboard */; };
 		13E652A41C063362006D58FC /* DayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13E652A31C063362006D58FC /* DayViewController.m */; };
+		380F1EA41C08672E00762997 /* DateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 380F1EA31C08672E00762997 /* DateManager.m */; settings = {ASSET_TAGS = (); }; };
+		380F1EA91C0894BA00762997 /* SessionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 380F1EA71C0894BA00762997 /* SessionTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		380F1EAA1C0894BA00762997 /* SessionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 380F1EA81C0894BA00762997 /* SessionTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		38175E821C0711D00056798B /* daysFeed.json in Resources */ = {isa = PBXBuildFile; fileRef = 38175E811C0711D00056798B /* daysFeed.json */; settings = {ASSET_TAGS = (); }; };
 		38175E861C0714C70056798B /* DayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38175E851C0714C70056798B /* DayModel.m */; settings = {ASSET_TAGS = (); }; };
 		38175E891C07159B0056798B /* SessionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38175E881C07159B0056798B /* SessionModel.m */; settings = {ASSET_TAGS = (); }; };
+		384D41371C08491F006D4940 /* RealmManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 384D41361C08491F006D4940 /* RealmManager.m */; settings = {ASSET_TAGS = (); }; };
 		38EEE2081C048A0800AF8363 /* NewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EEE2071C048A0800AF8363 /* NewsTableViewController.m */; };
 		38EEE20B1C048C8F00AF8363 /* newsFeed.json in Resources */ = {isa = PBXBuildFile; fileRef = 38EEE20A1C048C8F00AF8363 /* newsFeed.json */; };
-		38EEE20D1C048EA800AF8363 /* sessionFeed.json in Resources */ = {isa = PBXBuildFile; fileRef = 38EEE20C1C048EA800AF8363 /* sessionFeed.json */; };
+		38EEE20D1C048EA800AF8363 /* sessionsFeed.json in Resources */ = {isa = PBXBuildFile; fileRef = 38EEE20C1C048EA800AF8363 /* sessionsFeed.json */; };
 		38EEE2111C0491CD00AF8363 /* teachersFeed.json in Resources */ = {isa = PBXBuildFile; fileRef = 38EEE2101C0491CD00AF8363 /* teachersFeed.json */; };
 		38EEE2151C04940F00AF8363 /* JsonManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EEE2141C04940F00AF8363 /* JsonManager.m */; };
 		38EEE2191C04991000AF8363 /* JsonConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EEE2181C04991000AF8363 /* JsonConstants.m */; };
@@ -38,15 +42,22 @@
 		13C238141BFFC910007ADC93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13E652A21C063362006D58FC /* DayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayViewController.h; sourceTree = "<group>"; };
 		13E652A31C063362006D58FC /* DayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayViewController.m; sourceTree = "<group>"; };
+		380F1EA21C08672E00762997 /* DateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateManager.h; sourceTree = "<group>"; };
+		380F1EA31C08672E00762997 /* DateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateManager.m; sourceTree = "<group>"; };
+		380F1EA61C0894BA00762997 /* SessionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionTableViewCell.h; sourceTree = "<group>"; };
+		380F1EA71C0894BA00762997 /* SessionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionTableViewCell.m; sourceTree = "<group>"; };
+		380F1EA81C0894BA00762997 /* SessionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SessionTableViewCell.xib; sourceTree = "<group>"; };
 		38175E811C0711D00056798B /* daysFeed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = daysFeed.json; sourceTree = "<group>"; };
 		38175E841C0714C70056798B /* DayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayModel.h; sourceTree = "<group>"; };
 		38175E851C0714C70056798B /* DayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayModel.m; sourceTree = "<group>"; };
 		38175E871C07159B0056798B /* SessionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionModel.h; sourceTree = "<group>"; };
 		38175E881C07159B0056798B /* SessionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionModel.m; sourceTree = "<group>"; };
+		384D41351C08491F006D4940 /* RealmManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RealmManager.h; sourceTree = "<group>"; };
+		384D41361C08491F006D4940 /* RealmManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RealmManager.m; sourceTree = "<group>"; };
 		38EEE2061C048A0800AF8363 /* NewsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTableViewController.h; sourceTree = "<group>"; };
 		38EEE2071C048A0800AF8363 /* NewsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsTableViewController.m; sourceTree = "<group>"; };
 		38EEE20A1C048C8F00AF8363 /* newsFeed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = newsFeed.json; sourceTree = "<group>"; };
-		38EEE20C1C048EA800AF8363 /* sessionFeed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sessionFeed.json; sourceTree = "<group>"; };
+		38EEE20C1C048EA800AF8363 /* sessionsFeed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sessionsFeed.json; sourceTree = "<group>"; };
 		38EEE2101C0491CD00AF8363 /* teachersFeed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = teachersFeed.json; sourceTree = "<group>"; };
 		38EEE2131C04940F00AF8363 /* JsonManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonManager.h; sourceTree = "<group>"; };
 		38EEE2141C04940F00AF8363 /* JsonManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonManager.m; sourceTree = "<group>"; };
@@ -95,6 +106,7 @@
 				38175E831C0714860056798B /* RealmModels */,
 				385155751C04A75200EFB00E /* TableViewControllers */,
 				385155711C04A71600EFB00E /* ViewControllers */,
+				380F1EA51C08946E00762997 /* Cells */,
 				38EEE2161C0498E800AF8363 /* Constants */,
 				38EEE2121C0493D800AF8363 /* Managers */,
 				38EEE2091C048C5A00AF8363 /* Stubs */,
@@ -116,6 +128,16 @@
 				13C238041BFFC910007ADC93 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		380F1EA51C08946E00762997 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				380F1EA61C0894BA00762997 /* SessionTableViewCell.h */,
+				380F1EA71C0894BA00762997 /* SessionTableViewCell.m */,
+				380F1EA81C0894BA00762997 /* SessionTableViewCell.xib */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		38175E831C0714860056798B /* RealmModels */ = {
@@ -153,7 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				38EEE20A1C048C8F00AF8363 /* newsFeed.json */,
-				38EEE20C1C048EA800AF8363 /* sessionFeed.json */,
+				38EEE20C1C048EA800AF8363 /* sessionsFeed.json */,
 				38EEE2101C0491CD00AF8363 /* teachersFeed.json */,
 				38175E811C0711D00056798B /* daysFeed.json */,
 			);
@@ -165,6 +187,10 @@
 			children = (
 				38EEE2131C04940F00AF8363 /* JsonManager.h */,
 				38EEE2141C04940F00AF8363 /* JsonManager.m */,
+				384D41351C08491F006D4940 /* RealmManager.h */,
+				384D41361C08491F006D4940 /* RealmManager.m */,
+				380F1EA21C08672E00762997 /* DateManager.h */,
+				380F1EA31C08672E00762997 /* DateManager.m */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -255,11 +281,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				380F1EAA1C0894BA00762997 /* SessionTableViewCell.xib in Resources */,
 				13C238131BFFC910007ADC93 /* LaunchScreen.storyboard in Resources */,
 				13C238101BFFC910007ADC93 /* Assets.xcassets in Resources */,
 				38175E821C0711D00056798B /* daysFeed.json in Resources */,
 				38EEE2111C0491CD00AF8363 /* teachersFeed.json in Resources */,
-				38EEE20D1C048EA800AF8363 /* sessionFeed.json in Resources */,
+				38EEE20D1C048EA800AF8363 /* sessionsFeed.json in Resources */,
 				13C2380E1BFFC910007ADC93 /* Main.storyboard in Resources */,
 				38EEE20B1C048C8F00AF8363 /* newsFeed.json in Resources */,
 			);
@@ -323,9 +350,12 @@
 				38EEE2081C048A0800AF8363 /* NewsTableViewController.m in Sources */,
 				38EEE2191C04991000AF8363 /* JsonConstants.m in Sources */,
 				13E652A41C063362006D58FC /* DayViewController.m in Sources */,
+				384D41371C08491F006D4940 /* RealmManager.m in Sources */,
 				13C238081BFFC910007ADC93 /* AppDelegate.m in Sources */,
+				380F1EA41C08672E00762997 /* DateManager.m in Sources */,
 				38175E861C0714C70056798B /* DayModel.m in Sources */,
 				38F326071C04C1F90053AB19 /* SessionsViewController.m in Sources */,
+				380F1EA91C0894BA00762997 /* SessionTableViewCell.m in Sources */,
 				38175E891C07159B0056798B /* SessionModel.m in Sources */,
 				38EEE2151C04940F00AF8363 /* JsonManager.m in Sources */,
 				13C238051BFFC910007ADC93 /* main.m in Sources */,

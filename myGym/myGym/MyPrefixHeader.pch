@@ -10,6 +10,7 @@
 
 #   import "JsonManager.h"
 #   import "JsonConstants.h"
+#   import "RealmManager.h"
 
 #define MyPrefixHeader_pch
 

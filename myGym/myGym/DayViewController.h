@@ -10,4 +10,6 @@
 
 @interface DayViewController : UIViewController
 
+@property (strong,nonatomic) NSArray *dailySession;
+
 @end

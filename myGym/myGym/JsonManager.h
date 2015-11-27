@@ -10,6 +10,6 @@
 
 @interface JsonManager : NSObject
 
-+ (void)groupsFromFile:(NSString *)fileName withKey:(NSString*)key completion:(void(^)(NSMutableDictionary*dictionary,NSError *error))completionBlock;
++ (void)groupsFromFile:(NSString *)fileName withObject:(NSString*)object completion:(void(^)(NSMutableDictionary*dictionary,NSError *error))completionBlock;
 
 @end

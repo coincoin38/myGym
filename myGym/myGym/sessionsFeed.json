@@ -1,0 +1,96 @@
+{
+    "page": 1,
+    "page_count": 1,
+    "sessions": [
+                 {
+                 "_id": "56115e11c38648281fe8b965",
+                 "name": "Exo 1",
+                 "_description": "Coucou",
+                 "from": "9.30",
+                 "to": "10.30",
+                 "day": "2015-11-26",
+                 "location": "En salle de pause"
+                 },
+                 {
+                 "_id": "56115e11c38648281fe8b965",
+                 "name": "Exo 2",
+                 "_description": "Coucou",
+                 "from": "10.30",
+                 "to": "12.00",
+                 "day": "2015-11-26",
+                 "location": "En salle de pause"
+                 },
+                 {
+                 "_id": "56115e11c38648281fe8b965",
+                 "name": "Exo 3",
+                 "_description": "Coucou",
+                 "from": "10.30",
+                 "to": "12.00",
+                 "day": "2015-11-26",
+                 "location": "En salle de pause"
+                 },
+                 {
+                 "_id": "56115e11c38648281fe8b965",
+                 "name": "Exo 4",
+                 "_description": "Coucou",
+                 "from": "10.30",
+                 "to": "12.00",
+                 "day": "2015-11-26",
+                 "location": "En salle de pause"
+                 },
+                 {
+                 "_id": "56115e11c38648281fe8b965",
+                 "name": "Exo 5",
+                 "_description": "Coucou",
+                 "from": "10.30",
+                 "to": "12.00",
+                 "day": "2015-11-26",
+                 "location": "En salle de pause"
+                 },
+                 {
+                 "_id": "56115e11c38648281fe8b965",
+                 "name": "Exo 1",
+                 "_description": "Coucou",
+                 "from": "9.30",
+                 "to": "10.30",
+                 "day": "2015-11-27",
+                 "location": "En salle de pause"
+                 },
+                 {
+                 "_id": "56115e11c38648281fe8b965",
+                 "name": "Exo 2",
+                 "_description": "Coucou",
+                 "from": "10.30",
+                 "to": "12.00",
+                 "day": "2015-11-27",
+                 "location": "En salle de pause"
+                 },
+                 {
+                 "_id": "56115e11c38648281fe8b965",
+                 "name": "Exo 3",
+                 "_description": "Coucou",
+                 "from": "13.30",
+                 "to": "14.00",
+                 "day": "2015-11-27",
+                 "location": "En salle de pause"
+                 },
+                 {
+                 "_id": "56115e11c38648281fe8b965",
+                 "name": "Exo 4",
+                 "_description": "Coucou",
+                 "from": "14.00",
+                 "to": "15.00",
+                 "day": "2015-11-27",
+                 "location": "En salle de pause"
+                 },
+                 {
+                 "_id": "56115e11c38648281fe8b965",
+                 "name": "Exo 5",
+                 "_description": "Coucou",
+                 "from": "16.30",
+                 "to": "18.00",
+                 "day": "2015-11-27",
+                 "location": "En salle de pause"
+                 }
+                 ]
+}

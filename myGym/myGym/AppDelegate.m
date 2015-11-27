@@ -7,14 +7,10 @@
 //
 
 #import "AppDelegate.h"
-#import "SessionModel.h"
 
 @interface AppDelegate ()
 
 @end
-
-static NSString * const kSessionStub = @"sessionFeed";
-static NSString * const kSessionsKey = @"sessions";
 
 @implementation AppDelegate
 
@@ -22,70 +18,13 @@ static NSString * const kSessionsKey = @"sessions";
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    //if off-line
-    [self loadDataFromStubs:^(NSMutableDictionary*sessions,BOOL success) {
-        if (success){
-            RLMRealm *realm = [RLMRealm defaultRealm];
-            [realm beginWriteTransaction];
-            [realm deleteAllObjects];
-            [realm commitWriteTransaction];
-
-            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-            [dateFormatter setDateFormat:@"yyy-MM-dd"];
-           
-            NSMutableArray *newArray = [NSMutableArray new];
-            [realm beginWriteTransaction];
-            
-            for (NSDictionary*session in sessions) {
-            
-                NSDate *dateFromString = [[NSDate alloc] init];
-                dateFromString = [dateFormatter dateFromString:[session objectForKey:@"day"]];
-                
-                SessionModel *newSession = [[SessionModel alloc]init];
-                newSession._id           = [session objectForKey:@"_id"];
-                newSession.name          = [session objectForKey:@"name"];
-                newSession._description  = [session objectForKey:@"_description"];
-                newSession.from          = [session objectForKey:@"from"];
-                newSession.to            = [session objectForKey:@"to"];
-                newSession.day           = dateFromString;
-                newSession.location      = [session objectForKey:@"location"];
-                
-                [newArray addObject:newSession];
-            }
-            [realm addObjects:newArray];
-            [realm commitWriteTransaction];
-
-            RLMResults<SessionModel*>*allSessions = [SessionModel allObjects];
-            NSMutableArray *array = [NSMutableArray new];
-
-            for (RLMObject *object in allSessions) {
-                [array addObject:object];
-            }
-            
-            NSLog(@"done");
-
-        }
-        else{
-            NSLog(@"failure");
-        }
-    }];
-    
+    // Remplissage de la DB
+    [[RealmManager shared]feedSessionsWithFile:0];
     return YES;
 }
 
 -(void)feedDataBase{
     
-    
-}
-
-- (void)loadDataFromStubs:(void(^)(NSMutableDictionary*sessions, BOOL success))completionBlock{
-    
-    [JsonManager groupsFromFile:kSessionStub withKey:kSessionsKey completion:^(NSMutableDictionary*dictionaryFromJson, NSError *error) {
-        if (error)
-            completionBlock(nil,NO);
-        
-        completionBlock(dictionaryFromJson,YES);
-    }];
     
 }
 

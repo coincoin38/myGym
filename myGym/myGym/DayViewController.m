@@ -8,38 +8,21 @@
 
 #import "DayViewController.h"
 
-@interface DayViewController ()
+static NSString * const kDaysStub = @"daysFeed";
+static NSString * const kDaysKey = @"days";
+
+@interface DayViewController ()<UITableViewDelegate>
+
+@property (weak,nonatomic)IBOutlet UITableView *dayTableView;
 
 @end
 
-static NSString * const kDaysStub = @"daysFeed";
-static NSString * const kDaysKey = @"days";
 
 @implementation DayViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    //if off-line
-    [self loadDataFromStubs:^(BOOL success) {
-        if (success){
-            NSLog(@"success");
-        }
-        else{
-            NSLog(@"failure");
-        }
-    }];
-}
-
-- (void)loadDataFromStubs:(void(^)(BOOL success))completionBlock{
-    
-    /*[JsonManager groupsFromFile:kDaysStub withKey:kDaysKey completion:^(NSArray *valueAlpha, NSError *error) {
-        if (error)
-            completionBlock(NO);
-        
-        completionBlock(YES);
-    }];*/
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,6 +41,27 @@ static NSString * const kDaysKey = @"days";
 
 - (IBAction)dismissAnyModel:(id)sender{
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - UITableViewDelegate
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
+    return [_dailySession count];
+}
+
+// Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
+// Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    return nil;
 }
 
 @end
