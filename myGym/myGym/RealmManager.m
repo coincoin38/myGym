@@ -11,14 +11,14 @@
 // MODELS
 
 static NSInteger const stub_sessions = 0;
-static NSInteger const stub_days = 1;
+static NSInteger const stub_teachers = 1;
 
-static NSString * const kSessionStub = @"sessionsFeed";
-static NSString * const kDaysStub = @"daysFeed";
+static NSString * const kSessionsStub = @"sessionsFeed";
+static NSString * const kTeachersStub = @"teachersFeed";
 
 static NSString * const kSessionsObject = @"sessions";
 static NSString * const kDaysObject = @"days";
-
+static NSString * const kTeachersObject = @"teachers";
 
 @interface RealmManager ()
 
@@ -51,25 +51,38 @@ static NSString * const kDaysObject = @"days";
         // Récupération du contenu du fichier
         [self loadDataFromStubsWithFile:file withObject:object completion:^(NSMutableDictionary *datas, BOOL success) {
             if (success){
-                for (NSDictionary*session in datas) {
+                for (NSDictionary*data in datas) {
                     
                     if (key == stub_sessions)
-                        [self addSession:[[SessionModel alloc]initWithJson:session]];
+                        [self addDatas:[[SessionModel alloc]initWithJson:data]];
                     
+                    if (key == stub_teachers)
+                        [self addDatas:[[TeacherModel alloc]initWithJson:data]];
                 }
+            }
+            
+            for (SessionModel*session in [[RealmManager shared]getAllSessions]) {
+                NSLog(@"Session name %@",session.name);
+            }
+            
+            for (TeacherModel*teacher in [[RealmManager shared]getAllTeachers]) {
+                NSLog(@"Teacher name %@",teacher.name);
             }
         }];
     }];
 }
 
-//Add a news in DB
-- (void)addSession:(id)session {
+#pragma Set datas
+
+- (void)addDatas:(id)data {
 
     RLMRealm *realm = [RLMRealm defaultRealm];
     [realm beginWriteTransaction];
-    [realm addObject:session];
+    [realm addObject:data];
     [realm commitWriteTransaction];
 }
+
+#pragma Get All
 
 - (RLMResults*)getAllSessions{
     
@@ -79,13 +92,23 @@ static NSString * const kDaysObject = @"days";
     return sessions;
 }
 
+- (RLMResults*)getAllTeachers{
+    
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    RLMResults *teachers = [TeacherModel allObjectsInRealm:realm];
+    
+    return teachers;
+}
+
+#pragma Helpers
+
 - (void)returnFileAndObject:(NSInteger)key completion:(void(^)(NSString*file,NSString*key))completionBlock{
     
     if (key == stub_sessions)
-        completionBlock(kSessionStub,kSessionsObject);
+        completionBlock(kSessionsStub,kSessionsObject);
 
-    if (key == stub_days)
-        completionBlock(kDaysStub,kDaysObject);
+    if (key == stub_teachers)
+        completionBlock(kTeachersStub,kTeachersObject);
     
 }
 

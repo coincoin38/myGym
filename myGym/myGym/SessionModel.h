@@ -9,13 +9,14 @@
 #import <Realm/Realm.h>
 
 @interface SessionModel : RLMObject
+
 @property NSString *_id;
 @property NSString *name;
-@property NSString *_description;
 @property NSString *from;
 @property NSString *to;
 @property NSDate *day;
 @property NSString *location;
+@property NSString *teacher_id;
 
 - (instancetype)initWithJson:(NSDictionary*)session;
 

@@ -7,9 +7,12 @@
 //
 
 #import "DayViewController.h"
+#import "SessionTableViewCell.h"
 
 static NSString * const kDaysStub = @"daysFeed";
 static NSString * const kDaysKey = @"days";
+static NSString * const kSessionIdentifier = @"sessionIdentifier";
+static NSString * const kXibNameSessionCell = @"SessionTableViewCell";
 
 @interface DayViewController ()<UITableViewDelegate>
 
@@ -23,6 +26,8 @@ static NSString * const kDaysKey = @"days";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [_dayTableView registerNib:[UINib nibWithNibName:kXibNameSessionCell bundle:nil] forCellReuseIdentifier:kSessionIdentifier];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -61,7 +66,9 @@ static NSString * const kDaysKey = @"days";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    return nil;
+    SessionTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:kSessionIdentifier forIndexPath:indexPath];
+    cell.exerciceLabel.text = @"coucou";
+    return cell;
 }
 
 @end

@@ -10,11 +10,6 @@
 
 @interface SessionTableViewCell()
 
-@property (weak,nonatomic)IBOutlet UILabel *fromLabel;
-@property (weak,nonatomic)IBOutlet UILabel *toLabel;
-@property (weak,nonatomic)IBOutlet UILabel *exerciceLabel;
-@property (weak,nonatomic)IBOutlet UILabel *teacherLabel;
-
 @end
 
 @implementation SessionTableViewCell
@@ -27,6 +22,13 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)setInformations:(SessionModel*)session{
+    
+    _fromLabel.text = session.from;
+    _toLabel.text = session.to;
+    _exerciceLabel.text = session.name;
 }
 
 @end

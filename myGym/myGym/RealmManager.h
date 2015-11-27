@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SessionModel.h"
+#import "TeacherModel.h"
 
 @interface RealmManager : NSObject
 
@@ -15,5 +16,6 @@
 - (void)feedSessionsWithFile:(NSInteger)key;
 
 - (RLMResults*)getAllSessions;
+- (RLMResults*)getAllTeachers;
 
 @end

@@ -19,7 +19,11 @@
     // Override point for customization after application launch.
     
     // Remplissage de la DB
+    // Sessions
     [[RealmManager shared]feedSessionsWithFile:0];
+    // Teachers
+    [[RealmManager shared]feedSessionsWithFile:1];
+
     return YES;
 }
 

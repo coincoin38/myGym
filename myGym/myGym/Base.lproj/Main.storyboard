@@ -15,7 +15,7 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="sTe-dJ-Zgn">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="newsIdentifier" id="sTe-dJ-Zgn">
                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sTe-dJ-Zgn" id="WRG-to-yUK">
@@ -91,7 +91,7 @@
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="jVs-Ml-JG6" customClass="SessionTableViewCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="sessionIdentifier" id="jVs-Ml-JG6" customClass="SessionTableViewCell">
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jVs-Ml-JG6" id="gN8-L1-Apq">
@@ -102,6 +102,10 @@
                                         <animations/>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="LDb-Uu-AhX" id="8yZ-5n-eav"/>
+                                    <outlet property="delegate" destination="LDb-Uu-AhX" id="2KW-DE-8PF"/>
+                                </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PAN-0s-uQP">
                                 <rect key="frame" x="0.0" y="551" width="600" height="49"/>
@@ -136,6 +140,9 @@
                             <constraint firstItem="gs1-Jf-vOl" firstAttribute="leading" secondItem="x1B-EB-h1F" secondAttribute="leading" id="sm4-PC-vd6"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="dayTableView" destination="gs1-Jf-vOl" id="edL-8A-J1d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AQ6-aZ-poZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

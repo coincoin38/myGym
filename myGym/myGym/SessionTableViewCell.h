@@ -10,4 +10,11 @@
 
 @interface SessionTableViewCell : UITableViewCell
 
+@property (weak,nonatomic)IBOutlet UILabel *fromLabel;
+@property (weak,nonatomic)IBOutlet UILabel *toLabel;
+@property (weak,nonatomic)IBOutlet UILabel *exerciceLabel;
+@property (weak,nonatomic)IBOutlet UILabel *teacherLabel;
+
+- (void)setInformations:(SessionModel*)session;
+
 @end

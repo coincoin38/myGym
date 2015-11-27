@@ -3,92 +3,36 @@
     "page_count": 1,
     "teachers": [
                  {
-                 "_id": "56115e11c38648281fe8b965",
-                 "name": "Mon titre",
-                 "first_name": "Coucou",
-                 "description": "wesh gros",
-                 "photo": "2015-10-04T17:12:49.667Z",
-                 "agency": "Lyon",
-                 "sessions": [
-                              {
-                              "_id": "sport1"
-                              },
-                              {
-                              "_id": "sport1"
-                              },
-                              {
-                              "_id": "sport1"
-                              },
-                              {
-                              "_id": "sport1"
-                              }
-                              ]
+                 "_id": "1",
+                 "name": "Georges",
+                 "first_name": "Saint-Pierre",
+                 "_description": "wesh gros",
+                 "photo": "empty",
+                 "agency": "Lyon"
                  },
                  {
-                 "_id": "56115e11c38648281fe8b965",
-                 "name": "Mon titre",
-                 "first_name": "Coucou",
-                 "description": "wesh gros",
-                 "photo": "2015-10-04T17:12:49.667Z",
-                 "agency": "Lyon",
-                 "sessions": [
-                              {
-                              "_id": "sport1"
-                              },
-                              {
-                              "_id": "sport1"
-                              },
-                              {
-                              "_id": "sport1"
-                              },
-                              {
-                              "_id": "sport1"
-                              }
-                              ]
+                 "_id": "2",
+                 "name": "Anderson",
+                 "first_name": "Silva",
+                 "_description": "wesh gros",
+                 "photo": "empty",
+                 "agency": "Lyon"
                  },
                  {
-                 "_id": "56115e11c38648281fe8b965",
-                 "name": "Mon titre",
-                 "first_name": "Coucou",
-                 "description": "wesh gros",
-                 "photo": "2015-10-04T17:12:49.667Z",
-                 "agency": "Lyon",
-                 "sessions": [
-                              {
-                              "_id": "sport1"
-                              },
-                              {
-                              "_id": "sport1"
-                              },
-                              {
-                              "_id": "sport1"
-                              },
-                              {
-                              "_id": "sport1"
-                              }
-                              ]
+                 "_id": "3",
+                 "name": "Wanderlei",
+                 "first_name": "Silva",
+                 "_description": "wesh gros",
+                 "photo": "empty",
+                 "agency": "Lyon"
                  },
                  {
-                 "_id": "56115e11c38648281fe8b965",
-                 "name": "Mon titre",
-                 "first_name": "Coucou",
-                 "description": "wesh gros",
-                 "photo": "2015-10-04T17:12:49.667Z",
-                 "agency": "Lyon",
-                 "sessions": [
-                              {
-                              "_id": "sport1"
-                              },
-                              {
-                              "_id": "sport1"
-                              },
-                              {
-                              "_id": "sport1"
-                              },
-                              {
-                              "_id": "sport1"
-                              }
-                              ]
+                 "_id": "4",
+                 "name": "Chael",
+                 "first_name": "Sonen",
+                 "_description": "wesh gros",
+                 "photo": "empty",
+                 "agency": "Lyon"
                  }
                  ]
 }

@@ -16,8 +16,8 @@
 		380F1EA41C08672E00762997 /* DateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 380F1EA31C08672E00762997 /* DateManager.m */; settings = {ASSET_TAGS = (); }; };
 		380F1EA91C0894BA00762997 /* SessionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 380F1EA71C0894BA00762997 /* SessionTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		380F1EAA1C0894BA00762997 /* SessionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 380F1EA81C0894BA00762997 /* SessionTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		380F1EAD1C08B3DB00762997 /* TeacherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 380F1EAC1C08B3DB00762997 /* TeacherModel.m */; settings = {ASSET_TAGS = (); }; };
 		38175E821C0711D00056798B /* daysFeed.json in Resources */ = {isa = PBXBuildFile; fileRef = 38175E811C0711D00056798B /* daysFeed.json */; settings = {ASSET_TAGS = (); }; };
-		38175E861C0714C70056798B /* DayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38175E851C0714C70056798B /* DayModel.m */; settings = {ASSET_TAGS = (); }; };
 		38175E891C07159B0056798B /* SessionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38175E881C07159B0056798B /* SessionModel.m */; settings = {ASSET_TAGS = (); }; };
 		384D41371C08491F006D4940 /* RealmManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 384D41361C08491F006D4940 /* RealmManager.m */; settings = {ASSET_TAGS = (); }; };
 		38EEE2081C048A0800AF8363 /* NewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EEE2071C048A0800AF8363 /* NewsTableViewController.m */; };
@@ -47,9 +47,9 @@
 		380F1EA61C0894BA00762997 /* SessionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionTableViewCell.h; sourceTree = "<group>"; };
 		380F1EA71C0894BA00762997 /* SessionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionTableViewCell.m; sourceTree = "<group>"; };
 		380F1EA81C0894BA00762997 /* SessionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SessionTableViewCell.xib; sourceTree = "<group>"; };
+		380F1EAB1C08B3DB00762997 /* TeacherModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherModel.h; sourceTree = "<group>"; };
+		380F1EAC1C08B3DB00762997 /* TeacherModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherModel.m; sourceTree = "<group>"; };
 		38175E811C0711D00056798B /* daysFeed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = daysFeed.json; sourceTree = "<group>"; };
-		38175E841C0714C70056798B /* DayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayModel.h; sourceTree = "<group>"; };
-		38175E851C0714C70056798B /* DayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayModel.m; sourceTree = "<group>"; };
 		38175E871C07159B0056798B /* SessionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionModel.h; sourceTree = "<group>"; };
 		38175E881C07159B0056798B /* SessionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionModel.m; sourceTree = "<group>"; };
 		384D41351C08491F006D4940 /* RealmManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RealmManager.h; sourceTree = "<group>"; };
@@ -143,10 +143,10 @@
 		38175E831C0714860056798B /* RealmModels */ = {
 			isa = PBXGroup;
 			children = (
-				38175E841C0714C70056798B /* DayModel.h */,
-				38175E851C0714C70056798B /* DayModel.m */,
 				38175E871C07159B0056798B /* SessionModel.h */,
 				38175E881C07159B0056798B /* SessionModel.m */,
+				380F1EAB1C08B3DB00762997 /* TeacherModel.h */,
+				380F1EAC1C08B3DB00762997 /* TeacherModel.m */,
 			);
 			name = RealmModels;
 			sourceTree = "<group>";
@@ -353,7 +353,7 @@
 				384D41371C08491F006D4940 /* RealmManager.m in Sources */,
 				13C238081BFFC910007ADC93 /* AppDelegate.m in Sources */,
 				380F1EA41C08672E00762997 /* DateManager.m in Sources */,
-				38175E861C0714C70056798B /* DayModel.m in Sources */,
+				380F1EAD1C08B3DB00762997 /* TeacherModel.m in Sources */,
 				38F326071C04C1F90053AB19 /* SessionsViewController.m in Sources */,
 				380F1EA91C0894BA00762997 /* SessionTableViewCell.m in Sources */,
 				38175E891C07159B0056798B /* SessionModel.m in Sources */,
