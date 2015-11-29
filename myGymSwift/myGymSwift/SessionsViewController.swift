@@ -8,13 +8,9 @@
 
 import UIKit
 import FSCalendar
-import SwiftyJSON
-import RealmSwift
 
 class SessionsViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSource {
 
-    let kFile = "sessionsFeed"
-    let kKey = "sessions"
     @IBOutlet weak var myCalendar: FSCalendar?
 
     override func viewDidLoad() {
@@ -24,43 +20,6 @@ class SessionsViewController: UIViewController,FSCalendarDelegate,FSCalendarData
         myCalendar?.delegate = self
         myCalendar?.dataSource = self
         myCalendar?.appearance.headerMinimumDissolvedAlpha = 0.0;
-
-        JsonManager.sharedInstance .groupsFromFile(kFile, object:kKey) { (result) -> Void in
-            let realm = try! Realm()
-           
-            // Clean DB
-            try! realm.write {
-                realm.deleteAll()
-            }
-
-            for(_,key)in result{
-                
-                // Format string to date
-                let stringDate = key["day"].stringValue
-                let dateFormatter = NSDateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd"
-                let date = dateFormatter.dateFromString(stringDate)
-                
-                // Create a session object
-                let session = SessionModel()
-                session._id        = key["_id"].stringValue
-                session.name       = key["name"].stringValue
-                session.from       = key["from"].stringValue
-                session.to         = key["to"].stringValue
-                session.location   = key["location"].stringValue
-                session.teacher_id = key["teacher_id"].stringValue
-                session.day        = date!
-
-                // Add to the Realm inside a transaction
-                try! realm.write {
-                    realm.add(session)
-                }
-            }
-            
-            // retrieves all Sessions from the default Realm
-            let allSessions = realm.objects(SessionModel)
-            print(allSessions)
-        }
     }
 
     override func didReceiveMemoryWarning() {

@@ -13,9 +13,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        RealmManager.sharedInstance.cleanDb()
+        RealmManager.sharedInstance.feedDataBaseWithFile(0)
+        RealmManager.sharedInstance.feedDataBaseWithFile(1)
         return true
     }
 

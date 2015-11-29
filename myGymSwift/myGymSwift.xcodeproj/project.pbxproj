@@ -22,6 +22,7 @@
 		13CF0E141C09ECC100715454 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13CF0E121C09ECC100715454 /* Main.storyboard */; };
 		13CF0E161C09ECC100715454 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13CF0E151C09ECC100715454 /* Assets.xcassets */; };
 		13CF0E191C09ECC100715454 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13CF0E171C09ECC100715454 /* LaunchScreen.storyboard */; };
+		13E68F561C0B8B6A00CDCDD0 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E68F551C0B8B6A00CDCDD0 /* RealmManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		13CF0E151C09ECC100715454 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		13CF0E181C09ECC100715454 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		13CF0E1A1C09ECC100715454 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		13E68F551C0B8B6A00CDCDD0 /* RealmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		5364A31A3A4D8D2E0EEFE8FA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		624491330B4D7EBF762ECC2D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				1376A5FD1C09F893000AA652 /* JsonManager.swift */,
+				13E68F551C0B8B6A00CDCDD0 /* RealmManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1376A5FA1C09F1C2000AA652 /* SessionsViewController.swift in Sources */,
+				13E68F561C0B8B6A00CDCDD0 /* RealmManager.swift in Sources */,
 				13CF0E111C09ECC100715454 /* ViewController.swift in Sources */,
 				1376A5FE1C09F893000AA652 /* JsonManager.swift in Sources */,
 				13CF0E0F1C09ECC100715454 /* AppDelegate.swift in Sources */,
