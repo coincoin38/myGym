@@ -23,6 +23,7 @@ class RealmManager: NSObject {
     let kTeachersObject = "teachers";
     
     let realm = try! Realm()
+    let formater = FormaterManager()
     
     static let sharedInstance = RealmManager()
     
@@ -45,7 +46,7 @@ class RealmManager: NSObject {
                         }
                     }
                     // retrieves all Sessions from the default Realm
-                    print(self.getAllSessions())
+                    //print(self.getAllSessions())
                 }
                 
                 if (key == self.stub_teachers){
@@ -57,22 +58,18 @@ class RealmManager: NSObject {
                             self.realm.add(teacherModel)
                         }
                     }
-                    // retrieves all Sessions from the default Realm
-                    print(self.getAllTeachers())
+                    // retrieves all Teachers from the default Realm
+                    //print(self.getAllTeachers())
                 }
             }
         }
     }
 
-
     // Création d'un objet sessionModel
     func generateSession(dictionary:JSON) ->SessionModel{
         
         // Format string to date
-        let stringDate = dictionary["day"].stringValue
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        let date = dateFormatter.dateFromString(stringDate)
+        let date = formater.formatyyyMMddFromString(dictionary["day"].stringValue)
 
         let session = SessionModel()
         session._id        = dictionary["_id"].stringValue
@@ -81,7 +78,7 @@ class RealmManager: NSObject {
         session.to         = dictionary["to"].stringValue
         session.location   = dictionary["location"].stringValue
         session.teacher_id = dictionary["teacher_id"].stringValue
-        session.day        = date!
+        session.day        = date
 
         return session
     }
@@ -109,6 +106,14 @@ class RealmManager: NSObject {
     
     func getAllSessions()->Results<(SessionModel)>{
         return realm.objects(SessionModel)
+    }
+    
+    // MARK : - Recherches
+    
+    func isSessionWithDate(date:NSDate,completion:(sessions:Results<(SessionModel)>)->Void){
+        
+        let aday = realm.objects(SessionModel).filter("day = %@", date)
+        completion(sessions: aday)
     }
     
     // MARK: - Suppression de la base de données

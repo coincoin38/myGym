@@ -8,12 +8,16 @@
 
 import UIKit
 import FSCalendar
+import RealmSwift
 
 class SessionsViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSource {
 
     @IBOutlet weak var myCalendar: FSCalendar?
-    var selectedDate : NSDate = NSDate()
-    
+    let kShowDetailDay = "showDetailDay"
+    let formater = FormaterManager()
+    let realmManager = RealmManager()
+    var sessionsforDay:Results<SessionModel>!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,7 +25,6 @@ class SessionsViewController: UIViewController,FSCalendarDelegate,FSCalendarData
         myCalendar?.delegate = self
         myCalendar?.dataSource = self
         myCalendar?.appearance.headerMinimumDissolvedAlpha = 0.0;
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,11 +35,15 @@ class SessionsViewController: UIViewController,FSCalendarDelegate,FSCalendarData
     // MARK: - FSCalendar delegate
 
     func calendar(calendar: FSCalendar!, didSelectDate date: NSDate!) {
-       
-        selectedDate = date
-        self.performSegueWithIdentifier("showDetailDay", sender: self)
+        
+        realmManager.isSessionWithDate(date) { (sessions) -> Void in
+            
+            if(sessions.count>0){
+                self.sessionsforDay = sessions
+                self.performSegueWithIdentifier(self.kShowDetailDay, sender: self)
+            }
+        }
     }
-
     
     // MARK: - Navigation
 
@@ -44,6 +51,12 @@ class SessionsViewController: UIViewController,FSCalendarDelegate,FSCalendarData
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if(segue.identifier == kShowDetailDay){
+            
+            let svc = segue.destinationViewController as! DayViewController
+            svc.sessions = sessionsforDay
+        }
+        
     }
 
 }

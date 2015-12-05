@@ -7,13 +7,18 @@
 //
 
 import UIKit
+import RealmSwift
 
-class DayViewController: UIViewController {
+class DayViewController: UIViewController,UITableViewDelegate {
+
+    var sessions:Results<SessionModel>!
+    @IBOutlet weak var tableView: UITableView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        //print(sessions)
+        // Do any additional setup after loading the view.        
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,4 +30,22 @@ class DayViewController: UIViewController {
         
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return sessions.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier( "sessionIdentifier", forIndexPath: indexPath)
+        cell.textLabel?.text = sessions[indexPath.row].name+"-"+sessions[indexPath.row].from+"-"+sessions[indexPath.row].to
+        
+        return cell
+
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+    }
+
 }
