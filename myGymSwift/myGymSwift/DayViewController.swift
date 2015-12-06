@@ -12,6 +12,7 @@ import RealmSwift
 class DayViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     var sessions:Results<SessionModel>!
+    let realmManager = RealmManager()
     @IBOutlet weak var tableView: UITableView?
 
     override func viewDidLoad() {
@@ -36,8 +37,17 @@ class DayViewController: UIViewController,UITableViewDelegate,UITableViewDataSou
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("sessionIdentifier", forIndexPath: indexPath) as! SessionTableViewCell
-        cell.coachLabel?.text = "toto"
-        cell.sessionLabel?.text = sessions[indexPath.row].name
+        // A sortir d'ici pour éviter des requêtes à chaque scroll
+        let _idSport : String = sessions[indexPath.row].sport_id
+        realmManager.getSportWithId(_idSport) { (sport) -> Void in
+            cell.sessionLabel?.text = sport[0].name
+        }
+        
+        let _idTeacher : String = sessions[indexPath.row].teacher_id
+        realmManager.getTeacherWithId(_idTeacher) { (teacher) -> Void in
+            cell.coachLabel?.text = teacher[0].name+" "+teacher[0].first_name
+        }
+        
         cell.fromLabel?.text = sessions[indexPath.row].from
         cell.toLabel?.text = sessions[indexPath.row].to
         

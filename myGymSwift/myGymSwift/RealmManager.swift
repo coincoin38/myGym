@@ -15,13 +15,16 @@ class RealmManager: NSObject {
     // MODELS
     let stub_sessions = 0;
     let stub_teachers = 1;
-    
+    let stub_sports   = 2;
+
     let kSessionsStub = "sessionsFeed";
     let kTeachersStub = "teachersFeed";
-    
+    let kSportsStub   = "sportsFeed";
+
     let kSessionsObject = "sessions";
     let kTeachersObject = "teachers";
-    
+    let kSportsObject   = "sports";
+
     let realm = try! Realm()
     let formater = FormaterManager()
     
@@ -61,6 +64,19 @@ class RealmManager: NSObject {
                     // retrieves all Teachers from the default Realm
                     //print(self.getAllTeachers())
                 }
+                
+                if (key == self.stub_sports){
+                    for(_,sport)in result{
+                        
+                        let sportModel = self.generateSport(sport)
+                        // Add to the Realm inside a transaction
+                        try! self.realm.write {
+                            self.realm.add(sportModel)
+                        }
+                    }
+                    // retrieves all Sports from the default Realm
+                    print(self.getAllSports())
+                }
             }
         }
     }
@@ -70,10 +86,9 @@ class RealmManager: NSObject {
         
         // Format string to date
         let date = formater.formatyyyMMddFromString(dictionary["day"].stringValue)
-
         let session = SessionModel()
         session._id        = dictionary["_id"].stringValue
-        session.name       = dictionary["name"].stringValue
+        session.sport_id   = dictionary["sport_id"].stringValue
         session.from       = dictionary["from"].stringValue
         session.to         = dictionary["to"].stringValue
         session.location   = dictionary["location"].stringValue
@@ -98,6 +113,20 @@ class RealmManager: NSObject {
         return teacher
     }
     
+    // Création d'un objet sportModel
+    func generateSport(dictionary:JSON) ->SportModel{
+        
+        // Create a sport object
+        let sport = SportModel()
+        sport._id          = dictionary["_id"].stringValue
+        sport.name         = dictionary["name"].stringValue
+        sport._description = dictionary["_description"].stringValue
+        sport.color        = dictionary["color"].stringValue
+        sport.image        = dictionary["image"].stringValue
+        
+        return sport
+    }
+    
     // MARK: - Récupération d'objets
 
     func getAllTeachers()->Results<(TeacherModel)>{
@@ -108,12 +137,28 @@ class RealmManager: NSObject {
         return realm.objects(SessionModel)
     }
     
+    func getAllSports()->Results<(SportModel)>{
+        return realm.objects(SportModel)
+    }
+    
     // MARK : - Recherches
     
     func isSessionWithDate(date:NSDate,completion:(sessions:Results<(SessionModel)>)->Void){
         
         let aday = realm.objects(SessionModel).filter("day = %@", date)
         completion(sessions: aday)
+    }
+    
+    func getSportWithId(_id:String,completion:(sport:Results<(SportModel)>)->Void){
+        
+        let asport = realm.objects(SportModel).filter("_id = %@", _id)
+        completion(sport: asport)
+    }
+    
+    func getTeacherWithId(_id:String,completion:(sport:Results<(TeacherModel)>)->Void){
+        
+        let ateacher = realm.objects(TeacherModel).filter("_id = %@", _id)
+        completion(sport: ateacher)
     }
     
     // MARK: - Suppression de la base de données
@@ -135,6 +180,9 @@ class RealmManager: NSObject {
         }
         if (keyStubDetection == stub_teachers){
             completion(stub: kTeachersStub,keyStub: kTeachersObject);
+        }
+        if (keyStubDetection == stub_sports){
+            completion(stub: kSportsStub,keyStub: kSportsObject);
         }
     }
     

@@ -1,58 +1,58 @@
 {
     "page": 1,
     "page_count": 1,
-    "news": [{
+    "sports": [{
              "_id": "1",
              "name": "CXWORX",
-             "description": "30 min pour redessiner son corps. Booster sa tonicité corporel.",
+             "_description": "30 min pour redessiner son corps. Booster sa tonicité corporel.",
              "color": "2015-10-04T17:12:49.667Z",
              "image": "2015-10-04T17:12:49.667Z"
              }, {
              "_id": "2",
              "name": "ZUMBA",
-             "description": "Regain d'énergie et évacuer ses tensions. Chorégraphie simple et entrainante.",
+             "_description": "Regain d'énergie et évacuer ses tensions. Chorégraphie simple et entrainante.",
              "color": "2015-10-04T17:12:49.369Z",
              "image": "En salle de pause"
              }, {
              "_id": "3",
              "name": "STEP",
-             "description": "Galber cuisses et fessiers, brûler des calories pour affiner sa silhouette. Résultats harmonieux",
+             "_description": "Galber cuisses et fessiers, brûler des calories pour affiner sa silhouette. Résultats harmonieux",
              "color": "2015-10-04T17:12:49.859Z",
              "image": "En salle de pause"
              }, {
              "_id": "4",
              "name": "ATTACK",
-             "description": "Idéal pourr mincir sans contrainte alimentaire. Augmenter son souffle et sa forme.",
+             "_description": "Idéal pourr mincir sans contrainte alimentaire. Augmenter son souffle et sa forme.",
              "color": "2015-10-04T17:12:48.996Z",
              "image": "En salle de pause"
              }, {
              "_id": "5",
              "name": "BALANCE",
-             "description": "Forme et minceur en douceur. Anti-stress pour améliorer son sommeil. Tonification corporelle.",
+             "_description": "Forme et minceur en douceur. Anti-stress pour améliorer son sommeil. Tonification corporelle.",
              "color": "2015-10-04T17:12:49.480Z",
              "image": "En salle de pause"
              }, {
              "_id": "6",
              "name": "COMBAT",
-             "description": "Evacuer tensions et stress. Retrouver une plénitude durable. Alliance du Fitness et Arts martiaux",
+             "_description": "Evacuer tensions et stress. Retrouver une plénitude durable. Alliance du Fitness et Arts martiaux",
              "color": "2015-10-04T17:12:49.566Z",
              "image": "En salle de pause"
              }, {
              "_id": "7",
              "name": "PUMP",
-             "description": "Sculpter et tonifier son corps rapidement. Des résultats dès les premières séances.",
+             "_description": "Sculpter et tonifier son corps rapidement. Des résultats dès les premières séances.",
              "color": "2015-10-04T17:12:49.566Z",
              "image": "En salle de pause"
              }, {
              "_id": "8",
              "name": "WAVE",
-             "description": "Se tonifier et mincir en douceur...En harmonie avec ses besoins pour un bien-être immédiat.",
+             "_description": "Se tonifier et mincir en douceur...En harmonie avec ses besoins pour un bien-être immédiat.",
              "color": "2015-10-04T17:12:49.566Z",
              "image": "En salle de pause"
              }, {
              "_id": "9",
              "name": "RPM",
-             "description": "Brûler un maximum de calories et développer son souffle. Effet minceur sur les jambes, fesses, hanches...",
+             "_description": "Brûler un maximum de calories et développer son souffle. Effet minceur sur les jambes, fesses, hanches...",
              "color": "2015-10-04T17:12:49.566Z",
              "image": "En salle de pause"
              }]

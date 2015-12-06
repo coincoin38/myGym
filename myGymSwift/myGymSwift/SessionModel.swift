@@ -12,7 +12,7 @@ import RealmSwift
 class SessionModel: Object {
     
     dynamic var _id = ""
-    dynamic var name = ""
+    dynamic var sport_id = ""
     dynamic var from = ""
     dynamic var to = ""
     dynamic var location = ""

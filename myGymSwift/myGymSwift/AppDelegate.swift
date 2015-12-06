@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         RealmManager.sharedInstance.cleanDb()
         RealmManager.sharedInstance.feedDataBaseWithFile(0)
         RealmManager.sharedInstance.feedDataBaseWithFile(1)
+        RealmManager.sharedInstance.feedDataBaseWithFile(2)
+
         return true
     }
 
