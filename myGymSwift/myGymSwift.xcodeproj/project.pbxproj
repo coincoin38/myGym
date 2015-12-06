@@ -16,6 +16,7 @@
 		1376A5F81C09EF71000AA652 /* TeacherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376A5F71C09EF71000AA652 /* TeacherModel.swift */; };
 		1376A5FA1C09F1C2000AA652 /* SessionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376A5F91C09F1C2000AA652 /* SessionsViewController.swift */; };
 		1376A5FC1C09F1CE000AA652 /* DayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376A5FB1C09F1CE000AA652 /* DayViewController.swift */; };
+		139A94701C143CDD00CF754A /* sportsFeed.json in Resources */ = {isa = PBXBuildFile; fileRef = 139A946F1C143CDD00CF754A /* sportsFeed.json */; };
 		13A6B1D11C131FC800F93232 /* FormaterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A6B1D01C131FC800F93232 /* FormaterManager.swift */; };
 		13A6B1D91C13A24A00F93232 /* SessionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A6B1D71C13A24A00F93232 /* SessionTableViewCell.swift */; };
 		13A6B1DA1C13A24A00F93232 /* SessionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13A6B1D81C13A24A00F93232 /* SessionTableViewCell.xib */; };
@@ -36,6 +37,7 @@
 		1376A5F71C09EF71000AA652 /* TeacherModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherModel.swift; sourceTree = "<group>"; };
 		1376A5F91C09F1C2000AA652 /* SessionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionsViewController.swift; sourceTree = "<group>"; };
 		1376A5FB1C09F1CE000AA652 /* DayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayViewController.swift; sourceTree = "<group>"; };
+		139A946F1C143CDD00CF754A /* sportsFeed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sportsFeed.json; sourceTree = "<group>"; };
 		13A6B1D01C131FC800F93232 /* FormaterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormaterManager.swift; sourceTree = "<group>"; };
 		13A6B1D71C13A24A00F93232 /* SessionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionTableViewCell.swift; sourceTree = "<group>"; };
 		13A6B1D81C13A24A00F93232 /* SessionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SessionTableViewCell.xib; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 		1376A5EC1C09EDCF000AA652 /* Stubs */ = {
 			isa = PBXGroup;
 			children = (
+				139A946F1C143CDD00CF754A /* sportsFeed.json */,
 				1376A5ED1C09EDE0000AA652 /* newsFeed.json */,
 				1376A5EE1C09EDE0000AA652 /* sessionsFeed.json */,
 				1376A5EF1C09EDE0000AA652 /* teachersFeed.json */,
@@ -250,6 +253,7 @@
 				13CF0E191C09ECC100715454 /* LaunchScreen.storyboard in Resources */,
 				1376A5F41C09EDE0000AA652 /* daysFeed.json in Resources */,
 				1376A5F31C09EDE0000AA652 /* teachersFeed.json in Resources */,
+				139A94701C143CDD00CF754A /* sportsFeed.json in Resources */,
 				13CF0E161C09ECC100715454 /* Assets.xcassets in Resources */,
 				1376A5F11C09EDE0000AA652 /* newsFeed.json in Resources */,
 				13CF0E141C09ECC100715454 /* Main.storyboard in Resources */,
