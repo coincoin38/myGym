@@ -17,7 +17,8 @@
 		1376A5FA1C09F1C2000AA652 /* SessionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376A5F91C09F1C2000AA652 /* SessionsViewController.swift */; };
 		1376A5FC1C09F1CE000AA652 /* DayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376A5FB1C09F1CE000AA652 /* DayViewController.swift */; };
 		13A6B1D11C131FC800F93232 /* FormaterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A6B1D01C131FC800F93232 /* FormaterManager.swift */; };
-		13A6B1D51C13A0B800F93232 /* SessionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13A6B1D41C13A0B800F93232 /* SessionCell.xib */; };
+		13A6B1D91C13A24A00F93232 /* SessionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A6B1D71C13A24A00F93232 /* SessionTableViewCell.swift */; };
+		13A6B1DA1C13A24A00F93232 /* SessionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13A6B1D81C13A24A00F93232 /* SessionTableViewCell.xib */; };
 		13CF0E0F1C09ECC100715454 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CF0E0E1C09ECC100715454 /* AppDelegate.swift */; };
 		13CF0E141C09ECC100715454 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13CF0E121C09ECC100715454 /* Main.storyboard */; };
 		13CF0E161C09ECC100715454 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13CF0E151C09ECC100715454 /* Assets.xcassets */; };
@@ -36,7 +37,8 @@
 		1376A5F91C09F1C2000AA652 /* SessionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionsViewController.swift; sourceTree = "<group>"; };
 		1376A5FB1C09F1CE000AA652 /* DayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayViewController.swift; sourceTree = "<group>"; };
 		13A6B1D01C131FC800F93232 /* FormaterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormaterManager.swift; sourceTree = "<group>"; };
-		13A6B1D41C13A0B800F93232 /* SessionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SessionCell.xib; sourceTree = "<group>"; };
+		13A6B1D71C13A24A00F93232 /* SessionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionTableViewCell.swift; sourceTree = "<group>"; };
+		13A6B1D81C13A24A00F93232 /* SessionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SessionTableViewCell.xib; sourceTree = "<group>"; };
 		13CF0E0B1C09ECC100715454 /* myGymSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myGymSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13CF0E0E1C09ECC100715454 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		13CF0E131C09ECC100715454 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -97,6 +99,8 @@
 		1376A5E91C09EDBA000AA652 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				13A6B1D71C13A24A00F93232 /* SessionTableViewCell.swift */,
+				13A6B1D81C13A24A00F93232 /* SessionTableViewCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -128,13 +132,13 @@
 			name = Stubs;
 			sourceTree = "<group>";
 		};
-		13A6B1D61C13A0C200F93232 /* IHM */ = {
+		13A6B1D61C13A0C200F93232 /* StoryBoards */ = {
 			isa = PBXGroup;
 			children = (
-				13A6B1D41C13A0B800F93232 /* SessionCell.xib */,
 				13CF0E121C09ECC100715454 /* Main.storyboard */,
+				13CF0E171C09ECC100715454 /* LaunchScreen.storyboard */,
 			);
-			name = IHM;
+			name = StoryBoards;
 			sourceTree = "<group>";
 		};
 		13CF0E021C09ECC100715454 = {
@@ -165,10 +169,9 @@
 				1376A5E91C09EDBA000AA652 /* Cells */,
 				1376A5E81C09EDA7000AA652 /* ViewControllers */,
 				1376A5E71C09ED98000AA652 /* TableViewControllers */,
-				13A6B1D61C13A0C200F93232 /* IHM */,
+				13A6B1D61C13A0C200F93232 /* StoryBoards */,
 				13CF0E0E1C09ECC100715454 /* AppDelegate.swift */,
 				13CF0E151C09ECC100715454 /* Assets.xcassets */,
-				13CF0E171C09ECC100715454 /* LaunchScreen.storyboard */,
 				13CF0E1A1C09ECC100715454 /* Info.plist */,
 			);
 			path = myGymSwift;
@@ -247,10 +250,10 @@
 				13CF0E191C09ECC100715454 /* LaunchScreen.storyboard in Resources */,
 				1376A5F41C09EDE0000AA652 /* daysFeed.json in Resources */,
 				1376A5F31C09EDE0000AA652 /* teachersFeed.json in Resources */,
-				13A6B1D51C13A0B800F93232 /* SessionCell.xib in Resources */,
 				13CF0E161C09ECC100715454 /* Assets.xcassets in Resources */,
 				1376A5F11C09EDE0000AA652 /* newsFeed.json in Resources */,
 				13CF0E141C09ECC100715454 /* Main.storyboard in Resources */,
+				13A6B1DA1C13A24A00F93232 /* SessionTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +316,7 @@
 				13E68F561C0B8B6A00CDCDD0 /* RealmManager.swift in Sources */,
 				13A6B1D11C131FC800F93232 /* FormaterManager.swift in Sources */,
 				13CF0E0F1C09ECC100715454 /* AppDelegate.swift in Sources */,
+				13A6B1D91C13A24A00F93232 /* SessionTableViewCell.swift in Sources */,
 				1376A5F81C09EF71000AA652 /* TeacherModel.swift in Sources */,
 				1376A5F61C09EE67000AA652 /* SessionModel.swift in Sources */,
 				1376A5FC1C09F1CE000AA652 /* DayViewController.swift in Sources */,

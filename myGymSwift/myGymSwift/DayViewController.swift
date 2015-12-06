@@ -9,16 +9,14 @@
 import UIKit
 import RealmSwift
 
-class DayViewController: UIViewController,UITableViewDelegate {
+class DayViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     var sessions:Results<SessionModel>!
     @IBOutlet weak var tableView: UITableView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //print(sessions)
-        // Do any additional setup after loading the view.        
+        tableView?.registerNib(UINib(nibName: "SessionTableViewCell", bundle: nil), forCellReuseIdentifier: "sessionIdentifier")
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,15 +35,16 @@ class DayViewController: UIViewController,UITableViewDelegate {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier( "sessionIdentifier", forIndexPath: indexPath)
-        cell.textLabel?.text = sessions[indexPath.row].name+"-"+sessions[indexPath.row].from+"-"+sessions[indexPath.row].to
+        let cell = tableView.dequeueReusableCellWithIdentifier("sessionIdentifier", forIndexPath: indexPath) as! SessionTableViewCell
+        cell.coachLabel?.text = "toto"
+        cell.sessionLabel?.text = sessions[indexPath.row].name
+        cell.fromLabel?.text = sessions[indexPath.row].from
+        cell.toLabel?.text = sessions[indexPath.row].to
         
         return cell
-
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
     }
-
 }
