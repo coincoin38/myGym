@@ -24,6 +24,8 @@
 		13CF0E141C09ECC100715454 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13CF0E121C09ECC100715454 /* Main.storyboard */; };
 		13CF0E161C09ECC100715454 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13CF0E151C09ECC100715454 /* Assets.xcassets */; };
 		13CF0E191C09ECC100715454 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13CF0E171C09ECC100715454 /* LaunchScreen.storyboard */; };
+		13D0242F1C148F9300A977AC /* SessionObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D0242E1C148F9300A977AC /* SessionObject.swift */; };
+		13D024311C14900C00A977AC /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D024301C14900C00A977AC /* SessionManager.swift */; };
 		13E68F561C0B8B6A00CDCDD0 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E68F551C0B8B6A00CDCDD0 /* RealmManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +49,8 @@
 		13CF0E151C09ECC100715454 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		13CF0E181C09ECC100715454 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		13CF0E1A1C09ECC100715454 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		13D0242E1C148F9300A977AC /* SessionObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionObject.swift; sourceTree = "<group>"; };
+		13D024301C14900C00A977AC /* SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		13E68F551C0B8B6A00CDCDD0 /* RealmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		5364A31A3A4D8D2E0EEFE8FA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		624491330B4D7EBF762ECC2D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -120,6 +124,7 @@
 			children = (
 				13A6B1D01C131FC800F93232 /* FormaterManager.swift */,
 				13E68F551C0B8B6A00CDCDD0 /* RealmManager.swift */,
+				13D024301C14900C00A977AC /* SessionManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -169,6 +174,7 @@
 				1376A5EC1C09EDCF000AA652 /* Stubs */,
 				1376A5EB1C09EDC7000AA652 /* Managers */,
 				1376A5EA1C09EDC0000AA652 /* Constans */,
+				13D0242D1C148F4800A977AC /* Objects */,
 				1376A5E91C09EDBA000AA652 /* Cells */,
 				1376A5E81C09EDA7000AA652 /* ViewControllers */,
 				1376A5E71C09ED98000AA652 /* TableViewControllers */,
@@ -178,6 +184,14 @@
 				13CF0E1A1C09ECC100715454 /* Info.plist */,
 			);
 			path = myGymSwift;
+			sourceTree = "<group>";
+		};
+		13D0242D1C148F4800A977AC /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				13D0242E1C148F9300A977AC /* SessionObject.swift */,
+			);
+			name = Objects;
 			sourceTree = "<group>";
 		};
 		8BAEF0186558D58525B085E9 /* Frameworks */ = {
@@ -318,12 +332,14 @@
 				1376A5FA1C09F1C2000AA652 /* SessionsViewController.swift in Sources */,
 				13E68F561C0B8B6A00CDCDD0 /* RealmManager.swift in Sources */,
 				13A6B1D11C131FC800F93232 /* FormaterManager.swift in Sources */,
+				13D0242F1C148F9300A977AC /* SessionObject.swift in Sources */,
 				13CF0E0F1C09ECC100715454 /* AppDelegate.swift in Sources */,
 				13A6B1D91C13A24A00F93232 /* SessionTableViewCell.swift in Sources */,
 				1376A5F81C09EF71000AA652 /* TeacherModel.swift in Sources */,
 				139595491C1481E500F43523 /* SportModel.swift in Sources */,
 				1376A5F61C09EE67000AA652 /* SessionModel.swift in Sources */,
 				1376A5FC1C09F1CE000AA652 /* DayViewController.swift in Sources */,
+				13D024311C14900C00A977AC /* SessionManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
