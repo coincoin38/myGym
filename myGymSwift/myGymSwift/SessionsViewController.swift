@@ -14,7 +14,6 @@ class SessionsViewController: UIViewController,FSCalendarDelegate,FSCalendarData
 
     @IBOutlet weak var myCalendar: FSCalendar?
     let kShowDetailDay = "showDetailDay"
-    let formater = FormaterManager()
     let realmManager = RealmManager()
     let sessionManager = SessionManager()
     var sessionsArray : Array<SessionObject> = Array<SessionObject>()
@@ -64,7 +63,6 @@ class SessionsViewController: UIViewController,FSCalendarDelegate,FSCalendarData
             let svc = segue.destinationViewController as! DayViewController
             svc.sessionsArray = sessionsArray
         }
-        
     }
 
 }

@@ -12,7 +12,6 @@ import RealmSwift
 class DayViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     var sessionsArray : Array<SessionObject> = Array<SessionObject>()
-    let realmManager = RealmManager()
     @IBOutlet weak var tableView: UITableView?
 
     override func viewDidLoad() {
@@ -26,7 +25,6 @@ class DayViewController: UIViewController,UITableViewDelegate,UITableViewDataSou
     }
     
     @IBAction func dismiss(sender: UIButton) {
-        
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -37,11 +35,7 @@ class DayViewController: UIViewController,UITableViewDelegate,UITableViewDataSou
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("sessionIdentifier", forIndexPath: indexPath) as! SessionTableViewCell
-        cell.sessionLabel?.text = sessionsArray[indexPath.row].sportName
-        cell.coachLabel?.text   = sessionsArray[indexPath.row].teacherName
-        cell.fromLabel?.text    = sessionsArray[indexPath.row].from
-        cell.toLabel?.text      = sessionsArray[indexPath.row].to
-        
+        cell .setData(sessionsArray[indexPath.row])
         return cell
     }
     
