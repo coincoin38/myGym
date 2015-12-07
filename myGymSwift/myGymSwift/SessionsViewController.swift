@@ -16,8 +16,9 @@ class SessionsViewController: UIViewController,FSCalendarDelegate,FSCalendarData
     let kShowDetailDay = "showDetailDay"
     let formater = FormaterManager()
     let realmManager = RealmManager()
-    var sessionsforDay:Results<SessionModel>!
-
+    let sessionManager = SessionManager()
+    var sessionsArray : Array<SessionObject> = Array<SessionObject>()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,8 +39,15 @@ class SessionsViewController: UIViewController,FSCalendarDelegate,FSCalendarData
         
         realmManager.isSessionWithDate(date) { (sessions) -> Void in
             
+            self.sessionsArray.removeAll()
+            
+            for session in sessions{
+                
+                self.sessionManager.setSessionForCell(session, completion: { (sessionObject) -> Void in
+                    self.sessionsArray.append(sessionObject)
+                })
+            }
             if(sessions.count>0){
-                self.sessionsforDay = sessions
                 self.performSegueWithIdentifier(self.kShowDetailDay, sender: self)
             }
         }
@@ -54,7 +62,7 @@ class SessionsViewController: UIViewController,FSCalendarDelegate,FSCalendarData
         if(segue.identifier == kShowDetailDay){
             
             let svc = segue.destinationViewController as! DayViewController
-            svc.sessions = sessionsforDay
+            svc.sessionsArray = sessionsArray
         }
         
     }

@@ -11,7 +11,7 @@ import RealmSwift
 
 class DayViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
-    var sessions:Results<SessionModel>!
+    var sessionsArray : Array<SessionObject> = Array<SessionObject>()
     let realmManager = RealmManager()
     @IBOutlet weak var tableView: UITableView?
 
@@ -31,25 +31,16 @@ class DayViewController: UIViewController,UITableViewDelegate,UITableViewDataSou
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sessions.count
+        return sessionsArray.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("sessionIdentifier", forIndexPath: indexPath) as! SessionTableViewCell
-        // A sortir d'ici pour éviter des requêtes à chaque scroll
-        let _idSport : String = sessions[indexPath.row].sport_id
-        realmManager.getSportWithId(_idSport) { (sport) -> Void in
-            cell.sessionLabel?.text = sport[0].name
-        }
-        
-        let _idTeacher : String = sessions[indexPath.row].teacher_id
-        realmManager.getTeacherWithId(_idTeacher) { (teacher) -> Void in
-            cell.coachLabel?.text = teacher[0].name+" "+teacher[0].first_name
-        }
-        
-        cell.fromLabel?.text = sessions[indexPath.row].from
-        cell.toLabel?.text = sessions[indexPath.row].to
+        cell.sessionLabel?.text = sessionsArray[indexPath.row].sportName
+        cell.coachLabel?.text   = sessionsArray[indexPath.row].teacherName
+        cell.fromLabel?.text    = sessionsArray[indexPath.row].from
+        cell.toLabel?.text      = sessionsArray[indexPath.row].to
         
         return cell
     }
