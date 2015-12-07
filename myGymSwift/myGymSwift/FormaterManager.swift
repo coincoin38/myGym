@@ -10,21 +10,21 @@ import UIKit
 
 class FormaterManager: NSObject {
 
-    func formatyyyMMddFromString(dateString:String) ->NSDate{
+    func formatyyyMMddFromString(dateString: String) -> NSDate {
 
         let formatter = NSDateFormatter()
         formatter.dateFormat = "yyy-MM-dd"
         formatter.timeZone = NSTimeZone(abbreviation: "UTC")
 
-        let dateFromString :NSDate = formatter.dateFromString(dateString)!
+        let dateFromString: NSDate = formatter.dateFromString(dateString)!
         
         return dateFromString
     }
     
-    func isSameDayWithDate1(date1:NSDate,date2:NSDate) ->Bool{
+    func isSameDayWithDate1(date1: NSDate, date2: NSDate) -> Bool {
         
         let cal = NSCalendar.currentCalendar()
-        var components = cal.components([.Era, .Year, .Month, .Day], fromDate:date1)
+        var components = cal.components([.Era, .Year, .Month, .Day], fromDate: date1)
         let today = cal.dateFromComponents(components)!
         
         components = cal.components([.Era, .Year, .Month, .Day], fromDate:date2);

@@ -10,13 +10,13 @@ import UIKit
 import FSCalendar
 import RealmSwift
 
-class SessionsViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSource {
+class SessionsViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource {
 
     @IBOutlet weak var myCalendar: FSCalendar?
     let kShowDetailDay = "showDetailDay"
     let realmManager = RealmManager()
     let sessionManager = SessionManager()
-    var sessionsArray : Array<SessionObject> = Array<SessionObject>()
+    var sessionsArray: Array<SessionObject> = Array<SessionObject>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,32 +33,30 @@ class SessionsViewController: UIViewController,FSCalendarDelegate,FSCalendarData
     }
     
     // MARK: - FSCalendar delegate
-
     func calendar(calendar: FSCalendar!, didSelectDate date: NSDate!) {
         
         realmManager.isSessionWithDate(date) { (sessions) -> Void in
             
             self.sessionsArray.removeAll()
             
-            for session in sessions{
+            for session in sessions {
                 
                 self.sessionManager.setSessionForCell(session, completion: { (sessionObject) -> Void in
                     self.sessionsArray.append(sessionObject)
                 })
             }
-            if(sessions.count>0){
+            if(sessions.count > 0) {
                 self.performSegueWithIdentifier(self.kShowDetailDay, sender: self)
             }
         }
     }
     
     // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if(segue.identifier == kShowDetailDay){
+        if(segue.identifier == kShowDetailDay) {
             
             let svc = segue.destinationViewController as! DayViewController
             svc.sessionsArray = sessionsArray

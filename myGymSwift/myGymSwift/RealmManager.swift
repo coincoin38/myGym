@@ -28,19 +28,19 @@ class RealmManager: NSObject {
     let realm = try! Realm()
     let formater = FormaterManager()
     
-    static let sharedInstance = RealmManager()
+    static let SharedInstance = RealmManager()
     
     // MARK: - Ajout d'objets
     
     // Remplissage de la base de données
-    func feedDataBaseWithFile(key:NSInteger){
+    func feedDataBaseWithFile(key: NSInteger) {
         
         returnFileAndObject(key) { (stub, keyStub) -> Void in
             
-            self.groupsFromFile(stub, object:keyStub) { (result) -> Void in
+            self.groupsFromFile(stub, object: keyStub) { (result) -> Void in
                 
-                if (key == self.stub_sessions){
-                    for(_,session)in result{
+                if (key == self.stub_sessions) {
+                    for(_, session)in result {
                         
                         let sessionModel = self.generateSession(session)
                         // Add to the Realm inside a transaction
@@ -52,8 +52,8 @@ class RealmManager: NSObject {
                     //print(self.getAllSessions())
                 }
                 
-                if (key == self.stub_teachers){
-                    for(_,teacher)in result{
+                if (key == self.stub_teachers) {
+                    for(_, teacher)in result {
                         
                         let teacherModel = self.generateTeacher(teacher)
                         // Add to the Realm inside a transaction
@@ -65,8 +65,8 @@ class RealmManager: NSObject {
                     //print(self.getAllTeachers())
                 }
                 
-                if (key == self.stub_sports){
-                    for(_,sport)in result{
+                if (key == self.stub_sports) {
+                    for(_, sport)in result {
                         
                         let sportModel = self.generateSport(sport)
                         // Add to the Realm inside a transaction
@@ -82,7 +82,7 @@ class RealmManager: NSObject {
     }
 
     // Création d'un objet sessionModel
-    func generateSession(dictionary:JSON) ->SessionModel{
+    func generateSession(dictionary: JSON) -> SessionModel {
         
         // Format string to date
         let date = formater.formatyyyMMddFromString(dictionary["day"].stringValue)
@@ -99,7 +99,7 @@ class RealmManager: NSObject {
     }
     
     // Création d'un objet teacherModel
-    func generateTeacher(dictionary:JSON) ->TeacherModel{
+    func generateTeacher(dictionary: JSON) -> TeacherModel {
         
         // Create a teacher object
         let teacher = TeacherModel()
@@ -114,7 +114,7 @@ class RealmManager: NSObject {
     }
     
     // Création d'un objet sportModel
-    func generateSport(dictionary:JSON) ->SportModel{
+    func generateSport(dictionary: JSON) -> SportModel {
         
         // Create a sport object
         let sport = SportModel()
@@ -128,70 +128,66 @@ class RealmManager: NSObject {
     }
     
     // MARK: - Récupération d'objets
-
-    func getAllTeachers()->Results<(TeacherModel)>{
+    func getAllTeachers() -> Results<(TeacherModel)> {
         return realm.objects(TeacherModel)
     }
     
-    func getAllSessions()->Results<(SessionModel)>{
+    func getAllSessions() -> Results<(SessionModel)> {
         return realm.objects(SessionModel)
     }
     
-    func getAllSports()->Results<(SportModel)>{
+    func getAllSports() -> Results<(SportModel)> {
         return realm.objects(SportModel)
     }
     
     // MARK : - Recherches
-    
-    func isSessionWithDate(date:NSDate,completion:(sessions:Results<(SessionModel)>)->Void){
+    func isSessionWithDate(date: NSDate, completion: (sessions: Results<(SessionModel)>) -> Void) {
         
         let aday = realm.objects(SessionModel).filter("day = %@", date)
         completion(sessions: aday)
     }
     
-    func getSportWithId(_id:String,completion:(sport:Results<(SportModel)>)->Void){
+    func getSportWithId(_id: String, completion: (sport: Results<(SportModel)>) -> Void) {
         
         let asport = realm.objects(SportModel).filter("_id = %@", _id)
         completion(sport: asport)
     }
     
-    func getTeacherWithId(_id:String,completion:(sport:Results<(TeacherModel)>)->Void){
+    func getTeacherWithId(_id: String, completion: (sport: Results<(TeacherModel)>) -> Void) {
         
         let ateacher = realm.objects(TeacherModel).filter("_id = %@", _id)
         completion(sport: ateacher)
     }
     
     // MARK: - Suppression de la base de données
-
     // Reset de la base de données
-    func cleanDb(){
+    func cleanDb() {
         try! realm.write {
             self.realm.deleteAll()
         }
     }
     
     // MARK: - Traitement JSON
-
     // Quel stub utiliser
-    func returnFileAndObject(keyStubDetection: NSInteger,completion:(stub:String,keyStub:String)->Void){
+    func returnFileAndObject(keyStubDetection: NSInteger, completion: (stub: String, keyStub: String) -> Void) {
         
-        if (keyStubDetection == stub_sessions){
-            completion(stub: kSessionsStub,keyStub: kSessionsObject);
+        if (keyStubDetection == stub_sessions) {
+            completion(stub: kSessionsStub, keyStub: kSessionsObject);
         }
-        if (keyStubDetection == stub_teachers){
-            completion(stub: kTeachersStub,keyStub: kTeachersObject);
+        if (keyStubDetection == stub_teachers) {
+            completion(stub: kTeachersStub, keyStub: kTeachersObject);
         }
-        if (keyStubDetection == stub_sports){
-            completion(stub: kSportsStub,keyStub: kSportsObject);
+        if (keyStubDetection == stub_sports) {
+            completion(stub: kSportsStub, keyStub: kSportsObject);
         }
     }
     
     // Transformation d'un stub en data JSON
-    func groupsFromFile(fileName: String, object: String, completion:(result:JSON)->Void){
+    func groupsFromFile(fileName: String, object: String, completion: (result: JSON) -> Void) {
         
         let path = NSBundle.mainBundle().pathForResource(fileName, ofType: "json")
         let dataJson = NSData(contentsOfFile: path!)
-        let json = JSON(data:dataJson!)
+        let json = JSON(data: dataJson!)
         completion(result: json[object])
     }
 }

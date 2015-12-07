@@ -26,7 +26,7 @@ class SessionTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setData(session:SessionObject){
+    func setData(session: SessionObject) {
         sessionLabel?.text = session.sportName
         coachLabel?.text   = session.teacherName
         fromLabel?.text    = session.from

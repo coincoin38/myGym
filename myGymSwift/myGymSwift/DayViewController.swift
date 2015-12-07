@@ -9,9 +9,9 @@
 import UIKit
 import RealmSwift
 
-class DayViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class DayViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    var sessionsArray : Array<SessionObject> = Array<SessionObject>()
+    var sessionsArray: Array<SessionObject> = Array<SessionObject>()
     @IBOutlet weak var tableView: UITableView?
 
     override func viewDidLoad() {
