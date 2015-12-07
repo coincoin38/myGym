@@ -14,7 +14,6 @@ class SessionsViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
 
     @IBOutlet weak var myCalendar: FSCalendar?
     let kShowDetailDay = "showDetailDay"
-    let realmManager = RealmManager()
     let sessionManager = SessionManager()
     var sessionsArray: Array<SessionObject> = Array<SessionObject>()
     
@@ -35,7 +34,7 @@ class SessionsViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
     // MARK: - FSCalendar delegate
     func calendar(calendar: FSCalendar!, didSelectDate date: NSDate!) {
         
-        realmManager.isSessionWithDate(date) { (sessions) -> Void in
+        RealmManager.SharedInstance.isSessionWithDate(date) { (sessions) -> Void in
             
             self.sessionsArray.removeAll()
             

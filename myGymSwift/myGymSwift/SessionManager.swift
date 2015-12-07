@@ -10,8 +10,6 @@ import UIKit
 
 class SessionManager: NSObject {
 
-    let realmManager = RealmManager()
-
     func setSessionForCell(session: SessionModel, completion: (sessionObject: SessionObject) -> Void) {
         
         let fullSession: SessionObject = SessionObject()
@@ -20,12 +18,12 @@ class SessionManager: NSObject {
         fullSession.duration = ""
         
         let _idSport: String = session.sport_id
-        self.realmManager.getSportWithId(_idSport) { (sport) -> Void in
+        RealmManager.SharedInstance.getSportWithId(_idSport) { (sport) -> Void in
             fullSession.sportName = sport[0].name
         }
         
         let _idTeacher: String = session.teacher_id
-        self.realmManager.getTeacherWithId(_idTeacher) { (teacher) -> Void in
+        RealmManager.SharedInstance.getTeacherWithId(_idTeacher) { (teacher) -> Void in
             fullSession.teacherName = teacher[0].name + " " + teacher[0].first_name
         }
         completion(sessionObject: fullSession)
