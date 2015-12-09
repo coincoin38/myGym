@@ -22,7 +22,9 @@ class SessionsViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
         myCalendar?.locale = NSLocale.init(localeIdentifier: "fr_BI")
         myCalendar?.delegate = self
         myCalendar?.dataSource = self
-        myCalendar?.appearance.headerMinimumDissolvedAlpha = 0.0;
+        myCalendar?.appearance.headerMinimumDissolvedAlpha = 0.0
+        myCalendar?.appearance.headerDateFormat = "MMMM"
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,7 +48,25 @@ class SessionsViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
             if(sessions.count > 0) {
                 self.performSegueWithIdentifier(self.kShowDetailDay, sender: self)
             }
+            else{
+                let alertController = UIAlertController(title: "", message: "Aucune séance de prévue", preferredStyle: .Alert)                
+                let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                alertController.addAction(defaultAction)
+                self.presentViewController(alertController, animated: true, completion: nil)
+            }
         }
+    }
+    
+    func minimumDateForCalendar(calendar: FSCalendar!) -> NSDate! {
+        
+        return NSDate()
+    }
+    
+    func maximumDateForCalendar(calendar: FSCalendar!) -> NSDate! {
+        
+        let date = NSCalendar.currentCalendar().dateByAddingUnit(.WeekOfMonth, value: 2, toDate: NSDate(), options: [])
+
+        return date
     }
     
     // MARK: - Navigation
