@@ -15,6 +15,9 @@ class SessionTableViewCell: UITableViewCell {
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var coachLabel: UILabel!
     @IBOutlet weak var attendanceView: UIView!
+    
+    //#b1be9b
+    let colorFullAttendance: UIColor = UIColor(red: 177.0/255.0, green: 190.0/255.0, blue: 155.0/255.0, alpha: 1.0)
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,7 +26,6 @@ class SessionTableViewCell: UITableViewCell {
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
     
@@ -34,12 +36,9 @@ class SessionTableViewCell: UITableViewCell {
         coachLabel?.text     = session.teacherName
         fromLabel?.text      = session.from
         durationLabel?.text  = session.duration+"min"
-        
-        let greenColor = "#b1be9b"
-        let formater = FormaterManager()
 
         if(Int(session.attendance) == 0){
-            attendanceView.backgroundColor = formater .uicolorFromHexa(greenColor)
+            attendanceView.backgroundColor = colorFullAttendance
         }
     }
 }

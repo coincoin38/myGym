@@ -15,4 +15,22 @@ class SessionObject: NSObject {
     dynamic var teacherName = ""
     dynamic var attendance = ""
     dynamic var colorSport = UIColor()
+    
+    func setSessionForCell(session: SessionModel, completion: (sessionObject: SessionObject) -> Void) {
+        
+        let fullSession: SessionObject = SessionObject()
+        fullSession.from       = session.from
+        fullSession.duration   = session.duration
+        fullSession.attendance = session.attendance
+
+        RealmManager.SharedInstance.getSportWithId(session.sport_id) { (sport) -> Void in
+            let formater = FormaterManager()
+            fullSession.sportName  = sport[0].name
+            fullSession.colorSport = formater.uicolorFromHexa(sport[0].color)
+        }        
+        RealmManager.SharedInstance.getTeacherWithId(session.teacher_id) { (teacher) -> Void in
+            fullSession.teacherName = teacher[0].name + " " + teacher[0].first_name
+        }
+        completion(sessionObject: fullSession)
+    }
 }

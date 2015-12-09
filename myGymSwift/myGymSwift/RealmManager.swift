@@ -75,7 +75,7 @@ class RealmManager: NSObject {
                         }
                     }
                     // retrieves all Sports from the default Realm
-                    print(self.getAllSports())
+                    //print(self.getAllSports())
                 }
             }
         }

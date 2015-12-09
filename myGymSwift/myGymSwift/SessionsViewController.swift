@@ -14,7 +14,6 @@ class SessionsViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
 
     @IBOutlet weak var myCalendar: FSCalendar?
     let kShowDetailDay = "showDetailDay"
-    let sessionManager = SessionManager()
     var sessionsArray: Array<SessionObject> = Array<SessionObject>()
     
     override func viewDidLoad() {
@@ -39,8 +38,8 @@ class SessionsViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
             self.sessionsArray.removeAll()
             
             for session in sessions {
-                
-                self.sessionManager.setSessionForCell(session, completion: { (sessionObject) -> Void in
+                let sessionObject = SessionObject()
+                sessionObject.setSessionForCell(session, completion: { (sessionObject) -> Void in
                     self.sessionsArray.append(sessionObject)
                 })
             }
