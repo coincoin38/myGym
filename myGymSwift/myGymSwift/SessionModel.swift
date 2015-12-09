@@ -14,8 +14,9 @@ class SessionModel: Object {
     dynamic var _id = ""
     dynamic var sport_id = ""
     dynamic var from = ""
-    dynamic var to = ""
+    dynamic var duration = ""
     dynamic var location = ""
     dynamic var teacher_id = ""
+    dynamic var attendance = ""
     dynamic var day = NSDate()
 }

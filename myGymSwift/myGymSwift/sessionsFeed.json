@@ -6,91 +6,101 @@
                  "_id": "1",
                  "sport_id": "1",
                  "from": "9.30",
-                 "to": "10.30",
+                 "duration": "30",
                  "day": "2015-11-26",
                  "location": "Salle 1",
-                 "teacher_id": "1"
+                 "teacher_id": "1",
+                 "attendance": "1"
                  },
                  {
                  "_id": "2",
                  "sport_id": "2",
                  "from": "10.30",
-                 "to": "12.00",
+                 "duration": "45",
                  "day": "2015-11-26",
                  "location": "Salle 1",
-                 "teacher_id": "2"
+                 "teacher_id": "2",
+                 "attendance": "0"
                  },
                  {
                  "_id": "3",
                  "sport_id": "3",
                  "from": "10.30",
-                 "to": "12.00",
+                 "duration": "30",
                  "day": "2015-11-26",
                  "location": "Salle 1",
-                 "teacher_id": "3"
+                 "teacher_id": "3",
+                 "attendance": "1"
                  },
                  {
                  "_id": "4",
                  "sport_id": "4",
                  "from": "10.30",
-                 "to": "12.00",
+                 "duration": "45",
                  "day": "2015-11-26",
                  "location": "Salle 1",
-                 "teacher_id": "4"
+                 "teacher_id": "4",
+                 "attendance": "0"
                  },
                  {
                  "_id": "1",
                  "sport_id": "5",
                  "from": "10.30",
-                 "to": "12.00",
+                 "duration": "30",
                  "day": "2015-11-26",
                  "location": "Salle 1",
-                 "teacher_id": "2"
+                 "teacher_id": "2",
+                 "attendance": "1"
                  },
                  {
                  "_id": "2",
                  "sport_id": "6",
                  "from": "9.30",
-                 "to": "10.30",
+                 "duration": "45",
                  "day": "2015-11-27",
                  "location": "Salle 1",
-                 "teacher_id": "3"
+                 "teacher_id": "3",
+                 "attendance": "0"
                  },
                  {
                  "_id": "3",
                  "sport_id": "6",
                  "from": "10.30",
-                 "to": "12.00",
+                 "duration": "30",
                  "day": "2015-11-27",
                  "location": "Salle 1",
-                 "teacher_id": "4"
+                 "teacher_id": "4",
+                 "attendance": "1"
                  },
                  {
                  "_id": "4",
                  "sport_id": "7",
                  "from": "13.30",
-                 "to": "14.00",
+                 "duration": "45",
                  "day": "2015-11-27",
                  "location": "Salle 1",
-                 "teacher_id": "1"
+                 "teacher_id": "1",
+                 "attendance": "0"
                  },
                  {
                  "_id": "1",
                  "sport_id": "8",
                  "from": "14.00",
-                 "to": "15.00",
+                 "duration": "30",
                  "day": "2015-11-27",
                  "location": "Salle 1",
-                 "teacher_id": "2"
+                 "teacher_id": "2",
+                 "attendance": "1"
                  },
                  {
                  "_id": "2",
                  "sport_id": "9",
                  "from": "16.30",
-                 "to": "18.00",
+                 "duration": "45",
                  "day": "2015-11-27",
                  "location": "Salle 3",
-                 "teacher_id": "3"
+                 "teacher_id": "3",
+                 "attendance": "0"
                  }
                  ]
 }

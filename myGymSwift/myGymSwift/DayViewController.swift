@@ -35,7 +35,7 @@ class DayViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("sessionIdentifier", forIndexPath: indexPath) as! SessionTableViewCell
-        cell .setData(sessionsArray[indexPath.row])
+        cell.setData(sessionsArray[indexPath.row])
         return cell
     }
     

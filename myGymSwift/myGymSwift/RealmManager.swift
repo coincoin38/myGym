@@ -90,9 +90,10 @@ class RealmManager: NSObject {
         session._id        = dictionary["_id"].stringValue
         session.sport_id   = dictionary["sport_id"].stringValue
         session.from       = dictionary["from"].stringValue
-        session.to         = dictionary["to"].stringValue
+        session.duration   = dictionary["duration"].stringValue
         session.location   = dictionary["location"].stringValue
         session.teacher_id = dictionary["teacher_id"].stringValue
+        session.attendance = dictionary["attendance"].stringValue
         session.day        = date
 
         return session

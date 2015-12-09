@@ -12,8 +12,9 @@ class SessionTableViewCell: UITableViewCell {
 
     @IBOutlet weak var sessionLabel: UILabel!
     @IBOutlet weak var fromLabel: UILabel!
-    @IBOutlet weak var toLabel: UILabel!
+    @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var coachLabel: UILabel!
+    @IBOutlet weak var attendanceView: UIView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,9 +28,18 @@ class SessionTableViewCell: UITableViewCell {
     }
     
     func setData(session: SessionObject) {
-        sessionLabel?.text = session.sportName
-        coachLabel?.text   = session.teacherName
-        fromLabel?.text    = session.from
-        toLabel?.text      = session.to
+        sessionLabel?.text   = session.sportName
+        sessionLabel?.textColor   = session.colorSport
+
+        coachLabel?.text     = session.teacherName
+        fromLabel?.text      = session.from
+        durationLabel?.text  = session.duration+"min"
+        
+        let greenColor = "#b1be9b"
+        let formater = FormaterManager()
+
+        if(Int(session.attendance) == 0){
+            attendanceView.backgroundColor = formater .uicolorFromHexa(greenColor)
+        }
     }
 }
