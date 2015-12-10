@@ -15,6 +15,7 @@
 		1376A5F81C09EF71000AA652 /* TeacherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376A5F71C09EF71000AA652 /* TeacherModel.swift */; };
 		1376A5FA1C09F1C2000AA652 /* SessionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376A5F91C09F1C2000AA652 /* SessionsViewController.swift */; };
 		1376A5FC1C09F1CE000AA652 /* DayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376A5FB1C09F1CE000AA652 /* DayViewController.swift */; };
+		139163701C1A20E8000B9ECC /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1391636F1C1A20E8000B9ECC /* NewsViewController.swift */; };
 		139595491C1481E500F43523 /* SportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139595481C1481E500F43523 /* SportModel.swift */; };
 		139A94701C143CDD00CF754A /* sportsFeed.json in Resources */ = {isa = PBXBuildFile; fileRef = 139A946F1C143CDD00CF754A /* sportsFeed.json */; };
 		13A6B1D11C131FC800F93232 /* FormaterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A6B1D01C131FC800F93232 /* FormaterManager.swift */; };
@@ -26,7 +27,7 @@
 		13CF0E191C09ECC100715454 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13CF0E171C09ECC100715454 /* LaunchScreen.storyboard */; };
 		13D0242F1C148F9300A977AC /* SessionObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D0242E1C148F9300A977AC /* SessionObject.swift */; };
 		13E68F561C0B8B6A00CDCDD0 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E68F551C0B8B6A00CDCDD0 /* RealmManager.swift */; };
-		387024821C1987C70012D750 /* WeekManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387024811C1987C70012D750 /* WeekManager.swift */; settings = {ASSET_TAGS = (); }; };
+		387024821C1987C70012D750 /* WeekManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387024811C1987C70012D750 /* WeekManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		1376A5F71C09EF71000AA652 /* TeacherModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherModel.swift; sourceTree = "<group>"; };
 		1376A5F91C09F1C2000AA652 /* SessionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionsViewController.swift; sourceTree = "<group>"; };
 		1376A5FB1C09F1CE000AA652 /* DayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayViewController.swift; sourceTree = "<group>"; };
+		1391636F1C1A20E8000B9ECC /* NewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		139595481C1481E500F43523 /* SportModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SportModel.swift; sourceTree = "<group>"; };
 		139A946F1C143CDD00CF754A /* sportsFeed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sportsFeed.json; sourceTree = "<group>"; };
 		13A6B1D01C131FC800F93232 /* FormaterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormaterManager.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			children = (
 				1376A5F91C09F1C2000AA652 /* SessionsViewController.swift */,
 				1376A5FB1C09F1CE000AA652 /* DayViewController.swift */,
+				1391636F1C1A20E8000B9ECC /* NewsViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				387024821C1987C70012D750 /* WeekManager.swift in Sources */,
 				1376A5FA1C09F1C2000AA652 /* SessionsViewController.swift in Sources */,
 				13E68F561C0B8B6A00CDCDD0 /* RealmManager.swift in Sources */,
+				139163701C1A20E8000B9ECC /* NewsViewController.swift in Sources */,
 				13A6B1D11C131FC800F93232 /* FormaterManager.swift in Sources */,
 				13D0242F1C148F9300A977AC /* SessionObject.swift in Sources */,
 				13CF0E0F1C09ECC100715454 /* AppDelegate.swift in Sources */,
