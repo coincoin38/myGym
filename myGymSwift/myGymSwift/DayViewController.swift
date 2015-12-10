@@ -13,6 +13,7 @@ class DayViewController: UIViewController, UITableViewDelegate, UITableViewDataS
 
     var sessionsArray: Array<SessionObject> = Array<SessionObject>()
     var selectedDay: String = String()
+    var selectedDate : NSDate = NSDate()
 
     @IBOutlet weak var tableView: UITableView?
     @IBOutlet weak var dateLabel: UILabel?
@@ -24,6 +25,13 @@ class DayViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         dateLabel?.text = selectedDay
     }
 
+    @IBAction func rightGesture(sender: UISwipeGestureRecognizer) {
+        print ("Right")
+    }
+    @IBAction func leftGesture(sender: UISwipeGestureRecognizer) {
+        print ("Left")
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -32,11 +40,7 @@ class DayViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     @IBAction func dismiss(sender: UIButton) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-    
-    @IBAction func swipe(sender: UIPageControl) {
-        print("coucou")
-    }
-    
+
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sessionsArray.count
     }

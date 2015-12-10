@@ -94,23 +94,13 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="3DU-QC-C50">
-                                        <rect key="frame" x="265" y="6" width="71" height="37"/>
-                                        <animations/>
-                                        <color key="pageIndicatorTintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="swipe:" destination="0nj-ou-YLN" eventType="valueChanged" id="hgF-iA-FTw"/>
-                                        </connections>
-                                    </pageControl>
                                 </subviews>
                                 <animations/>
                                 <color key="backgroundColor" red="0.1019607843" green="0.094117647060000004" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="49" id="0fI-Ui-3Id"/>
                                     <constraint firstAttribute="bottom" secondItem="kPg-qr-DMs" secondAttribute="bottom" constant="14" id="Ayi-hn-fSc"/>
-                                    <constraint firstItem="3DU-QC-C50" firstAttribute="centerY" secondItem="7jL-fU-GLq" secondAttribute="centerY" id="IbQ-EJ-Yhe"/>
                                     <constraint firstAttribute="bottom" secondItem="7jL-fU-GLq" secondAttribute="bottom" constant="9" id="MMV-dW-6KM"/>
-                                    <constraint firstItem="3DU-QC-C50" firstAttribute="centerX" secondItem="2ft-i4-keQ" secondAttribute="centerX" id="Vme-z1-ZxW"/>
                                     <constraint firstItem="kPg-qr-DMs" firstAttribute="leading" secondItem="2ft-i4-keQ" secondAttribute="leading" constant="8" id="bGq-Iq-IM2"/>
                                     <constraint firstAttribute="trailing" secondItem="7jL-fU-GLq" secondAttribute="trailing" constant="8" id="lXW-Ci-mJd"/>
                                 </constraints>
@@ -139,6 +129,7 @@
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="yhu-SI-WeB" firstAttribute="top" secondItem="u92-zV-cUt" secondAttribute="bottom" id="SXj-Vd-SIR"/>
                             <constraint firstAttribute="trailing" secondItem="2ft-i4-keQ" secondAttribute="trailing" id="bPg-rM-UJx"/>
@@ -148,6 +139,10 @@
                             <constraint firstItem="1d3-Es-HQO" firstAttribute="top" secondItem="2ft-i4-keQ" secondAttribute="bottom" id="oZ4-Oy-412"/>
                             <constraint firstAttribute="trailing" secondItem="yhu-SI-WeB" secondAttribute="trailing" id="puL-VJ-bDc"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="weS-lf-6PH" appends="YES" id="Cmv-ZI-39N"/>
+                            <outletCollection property="gestureRecognizers" destination="rKR-u1-MFj" appends="YES" id="5W4-CA-lz6"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="dateLabel" destination="kPg-qr-DMs" id="t3n-KA-tiv"/>
@@ -155,6 +150,16 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Djl-Qr-dhV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="weS-lf-6PH">
+                    <connections>
+                        <action selector="leftGesture:" destination="0nj-ou-YLN" id="oZh-ZF-Sxs"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="rKR-u1-MFj">
+                    <connections>
+                        <action selector="rightGesture:" destination="0nj-ou-YLN" id="3bh-vl-VuV"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="939" y="386"/>
         </scene>

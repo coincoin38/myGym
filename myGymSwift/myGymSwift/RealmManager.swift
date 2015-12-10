@@ -148,6 +148,34 @@ class RealmManager: NSObject {
         completion(sessions: aday)
     }
     
+    func isSessionsWeekWithDate(dateDayOne: NSDate, completion: (sessions: Results<(SessionModel)>) -> Void) {
+        
+        let components: NSDateComponents = NSDateComponents()
+        components.setValue(1, forComponent: NSCalendarUnit.Day);
+        
+        let dateDayTwo   = NSCalendar.currentCalendar().dateByAddingComponents(components, toDate: dateDayOne, options: NSCalendarOptions(rawValue: 0))
+        
+        components.setValue(2, forComponent: NSCalendarUnit.Day);
+        let dateDayThree = NSCalendar.currentCalendar().dateByAddingComponents(components, toDate: dateDayOne, options: NSCalendarOptions(rawValue: 0))
+        
+        components.setValue(3, forComponent: NSCalendarUnit.Day);
+        let dateDayFour  = NSCalendar.currentCalendar().dateByAddingComponents(components, toDate: dateDayOne, options: NSCalendarOptions(rawValue: 0))
+        
+        components.setValue(4, forComponent: NSCalendarUnit.Day);
+        let dateDayFive  = NSCalendar.currentCalendar().dateByAddingComponents(components, toDate: dateDayOne, options: NSCalendarOptions(rawValue: 0))
+        
+        let query = NSCompoundPredicate(type: .OrPredicateType,
+            subpredicates: [NSPredicate(format: "day = %@",dateDayOne),
+                NSPredicate(format: "day = %@",dateDayTwo!),
+                NSPredicate(format: "day = %@",dateDayThree!),
+                NSPredicate(format: "day = %@",dateDayFour!),
+                NSPredicate(format: "day = %@",dateDayFive!)])
+        
+        let aday = realm.objects(SessionModel).filter(query)
+        
+        completion(sessions: aday)
+    }
+    
     func getSportWithId(_id: String, completion: (sport: Results<(SportModel)>) -> Void) {
         
         let asport = realm.objects(SportModel).filter("_id = %@", _id)

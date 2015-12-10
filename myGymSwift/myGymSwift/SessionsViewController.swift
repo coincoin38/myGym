@@ -15,6 +15,7 @@ class SessionsViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
     @IBOutlet weak var myCalendar: FSCalendar?
     let kShowDetailDay = "showDetailDay"
     var selectedDay : String = String()
+    var selectedDate : NSDate = NSDate()
     var sessionsArray: Array<SessionObject> = Array<SessionObject>()
     
     override func viewDidLoad() {
@@ -39,6 +40,7 @@ class SessionsViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
         dateFormatter.dateFormat = "EEEE dd"
         dateFormatter.locale = NSLocale.init(localeIdentifier: "fr_BI")
         selectedDay =  dateFormatter.stringFromDate(date).capitalizedString
+        selectedDate = date
         
         RealmManager.SharedInstance.isSessionWithDate(date) { (sessions) -> Void in
             
@@ -83,7 +85,8 @@ class SessionsViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
             
             let svc = segue.destinationViewController as! DayViewController
             svc.sessionsArray = sessionsArray
-            svc.selectedDay = selectedDay
+            svc.selectedDay   = selectedDay
+            svc.selectedDate  = selectedDate
         }
     }
 
