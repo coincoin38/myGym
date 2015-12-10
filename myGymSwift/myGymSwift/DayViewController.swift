@@ -12,11 +12,16 @@ import RealmSwift
 class DayViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var sessionsArray: Array<SessionObject> = Array<SessionObject>()
+    var selectedDay: String = String()
+
     @IBOutlet weak var tableView: UITableView?
+    @IBOutlet weak var dateLabel: UILabel?
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView?.registerNib(UINib(nibName: "SessionTableViewCell", bundle: nil), forCellReuseIdentifier: "sessionIdentifier")
+        dateLabel?.text = selectedDay
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,6 +31,10 @@ class DayViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     @IBAction func dismiss(sender: UIButton) {
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    @IBAction func swipe(sender: UIPageControl) {
+        print("coucou")
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

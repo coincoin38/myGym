@@ -14,6 +14,7 @@ class SessionsViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
 
     @IBOutlet weak var myCalendar: FSCalendar?
     let kShowDetailDay = "showDetailDay"
+    var selectedDay : String = String()
     var sessionsArray: Array<SessionObject> = Array<SessionObject>()
     
     override func viewDidLoad() {
@@ -24,7 +25,6 @@ class SessionsViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
         myCalendar?.dataSource = self
         myCalendar?.appearance.headerMinimumDissolvedAlpha = 0.0
         myCalendar?.appearance.headerDateFormat = "MMMM"
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,6 +34,11 @@ class SessionsViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
     
     // MARK: - FSCalendar delegate
     func calendar(calendar: FSCalendar!, didSelectDate date: NSDate!) {
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "EEEE dd"
+        dateFormatter.locale = NSLocale.init(localeIdentifier: "fr_BI")
+        selectedDay =  dateFormatter.stringFromDate(date).capitalizedString
         
         RealmManager.SharedInstance.isSessionWithDate(date) { (sessions) -> Void in
             
@@ -78,6 +83,7 @@ class SessionsViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
             
             let svc = segue.destinationViewController as! DayViewController
             svc.sessionsArray = sessionsArray
+            svc.selectedDay = selectedDay
         }
     }
 
