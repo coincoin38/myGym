@@ -14,9 +14,10 @@ class SessionsViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
 
     @IBOutlet weak var myCalendar: FSCalendar?
     let kShowDetailDay = "showDetailDay"
-    var selectedDay : String = String()
-    var selectedDate : NSDate = NSDate()
+    var selectedDay: String = String()
+    var selectedDate: NSDate = NSDate()
     var sessionsArray: Array<SessionObject> = Array<SessionObject>()
+    var formater: FormaterManager = FormaterManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,11 +36,8 @@ class SessionsViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
     
     // MARK: - FSCalendar delegate
     func calendar(calendar: FSCalendar!, didSelectDate date: NSDate!) {
-        
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "EEEE dd"
-        dateFormatter.locale = NSLocale.init(localeIdentifier: "fr_BI")
-        selectedDay =  dateFormatter.stringFromDate(date).capitalizedString
+
+        selectedDay =  formater.formatWeekDayAndDate(date)
         selectedDate = date
         
         RealmManager.SharedInstance.isSessionWithDate(date) { (sessions) -> Void in

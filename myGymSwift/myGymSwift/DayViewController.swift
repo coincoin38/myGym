@@ -14,6 +14,7 @@ class DayViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     var sessionsArray: Array<SessionObject> = Array<SessionObject>()
     var selectedDay: String = String()
     var selectedDate : NSDate = NSDate()
+    var formater: FormaterManager = FormaterManager()
 
     @IBOutlet weak var tableView: UITableView?
     @IBOutlet weak var dateLabel: UILabel?
@@ -54,53 +55,29 @@ class DayViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
 
     @IBAction func rightGesture(sender: UISwipeGestureRecognizer) {
-        print ("Right")
-        
-        let components: NSDateComponents = NSDateComponents()
-        components.setValue(-1, forComponent: NSCalendarUnit.Day);
-        
-        let previousDay   = NSCalendar.currentCalendar().dateByAddingComponents(components, toDate: selectedDate, options: NSCalendarOptions(rawValue: 0))
-        
-        
-        RealmManager.SharedInstance.isSessionWithDate(previousDay!) { (sessions) -> Void in
-            
-            if(sessions.count>0){
-                
-                self.sessionsArray.removeAll()
-                
-                for session in sessions {
-                    let sessionObject = SessionObject()
-                    sessionObject.setSessionForCell(session, completion: { (sessionObject) -> Void in
-                        self.sessionsArray.append(sessionObject)
-                    })
-                }
-                if(self.sessionsArray.count > 0) {
-                    self.dayPageIndicator?.currentPage--
-                    let dateFormatter = NSDateFormatter()
-                    dateFormatter.dateFormat = "EEEE dd"
-                    dateFormatter.locale = NSLocale.init(localeIdentifier: "fr_BI")
-                    self.selectedDay  = dateFormatter.stringFromDate(previousDay!).capitalizedString
-                    self.dateLabel?.text = self.selectedDay
-                    self.selectedDate = previousDay!
-                    self.animateTable()
-                }
-            }
-            else{
-                print("nada right")
-            }
-        }
+        detectAnotherDay(false)
     }
     
     @IBAction func leftGesture(sender: UISwipeGestureRecognizer) {
-        print ("Left")
+        detectAnotherDay(true)
+    }
+    
+    func detectAnotherDay(isNext:Bool){
         
         let components: NSDateComponents = NSDateComponents()
-        components.setValue(1, forComponent: NSCalendarUnit.Day);
+        components.setValue(-1, forComponent: NSCalendarUnit.Day);
+
+        if(isNext){
+            components.setValue(1, forComponent: NSCalendarUnit.Day);
+        }
         
-        let nextDay   = NSCalendar.currentCalendar().dateByAddingComponents(components, toDate: selectedDate, options: NSCalendarOptions(rawValue: 0))
+        let anotherDay   = NSCalendar.currentCalendar().dateByAddingComponents(components, toDate: selectedDate, options: NSCalendarOptions(rawValue: 0))
+        updateDataWithAnotherDay(anotherDay!,isNext: isNext)
+    }
+    
+    func updateDataWithAnotherDay(newDate:NSDate,isNext:Bool){
         
-        
-        RealmManager.SharedInstance.isSessionWithDate(nextDay!) { (sessions) -> Void in
+        RealmManager.SharedInstance.isSessionWithDate(newDate) { (sessions) -> Void in
             
             if(sessions.count>0){
                 
@@ -113,18 +90,18 @@ class DayViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                     })
                 }
                 if(self.sessionsArray.count > 0) {
-                    self.dayPageIndicator?.currentPage++
-                    let dateFormatter = NSDateFormatter()
-                    dateFormatter.dateFormat = "EEEE dd"
-                    dateFormatter.locale = NSLocale.init(localeIdentifier: "fr_BI")
-                    self.selectedDay =  dateFormatter.stringFromDate(nextDay!).capitalizedString
+                    
+                    if(isNext){
+                        self.dayPageIndicator?.currentPage++
+                    }
+                    else{
+                        self.dayPageIndicator?.currentPage--
+                    }
+                    self.selectedDay  = self.formater.formatWeekDayAndDate(newDate)
                     self.dateLabel?.text = self.selectedDay
-                    self.selectedDate = nextDay!
+                    self.selectedDate = newDate
                     self.animateTable()
                 }
-            }
-            else{
-                print("nada left")
             }
         }
     }

@@ -21,6 +21,17 @@ class FormaterManager: NSObject {
         return dateFromString
     }
     
+    func formatWeekDayAndDate(aDate: NSDate) -> String {
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "EEEE dd"
+        dateFormatter.locale = NSLocale.init(localeIdentifier: "fr_BI")
+        let newDay =  dateFormatter.stringFromDate(aDate).capitalizedString
+        
+        return newDay
+    }
+
+    
     func isSameDayWithDate1(date1: NSDate, date2: NSDate) -> Bool {
         
         let cal = NSCalendar.currentCalendar()
