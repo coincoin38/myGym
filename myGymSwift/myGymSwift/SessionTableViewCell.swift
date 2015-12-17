@@ -18,6 +18,7 @@ class SessionTableViewCell: UITableViewCell {
     
     //#b1be9b
     let colorFullAttendance: UIColor = UIColor(red: 177.0/255.0, green: 190.0/255.0, blue: 155.0/255.0, alpha: 1.0)
+    let colorLowAttendance: UIColor = UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 1.0)
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,15 +31,17 @@ class SessionTableViewCell: UITableViewCell {
     }
     
     func setData(session: SessionObject) {
-        sessionLabel?.text   = session.sportName
-        sessionLabel?.textColor   = session.colorSport
-
-        coachLabel?.text     = session.teacherName
-        fromLabel?.text      = session.from
-        durationLabel?.text  = session.duration+"min"
+        sessionLabel?.textColor = session.colorSport
+        sessionLabel?.text      = session.sportName
+        coachLabel?.text        = session.teacherName
+        fromLabel?.text         = session.from
+        durationLabel?.text     = session.duration+"min"
 
         if(Int(session.attendance) == 0){
             attendanceView.backgroundColor = colorFullAttendance
+        }
+        else{
+            attendanceView.backgroundColor = colorLowAttendance
         }
     }
 }
