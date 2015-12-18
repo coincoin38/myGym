@@ -14,7 +14,7 @@ class FormaterManager: NSObject {
 
         let formatter = NSDateFormatter()
         formatter.dateFormat = "yyy-MM-dd"
-        formatter.timeZone = NSTimeZone(abbreviation: "UTC")
+        //formatter.timeZone = NSTimeZone(abbreviation: "UTC")
 
         let dateFromString: NSDate = formatter.dateFromString(dateString)!
         

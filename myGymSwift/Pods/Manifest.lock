@@ -1,11 +1,11 @@
 PODS:
-  - FSCalendar (1.7.0)
-  - Realm (0.96.3):
-    - Realm/Headers (= 0.96.3)
-  - Realm/Headers (0.96.3)
-  - RealmSwift (0.96.3):
-    - Realm (= 0.96.3)
-  - SwiftyJSON (2.3.1)
+  - FSCalendar (1.7.1)
+  - Realm (0.97.0):
+    - Realm/Headers (= 0.97.0)
+  - Realm/Headers (0.97.0)
+  - RealmSwift (0.97.0):
+    - Realm (= 0.97.0)
+  - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
   - FSCalendar (~> 1.7)
@@ -13,9 +13,9 @@ DEPENDENCIES:
   - SwiftyJSON (~> 2.3)
 
 SPEC CHECKSUMS:
-  FSCalendar: ee727a0db4e915a606813ba9e87522ba59920b25
-  Realm: 145d3cdf78a03aee71bde5381ad7e542bd541720
-  RealmSwift: aab84968aad662f61f36473d1aea019f63481505
-  SwiftyJSON: 592b53bee5ef3dd9b3bebc6b9cb7ee35426ae8c3
+  FSCalendar: 2eeab982e944125c6b2bc0246438128f3cf72e3e
+  Realm: b498a6fb9d288b171ff98d0e2d4384c295be8990
+  RealmSwift: d014810dec75c9a3f1a33926d2dabfed855c582c
+  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
 COCOAPODS: 0.39.0
