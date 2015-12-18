@@ -29,6 +29,9 @@
 		13E68F561C0B8B6A00CDCDD0 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E68F551C0B8B6A00CDCDD0 /* RealmManager.swift */; };
 		38210E6F1C24177B0001A4CE /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38210E6E1C24177B0001A4CE /* MainTabBarViewController.swift */; };
 		38210E711C2431210001A4CE /* SportsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38210E701C2431210001A4CE /* SportsViewController.swift */; };
+		3825E6781C24515C00F589FA /* SportCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3825E6761C24515C00F589FA /* SportCollectionViewCell.swift */; };
+		3825E6791C24515C00F589FA /* SportCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3825E6771C24515C00F589FA /* SportCollectionViewCell.xib */; };
+		3825E67B1C2453C200F589FA /* SportObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3825E67A1C2453C200F589FA /* SportObject.swift */; };
 		387024821C1987C70012D750 /* WeekManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387024811C1987C70012D750 /* WeekManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +60,9 @@
 		13E68F551C0B8B6A00CDCDD0 /* RealmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		38210E6E1C24177B0001A4CE /* MainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		38210E701C2431210001A4CE /* SportsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SportsViewController.swift; sourceTree = "<group>"; };
+		3825E6761C24515C00F589FA /* SportCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SportCollectionViewCell.swift; sourceTree = "<group>"; };
+		3825E6771C24515C00F589FA /* SportCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SportCollectionViewCell.xib; sourceTree = "<group>"; };
+		3825E67A1C2453C200F589FA /* SportObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SportObject.swift; sourceTree = "<group>"; };
 		387024811C1987C70012D750 /* WeekManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekManager.swift; sourceTree = "<group>"; };
 		5364A31A3A4D8D2E0EEFE8FA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		624491330B4D7EBF762ECC2D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -116,6 +122,8 @@
 			children = (
 				13A6B1D71C13A24A00F93232 /* SessionTableViewCell.swift */,
 				13A6B1D81C13A24A00F93232 /* SessionTableViewCell.xib */,
+				3825E6761C24515C00F589FA /* SportCollectionViewCell.swift */,
+				3825E6771C24515C00F589FA /* SportCollectionViewCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -199,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				13D0242E1C148F9300A977AC /* SessionObject.swift */,
+				3825E67A1C2453C200F589FA /* SportObject.swift */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -286,6 +295,7 @@
 				139A94701C143CDD00CF754A /* sportsFeed.json in Resources */,
 				13CF0E161C09ECC100715454 /* Assets.xcassets in Resources */,
 				1376A5F11C09EDE0000AA652 /* newsFeed.json in Resources */,
+				3825E6791C24515C00F589FA /* SportCollectionViewCell.xib in Resources */,
 				13CF0E141C09ECC100715454 /* Main.storyboard in Resources */,
 				13A6B1DA1C13A24A00F93232 /* SessionTableViewCell.xib in Resources */,
 			);
@@ -349,6 +359,7 @@
 				387024821C1987C70012D750 /* WeekManager.swift in Sources */,
 				1376A5FA1C09F1C2000AA652 /* SessionsViewController.swift in Sources */,
 				13E68F561C0B8B6A00CDCDD0 /* RealmManager.swift in Sources */,
+				3825E6781C24515C00F589FA /* SportCollectionViewCell.swift in Sources */,
 				139163701C1A20E8000B9ECC /* NewsViewController.swift in Sources */,
 				13A6B1D11C131FC800F93232 /* FormaterManager.swift in Sources */,
 				38210E711C2431210001A4CE /* SportsViewController.swift in Sources */,
@@ -356,6 +367,7 @@
 				13CF0E0F1C09ECC100715454 /* AppDelegate.swift in Sources */,
 				38210E6F1C24177B0001A4CE /* MainTabBarViewController.swift in Sources */,
 				13A6B1D91C13A24A00F93232 /* SessionTableViewCell.swift in Sources */,
+				3825E67B1C2453C200F589FA /* SportObject.swift in Sources */,
 				1376A5F81C09EF71000AA652 /* TeacherModel.swift in Sources */,
 				139595491C1481E500F43523 /* SportModel.swift in Sources */,
 				1376A5F61C09EE67000AA652 /* SessionModel.swift in Sources */,

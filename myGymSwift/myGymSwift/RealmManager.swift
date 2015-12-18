@@ -141,6 +141,11 @@ class RealmManager: NSObject {
         return realm.objects(SportModel)
     }
     
+    func getAllSports(completion: (sports: Results<(SportModel)>) -> Void) {
+        let sports = realm.objects(SportModel)
+        completion(sports: sports)
+    }
+    
     // MARK : - Recherches
     func isSessionWithDate(date: NSDate, completion: (sessions: Results<(SessionModel)>) -> Void) {
         

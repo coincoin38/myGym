@@ -69,7 +69,7 @@ class SessionsViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
     
     func maximumDateForCalendar(calendar: FSCalendar!) -> NSDate! {
         
-        let date = NSCalendar.currentCalendar().dateByAddingUnit(.WeekOfMonth, value: 2, toDate: NSDate(), options: [])
+        let date = NSCalendar.currentCalendar().dateByAddingUnit(.WeekOfMonth, value: 1, toDate: NSDate(), options: [])
 
         return date
     }

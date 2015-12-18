@@ -8,28 +8,50 @@
 
 import UIKit
 
-class SportsViewController: UIViewController {
+class SportsViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+
+    var sportsArray: Array<SportObject> = Array<SportObject>()
+    private let reuseIdentifier = "SportIdentifier"
+    @IBOutlet weak var sportsCollectionView: UICollectionView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        sportsCollectionView?.registerNib(UINib(nibName: "SportCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
+
+        RealmManager.SharedInstance.getAllSports { (sports) -> Void in
+            
+            self.sportsArray.removeAll()
+            
+            for sport in sports {
+                let sportObject = SportObject()
+                
+                sportObject.setSportForCell(sport, completion: { (sportObject) -> Void in
+                    self.sportsArray.append(sportObject)
+                })
+            }
+        }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return sportsArray.count
     }
-    */
-
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! SportCollectionViewCell
+        cell.setData(sportsArray[indexPath.row])
+        cell.contentView.frame = cell.bounds
+        cell.contentView.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
+        
+        return cell
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
 }
+
