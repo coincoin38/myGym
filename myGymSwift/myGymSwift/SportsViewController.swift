@@ -37,6 +37,11 @@ class SportsViewController: UIViewController,UICollectionViewDelegate,UICollecti
         return 1
     }
     
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
+    {
+        return CGSize(width: collectionView.frame.size.width/3.5, height: 125)
+    }
+    
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return sportsArray.count
     }
