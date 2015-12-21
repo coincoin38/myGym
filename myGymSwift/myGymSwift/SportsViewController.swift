@@ -12,13 +12,13 @@ class SportsViewController: UIViewController,UICollectionViewDelegate,UICollecti
 
     var sportsArray: Array<SportObject> = Array<SportObject>()
     private let reuseIdentifier = "SportIdentifier"
+    let kShowDetailSport = "showDetailSport"
     @IBOutlet weak var sportsCollectionView: UICollectionView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        //navigationController?.navigationBarHidden = true
         sportsCollectionView?.registerNib(UINib(nibName: "SportCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
-
         RealmManager.SharedInstance.getAllSports { (sports) -> Void in
             
             self.sportsArray.removeAll()
@@ -39,7 +39,7 @@ class SportsViewController: UIViewController,UICollectionViewDelegate,UICollecti
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
     {
-        return CGSize(width: collectionView.frame.size.width/3.5, height: 125)
+        return CGSize(width: collectionView.frame.size.width/2, height: collectionView.frame.size.width/2)
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -53,6 +53,11 @@ class SportsViewController: UIViewController,UICollectionViewDelegate,UICollecti
         cell.contentView.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
         
         return cell
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        //print(sportsArray[indexPath.row].name)
+        self.performSegueWithIdentifier(kShowDetailSport, sender: self)
     }
     
     override func didReceiveMemoryWarning() {

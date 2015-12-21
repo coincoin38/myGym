@@ -13,16 +13,16 @@
                 <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WX4-4D-Y8f">
-                        <rect key="frame" x="0.0" y="0.0" width="150" height="120"/>
+                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                         <animations/>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PVo-mY-Qf0" userLabel="FooterView">
                         <rect key="frame" x="0.0" y="120" width="150" height="30"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MKm-6s-rG7">
-                                <rect key="frame" x="54" y="4" width="42" height="21"/>
+                                <rect key="frame" x="53" y="4" width="44" height="21"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -35,6 +35,11 @@
                             <constraint firstAttribute="height" constant="30" id="Vja-KZ-Tiz"/>
                         </constraints>
                     </view>
+                    <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dWB-HF-pAr" userLabel="VoileView">
+                        <rect key="frame" x="0.0" y="0.0" width="150" height="120"/>
+                        <animations/>
+                        <color key="backgroundColor" red="0.73333333329999995" green="0.14901960780000001" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
                 </subviews>
                 <animations/>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -43,8 +48,12 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="PVo-mY-Qf0" secondAttribute="bottom" id="5EP-Da-CZ5"/>
-                <constraint firstItem="PVo-mY-Qf0" firstAttribute="top" secondItem="WX4-4D-Y8f" secondAttribute="bottom" id="SN4-rc-WtY"/>
+                <constraint firstAttribute="trailing" secondItem="dWB-HF-pAr" secondAttribute="trailing" id="5nE-kg-NKV"/>
+                <constraint firstItem="PVo-mY-Qf0" firstAttribute="top" secondItem="WX4-4D-Y8f" secondAttribute="bottom" constant="-30" id="SN4-rc-WtY"/>
+                <constraint firstItem="dWB-HF-pAr" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="U3D-fe-2rs"/>
                 <constraint firstItem="PVo-mY-Qf0" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="gLM-j5-0yU"/>
+                <constraint firstItem="dWB-HF-pAr" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ham-Nk-iGB"/>
+                <constraint firstItem="PVo-mY-Qf0" firstAttribute="top" secondItem="dWB-HF-pAr" secondAttribute="bottom" id="l6S-z1-4UL"/>
                 <constraint firstAttribute="trailing" secondItem="PVo-mY-Qf0" secondAttribute="trailing" id="neE-q4-FK8"/>
                 <constraint firstItem="WX4-4D-Y8f" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ro5-V4-Amx"/>
                 <constraint firstItem="WX4-4D-Y8f" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="v7P-xs-C68"/>
@@ -54,6 +63,7 @@
                 <outlet property="footerView" destination="PVo-mY-Qf0" id="I1s-Qi-b8E"/>
                 <outlet property="sportImage" destination="WX4-4D-Y8f" id="Fl8-f4-KOO"/>
                 <outlet property="titleLabel" destination="MKm-6s-rG7" id="TvI-dD-2uk"/>
+                <outlet property="voileView" destination="dWB-HF-pAr" id="qE5-j1-uGz"/>
             </connections>
         </collectionViewCell>
     </objects>

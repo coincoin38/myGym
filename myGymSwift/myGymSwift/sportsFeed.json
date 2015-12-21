@@ -5,55 +5,55 @@
              "_id": "1",
              "name": "CXWORX",
              "_description": "30 min pour redessiner son corps. Booster sa tonicité corporel.",
-             "color": "#ff6600",
-             "image": "2015-10-04T17:12:49.667Z"
+             "color": "#f47a1f",
+             "image": "cxworx2"
              }, {
              "_id": "2",
              "name": "ZUMBA",
              "_description": "Regain d'énergie et évacuer ses tensions. Chorégraphie simple et entrainante.",
              "color": "#cc0099",
-             "image": "En salle de pause"
+             "image": "zumba"
              }, {
              "_id": "3",
              "name": "STEP",
              "_description": "Galber cuisses et fessiers, brûler des calories pour affiner sa silhouette. Résultats harmonieux",
-             "color": "#0066cc",
-             "image": "En salle de pause"
+             "color": "#00859c",
+             "image": "bodystep"
              }, {
              "_id": "4",
              "name": "ATTACK",
              "_description": "Idéal pourr mincir sans contrainte alimentaire. Augmenter son souffle et sa forme.",
-             "color": "#cc9900",
-             "image": "En salle de pause"
+             "color": "#fec424",
+             "image": "bodyattack"
              }, {
              "_id": "5",
              "name": "BALANCE",
              "_description": "Forme et minceur en douceur. Anti-stress pour améliorer son sommeil. Tonification corporelle.",
-             "color": "#339933",
-             "image": "En salle de pause"
+             "color": "#cadf87",
+             "image": "bodybalance"
              }, {
              "_id": "6",
              "name": "COMBAT",
              "_description": "Evacuer tensions et stress. Retrouver une plénitude durable. Alliance du Fitness et Arts martiaux",
-             "color": "#669900",
-             "image": "En salle de pause"
+             "color": "#817b00",
+             "image": "bodycombat"
              }, {
              "_id": "7",
              "name": "PUMP",
              "_description": "Sculpter et tonifier son corps rapidement. Des résultats dès les premières séances.",
-             "color": "#cc0000",
-             "image": "En salle de pause"
+             "color": "#fe0000",
+             "image": "bodypump"
              }, {
              "_id": "8",
              "name": "WAVE",
              "_description": "Se tonifier et mincir en douceur...En harmonie avec ses besoins pour un bien-être immédiat.",
              "color": "#333399",
-             "image": "En salle de pause"
+             "image": "bodyvive"
              }, {
              "_id": "9",
              "name": "RPM",
              "_description": "Brûler un maximum de calories et développer son souffle. Effet minceur sur les jambes, fesses, hanches...",
-             "color": "#3399ff",
-             "image": "En salle de pause"
+             "color": "#00a3e3",
+             "image": "rpm-2"
              }]
 }
