@@ -14,50 +14,47 @@ class SportDetailsViewController: UIViewController,UIGestureRecognizerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //navigationController?.navigationBarHidden = false
-        title = sport.name
-        navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-        navigationController?.navigationBar.barTintColor = sport.color
-
-        navigationController?.interactivePopGestureRecognizer?.delegate = self
-        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-        let newBackButton = UIBarButtonItem(title: "Retour", style: UIBarButtonItemStyle.Done, target: self, action: "back:")
-        self.navigationItem.leftBarButtonItem = newBackButton;
     }
-
+    
+    override func viewWillAppear(animated: Bool) {
+        configureStyleNavBar()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.Default
+        NavBarManager.SharedInstance.resetNavBar(navigationController!)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+    func configureStyleNavBar(){
+        
+        //NavBar
+        title = sport.name
+        NavBarManager.SharedInstance.configureNavBarWithColors(navigationController!, backgroundColor: sport.color, textColor: UIColor.whiteColor())
+        navigationController?.interactivePopGestureRecognizer?.delegate = self
+        
+        //Back button
+        let newBackButton = UIBarButtonItem(title: "Retour", style: UIBarButtonItemStyle.Done, target: self, action: "back:")
+        self.navigationItem.leftBarButtonItem = newBackButton;
+        
+        //StatusBar
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
+    }
     
     func back(sender: UIBarButtonItem) {
-        reloadNavBar()
         navigationController?.popViewControllerAnimated(true)
     }
     
     func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
         if(navigationController!.viewControllers.count > 1){
-            reloadNavBar()
             navigationController?.popViewControllerAnimated(true)
             return true
         }
         return false
     }
-    
-    func reloadNavBar(){
-        navigationController?.navigationBar.tintColor = UIColor.blackColor()
-        navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
-        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.blackColor()]
-    }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
