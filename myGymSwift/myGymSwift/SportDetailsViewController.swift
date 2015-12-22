@@ -8,12 +8,29 @@
 
 import UIKit
 
-class SportDetailsViewController: UIViewController,UIGestureRecognizerDelegate {
+class SportDetailsViewController: UIViewController,UIGestureRecognizerDelegate,UIWebViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource {
 
     var sport: SportObject = SportObject()
+    @IBOutlet weak var sportDescriptionTextView: UITextView!
+    @IBOutlet weak var objectivesCollectionView: UICollectionView?
+    private let reuseIdentifier = "ObjectiveIdentifier"
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        sportDescriptionTextView.text = sport._description
+        sportDescriptionTextView.textAlignment = .Justified
+        
+        objectivesCollectionView?.registerNib(UINib(nibName: "ObjectiveCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
+
+        /*
+        let url = NSURL (string: "https://youtu.be/8YOq_NOmI6I");
+        let requestObj = NSURLRequest(URL: url!);
+        videoWebView.loadRequest(requestObj);
+        
+        sportLabel.text = String(format: NSLocalizedString("WHAT_IS_SPORT", comment:""),sport.name)
+
+        */
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -56,5 +73,23 @@ class SportDetailsViewController: UIViewController,UIGestureRecognizerDelegate {
             return true
         }
         return false
+    }
+    
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
+    {
+        return CGSize(width: collectionView.frame.size.width/3, height: collectionView.frame.height)
+    }
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! ObjectiveCollectionViewCell
+        return cell
     }
 }

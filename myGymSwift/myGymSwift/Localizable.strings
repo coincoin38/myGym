@@ -1,0 +1,9 @@
+/* 
+  Localizable.strings
+  myGymSwift
+
+  Created by SQLI51109 on 22/12/2015.
+  Copyright © 2015 julien gimenez. All rights reserved.
+*/
+
+"WHAT_IS_SPORT" = "WHAT IS %@ ?";

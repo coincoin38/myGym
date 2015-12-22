@@ -18,7 +18,7 @@ class SportsViewController: UIViewController,UICollectionViewDelegate,UICollecti
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //navigationController?.navigationBarHidden = true
+
         sportsCollectionView?.registerNib(UINib(nibName: "SportCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
         RealmManager.SharedInstance.getAllSports { (sports) -> Void in
             
@@ -50,9 +50,6 @@ class SportsViewController: UIViewController,UICollectionViewDelegate,UICollecti
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! SportCollectionViewCell
         cell.setData(sportsArray[indexPath.row])
-        cell.contentView.frame = cell.bounds
-        cell.contentView.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
-        
         return cell
     }
     

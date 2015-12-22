@@ -35,6 +35,9 @@
 		387024821C1987C70012D750 /* WeekManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387024811C1987C70012D750 /* WeekManager.swift */; };
 		387666031C28383600DE8A62 /* SportDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387666021C28383600DE8A62 /* SportDetailsViewController.swift */; };
 		387B1AB41C2961C1004FAA16 /* NavBarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387B1AB31C2961C1004FAA16 /* NavBarManager.swift */; };
+		387B1AB61C296FBC004FAA16 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 387B1AB51C296FBC004FAA16 /* Localizable.strings */; };
+		387B1AB91C2990CA004FAA16 /* ObjectiveCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387B1AB71C2990CA004FAA16 /* ObjectiveCollectionViewCell.swift */; };
+		387B1ABA1C2990CA004FAA16 /* ObjectiveCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 387B1AB81C2990CA004FAA16 /* ObjectiveCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +71,9 @@
 		387024811C1987C70012D750 /* WeekManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekManager.swift; sourceTree = "<group>"; };
 		387666021C28383600DE8A62 /* SportDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SportDetailsViewController.swift; sourceTree = "<group>"; };
 		387B1AB31C2961C1004FAA16 /* NavBarManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavBarManager.swift; sourceTree = "<group>"; };
+		387B1AB51C296FBC004FAA16 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		387B1AB71C2990CA004FAA16 /* ObjectiveCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectiveCollectionViewCell.swift; sourceTree = "<group>"; };
+		387B1AB81C2990CA004FAA16 /* ObjectiveCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ObjectiveCollectionViewCell.xib; sourceTree = "<group>"; };
 		5364A31A3A4D8D2E0EEFE8FA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		624491330B4D7EBF762ECC2D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -129,6 +135,8 @@
 				13A6B1D81C13A24A00F93232 /* SessionTableViewCell.xib */,
 				3825E6761C24515C00F589FA /* SportCollectionViewCell.swift */,
 				3825E6771C24515C00F589FA /* SportCollectionViewCell.xib */,
+				387B1AB71C2990CA004FAA16 /* ObjectiveCollectionViewCell.swift */,
+				387B1AB81C2990CA004FAA16 /* ObjectiveCollectionViewCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -205,6 +213,7 @@
 				13CF0E0E1C09ECC100715454 /* AppDelegate.swift */,
 				13CF0E151C09ECC100715454 /* Assets.xcassets */,
 				13CF0E1A1C09ECC100715454 /* Info.plist */,
+				387B1AB51C296FBC004FAA16 /* Localizable.strings */,
 			);
 			path = myGymSwift;
 			sourceTree = "<group>";
@@ -300,6 +309,8 @@
 				1376A5F31C09EDE0000AA652 /* teachersFeed.json in Resources */,
 				139A94701C143CDD00CF754A /* sportsFeed.json in Resources */,
 				13CF0E161C09ECC100715454 /* Assets.xcassets in Resources */,
+				387B1ABA1C2990CA004FAA16 /* ObjectiveCollectionViewCell.xib in Resources */,
+				387B1AB61C296FBC004FAA16 /* Localizable.strings in Resources */,
 				1376A5F11C09EDE0000AA652 /* newsFeed.json in Resources */,
 				3825E6791C24515C00F589FA /* SportCollectionViewCell.xib in Resources */,
 				13CF0E141C09ECC100715454 /* Main.storyboard in Resources */,
@@ -365,6 +376,7 @@
 				387024821C1987C70012D750 /* WeekManager.swift in Sources */,
 				1376A5FA1C09F1C2000AA652 /* SessionsViewController.swift in Sources */,
 				13E68F561C0B8B6A00CDCDD0 /* RealmManager.swift in Sources */,
+				387B1AB91C2990CA004FAA16 /* ObjectiveCollectionViewCell.swift in Sources */,
 				3825E6781C24515C00F589FA /* SportCollectionViewCell.swift in Sources */,
 				139163701C1A20E8000B9ECC /* NewsViewController.swift in Sources */,
 				13A6B1D11C131FC800F93232 /* FormaterManager.swift in Sources */,
