@@ -14,6 +14,7 @@ class SportsViewController: UIViewController,UICollectionViewDelegate,UICollecti
     private let reuseIdentifier = "SportIdentifier"
     let kShowDetailSport = "showDetailSport"
     @IBOutlet weak var sportsCollectionView: UICollectionView?
+    var sport: SportObject = SportObject()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,8 +57,17 @@ class SportsViewController: UIViewController,UICollectionViewDelegate,UICollecti
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        //print(sportsArray[indexPath.row].name)
+        sport = sportsArray[indexPath.row]
         self.performSegueWithIdentifier(kShowDetailSport, sender: self)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if(segue.identifier == kShowDetailSport) {
+            let sdvc = segue.destinationViewController as! SportDetailsViewController
+            sdvc.sport = sport
+        }
     }
     
     override func didReceiveMemoryWarning() {

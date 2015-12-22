@@ -21,13 +21,11 @@ class SportCollectionViewCell: UICollectionViewCell {
     }
     
     func setData(sport: SportObject) {
-
         titleLabel?.text           = sport.name
         footerView.backgroundColor = sport.color
         footerView.alpha           = 0.75
         sportImage.image           = UIImage(named: sport.image)
         voileView.backgroundColor  = sport.color
-        
     }
     
     override var highlighted: Bool {
@@ -48,5 +46,4 @@ class SportCollectionViewCell: UICollectionViewCell {
             }
         }
     }
-
 }
