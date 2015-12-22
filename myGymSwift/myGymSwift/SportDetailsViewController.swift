@@ -20,7 +20,6 @@ class SportDetailsViewController: UIViewController,UIGestureRecognizerDelegate,U
 
         sportDescriptionTextView.text = sport._description
         sportDescriptionTextView.textAlignment = .Justified
-        
         objectivesCollectionView?.registerNib(UINib(nibName: "ObjectiveCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
 
         /*
@@ -34,13 +33,16 @@ class SportDetailsViewController: UIViewController,UIGestureRecognizerDelegate,U
     }
     
     override func viewWillAppear(animated: Bool) {
+        navigationController?.setNavigationBarHidden(navigationController?.navigationBarHidden == false, animated: true) //or animated: false
         configureStyleNavBar()
     }
     
+    
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(navigationController?.navigationBarHidden == false, animated: true) //or animated: false
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.Default
-        NavBarManager.SharedInstance.resetNavBar(navigationController!)
+       // NavBarManager.SharedInstance.resetNavBar(navigationController!)
     }
     
     override func didReceiveMemoryWarning() {

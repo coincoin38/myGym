@@ -14,7 +14,7 @@ class MainTabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let colorSelection: UIColor = UIColor(red: 226.0/255.0, green: 126.0/255.0, blue: 46.0/255.0, alpha: 1.0)
+        let colorSelection: UIColor = UIColor(red: 233.0/255.0, green: 145.0/255.0, blue: 59.0/255.0, alpha: 1.0)
         UITabBar.appearance().tintColor = colorSelection
         
         let firstTabBarItem:UITabBarItem = tabBar.items![0]
@@ -28,6 +28,12 @@ class MainTabBarViewController: UITabBarController {
         firstTabBarItem.image  = UIImage(named: "News")
         secondTabBarItem.image = UIImage(named: "Sessions")
         thirdTabBarItem.image  = UIImage(named: "Sports")
+        
+        firstTabBarItem.setTitleTextAttributes([NSFontAttributeName:UIFont.systemFontOfSize(13, weight: 2)], forState: .Normal)
+        secondTabBarItem.setTitleTextAttributes([NSFontAttributeName:UIFont.systemFontOfSize(13, weight: 2)], forState: .Normal)
+        thirdTabBarItem.setTitleTextAttributes([NSFontAttributeName:UIFont.systemFontOfSize(13, weight: 2)], forState: .Normal)
+
+        
     }
 
     override func didReceiveMemoryWarning() {

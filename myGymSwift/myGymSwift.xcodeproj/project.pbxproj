@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		03B551E2113C4EEAD66CD5A6 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B0E4BCD6721A36AC0FF04DA /* Pods.framework */; };
+		130EC7031C29FA7600EE9805 /* objectivesFeed.json in Resources */ = {isa = PBXBuildFile; fileRef = 130EC7021C29FA7600EE9805 /* objectivesFeed.json */; };
 		1376A5F11C09EDE0000AA652 /* newsFeed.json in Resources */ = {isa = PBXBuildFile; fileRef = 1376A5ED1C09EDE0000AA652 /* newsFeed.json */; };
 		1376A5F21C09EDE0000AA652 /* sessionsFeed.json in Resources */ = {isa = PBXBuildFile; fileRef = 1376A5EE1C09EDE0000AA652 /* sessionsFeed.json */; };
 		1376A5F31C09EDE0000AA652 /* teachersFeed.json in Resources */ = {isa = PBXBuildFile; fileRef = 1376A5EF1C09EDE0000AA652 /* teachersFeed.json */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		0B0E4BCD6721A36AC0FF04DA /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		130EC7021C29FA7600EE9805 /* objectivesFeed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = objectivesFeed.json; sourceTree = "<group>"; };
 		1376A5ED1C09EDE0000AA652 /* newsFeed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = newsFeed.json; sourceTree = "<group>"; };
 		1376A5EE1C09EDE0000AA652 /* sessionsFeed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sessionsFeed.json; sourceTree = "<group>"; };
 		1376A5EF1C09EDE0000AA652 /* teachersFeed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = teachersFeed.json; sourceTree = "<group>"; };
@@ -109,13 +111,6 @@
 			name = RealmModels;
 			sourceTree = "<group>";
 		};
-		1376A5E71C09ED98000AA652 /* TableViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = TableViewControllers;
-			sourceTree = "<group>";
-		};
 		1376A5E81C09EDA7000AA652 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +161,7 @@
 				1376A5ED1C09EDE0000AA652 /* newsFeed.json */,
 				1376A5EE1C09EDE0000AA652 /* sessionsFeed.json */,
 				1376A5EF1C09EDE0000AA652 /* teachersFeed.json */,
+				130EC7021C29FA7600EE9805 /* objectivesFeed.json */,
 			);
 			name = Stubs;
 			sourceTree = "<group>";
@@ -208,7 +204,6 @@
 				13D0242D1C148F4800A977AC /* Objects */,
 				1376A5E91C09EDBA000AA652 /* Cells */,
 				1376A5E81C09EDA7000AA652 /* ViewControllers */,
-				1376A5E71C09ED98000AA652 /* TableViewControllers */,
 				13A6B1D61C13A0C200F93232 /* StoryBoards */,
 				13CF0E0E1C09ECC100715454 /* AppDelegate.swift */,
 				13CF0E151C09ECC100715454 /* Assets.xcassets */,
@@ -305,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1376A5F21C09EDE0000AA652 /* sessionsFeed.json in Resources */,
+				130EC7031C29FA7600EE9805 /* objectivesFeed.json in Resources */,
 				13CF0E191C09ECC100715454 /* LaunchScreen.storyboard in Resources */,
 				1376A5F31C09EDE0000AA652 /* teachersFeed.json in Resources */,
 				139A94701C143CDD00CF754A /* sportsFeed.json in Resources */,

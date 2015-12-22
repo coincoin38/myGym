@@ -8,12 +8,6 @@
              "color": "#f47a1f",
              "image": "cxworx2"
              }, {
-             "_id": "2",
-             "name": "ZUMBA",
-               "_description": "Zumba is a dance fitness program created by Colombian dancer and choreographer Alberto Beto Perez during the 1990s. Zumba is a trademark owned by Zumba Fitness, LLC. The Brazilian pop singer Claudia Leitte has become the international ambassador to Zumba Fitness.\n\nZumba involves dance and aerobic elements. The choreography incorporates hip-hop, soca, samba, salsa, merengue and mambo. Squats and lunges are also included. Zumba Fitness, the owner of the Zumba program, does not charge licensing fees to gyms or fitness centers. Approximately 15 million people take weekly Zumba classes in over 200,000 locations across 180 countries.",
-             "color": "#cc0099",
-             "image": "zumba"
-             }, {
              "_id": "3",
              "name": "STEP",
                "_description": "Basic stepping, just like walking up and down stairs, is at the heart of BODYSTEP™ – a full-body cardio workout to really tone your butt and thighs.\n\nIn a BODYSTEP Athletic class you combine basic stepping with moves like burpees, push ups and weight plate exercises to work the upper body. If you fancy quicker stepping and the chance to showcase your rhythm and flair then BODYSTEP Classic is the way to go. There are always lots of options to get you through the workout safely.\n\nOur bubbly and approachable instructors coach you through the workout. We play invigorating, hit music and inject a whole lot of fun and personality along the way. You can burn up to 620 calories* and you’ll leave buzzing with satisfaction.\n\nBODYSTEP is available as a either a 55, 45 or 30-minute workout.",
@@ -55,5 +49,11 @@
                "_description": "Find your rhythm in a cardio peak cycling workout that delivers maximum results with minimum impact on your joints.\n\nRPM™ tunes you in to great music and takes you on a journey of hill climbs, sprints and flat riding.\n\nYou control your own resistance levels and speed so you can build up your training level over time. Your instructor will show you how to set up your bike and all the basic cycling moves. If you want a true\n\nRPM is available as a either a 45 or 30-minute workout.",
              "color": "#00a3e3",
              "image": "rpm-2"
-             }]
+               },{
+               "_id": "2",
+               "name": "ZUMBA",
+               "_description": "Zumba is a dance fitness program created by Colombian dancer and choreographer Alberto Beto Perez during the 1990s. Zumba is a trademark owned by Zumba Fitness, LLC. The Brazilian pop singer Claudia Leitte has become the international ambassador to Zumba Fitness.\n\nZumba involves dance and aerobic elements. The choreography incorporates hip-hop, soca, samba, salsa, merengue and mambo. Squats and lunges are also included. Zumba Fitness, the owner of the Zumba program, does not charge licensing fees to gyms or fitness centers. Approximately 15 million people take weekly Zumba classes in over 200,000 locations across 180 countries.",
+               "color": "#cc0099",
+               "image": "zumba"
+               }]
 }
