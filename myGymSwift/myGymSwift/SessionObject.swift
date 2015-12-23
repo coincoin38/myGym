@@ -24,9 +24,8 @@ class SessionObject: NSObject {
         fullSession.attendance = session.attendance
 
         RealmManager.SharedInstance.getSportWithId(session.sport_id) { (sport) -> Void in
-            let formater = FormaterManager()
             fullSession.sportName  = sport[0].name
-            fullSession.colorSport = formater.uicolorFromHexa(sport[0].color)
+            fullSession.colorSport = FormaterManager.SharedInstance.uicolorFromHexa(sport[0].color)
         }        
         RealmManager.SharedInstance.getTeacherWithId(session.teacher_id) { (teacher) -> Void in
             fullSession.teacherName = teacher[0].name + " " + teacher[0].first_name

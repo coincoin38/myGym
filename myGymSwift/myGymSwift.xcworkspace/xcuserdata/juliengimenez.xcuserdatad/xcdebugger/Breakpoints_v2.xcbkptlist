@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "myGymSwift/SessionTableViewCell.swift"
-            timestampString = "472073240.222765"
+            timestampString = "472566643.035715"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
             landmarkName = "awakeFromNib()"
             landmarkType = "5">
          </BreakpointContent>

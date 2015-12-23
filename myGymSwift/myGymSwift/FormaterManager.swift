@@ -10,6 +10,8 @@ import UIKit
 
 class FormaterManager: NSObject {
 
+    static let SharedInstance = FormaterManager()
+
     // MARK: - Dates
 
     func formatyyyMMddFromString(dateString: String) -> NSDate {

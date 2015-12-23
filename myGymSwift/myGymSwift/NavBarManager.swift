@@ -13,9 +13,9 @@ class NavBarManager: NSObject {
     static let SharedInstance = NavBarManager()
 
     func resetNavBar(navigationController:UINavigationController){
-        navigationController.navigationBar.tintColor = UIColor.blackColor()
-        navigationController.navigationBar.barTintColor = UIColor.whiteColor()
-        navigationController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.blackColor()]
+        navigationController.navigationBar.tintColor = FormaterManager.SharedInstance.uicolorFromHexa(ColorsConstants.navBarTextDefaultColor)
+        navigationController.navigationBar.barTintColor = FormaterManager.SharedInstance.uicolorFromHexa(ColorsConstants.navBarBackgroundColor)
+        navigationController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: FormaterManager.SharedInstance.uicolorFromHexa(ColorsConstants.navBarTextDefaultColor)]
     }
     
     func configureNavBarWithColors(navigationController:UINavigationController, backgroundColor: UIColor, textColor:UIColor){

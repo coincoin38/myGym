@@ -14,7 +14,7 @@ class MainTabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let colorSelection: UIColor = UIColor(red: 233.0/255.0, green: 145.0/255.0, blue: 59.0/255.0, alpha: 1.0)
+        let colorSelection: UIColor = FormaterManager.SharedInstance.uicolorFromHexa(ColorsConstants.selectionTabBarColor)
         UITabBar.appearance().tintColor = colorSelection
         
         let firstTabBarItem:UITabBarItem  = tabBar.items![0]

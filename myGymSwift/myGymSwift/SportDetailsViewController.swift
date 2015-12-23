@@ -51,7 +51,7 @@ class SportDetailsViewController: UIViewController,UIGestureRecognizerDelegate,U
         
         //NavBar
         title = sport.name
-        NavBarManager.SharedInstance.configureNavBarWithColors(navigationController!, backgroundColor: sport.color, textColor: UIColor.whiteColor())
+        NavBarManager.SharedInstance.configureNavBarWithColors(navigationController!, backgroundColor: sport.color, textColor: FormaterManager.SharedInstance.uicolorFromHexa(ColorsConstants.navBarTextAlternColor))
         navigationController?.interactivePopGestureRecognizer?.delegate = self
         
         //Back button
