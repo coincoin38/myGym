@@ -19,6 +19,8 @@ class SessionsViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
     var sessionsArray: Array<SessionObject> = Array<SessionObject>()
     var formater: FormaterManager = FormaterManager()
     
+    // MARK: - Init
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,13 +30,9 @@ class SessionsViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
         myCalendar?.appearance.headerMinimumDissolvedAlpha = 0.0
         myCalendar?.appearance.headerDateFormat = "MMMM"
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     // MARK: - FSCalendar delegate
+    
     func calendar(calendar: FSCalendar!, didSelectDate date: NSDate!) {
 
         selectedDay =  formater.formatWeekDayAndDate(date)
@@ -54,8 +52,8 @@ class SessionsViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
                 self.performSegueWithIdentifier(self.kShowDetailDay, sender: self)
             }
             else{
-                let alertController = UIAlertController(title: "", message: "Aucune séance de prévue", preferredStyle: .Alert)                
-                let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                let alertController = UIAlertController(title: "", message: NSLocalizedString("NOTHING", comment:""), preferredStyle: .Alert)                
+                let defaultAction = UIAlertAction(title: NSLocalizedString("CLOSE", comment:""), style: .Default, handler: nil)
                 alertController.addAction(defaultAction)
                 self.presentViewController(alertController, animated: true, completion: nil)
             }
@@ -75,7 +73,7 @@ class SessionsViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
     }
     
     // MARK: - Navigation
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
@@ -86,6 +84,13 @@ class SessionsViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
             svc.selectedDay   = selectedDay
             svc.selectedDate  = selectedDate
         }
+    }
+    
+    // MARK: - Memory
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
 
 }

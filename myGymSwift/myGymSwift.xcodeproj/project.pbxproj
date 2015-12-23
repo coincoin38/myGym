@@ -22,6 +22,8 @@
 		13A6B1D11C131FC800F93232 /* FormaterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A6B1D01C131FC800F93232 /* FormaterManager.swift */; };
 		13A6B1D91C13A24A00F93232 /* SessionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A6B1D71C13A24A00F93232 /* SessionTableViewCell.swift */; };
 		13A6B1DA1C13A24A00F93232 /* SessionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13A6B1D81C13A24A00F93232 /* SessionTableViewCell.xib */; };
+		13CE08CA1C2ABFB6009BC5E9 /* ImagesConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CE08C91C2ABFB6009BC5E9 /* ImagesConstants.swift */; };
+		13CE08CC1C2AC209009BC5E9 /* ColorsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CE08CB1C2AC209009BC5E9 /* ColorsConstants.swift */; };
 		13CF0E0F1C09ECC100715454 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CF0E0E1C09ECC100715454 /* AppDelegate.swift */; };
 		13CF0E141C09ECC100715454 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13CF0E121C09ECC100715454 /* Main.storyboard */; };
 		13CF0E161C09ECC100715454 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13CF0E151C09ECC100715454 /* Assets.xcassets */; };
@@ -33,7 +35,6 @@
 		3825E6781C24515C00F589FA /* SportCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3825E6761C24515C00F589FA /* SportCollectionViewCell.swift */; };
 		3825E6791C24515C00F589FA /* SportCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3825E6771C24515C00F589FA /* SportCollectionViewCell.xib */; };
 		3825E67B1C2453C200F589FA /* SportObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3825E67A1C2453C200F589FA /* SportObject.swift */; };
-		387024821C1987C70012D750 /* WeekManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387024811C1987C70012D750 /* WeekManager.swift */; };
 		387666031C28383600DE8A62 /* SportDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387666021C28383600DE8A62 /* SportDetailsViewController.swift */; };
 		387B1AB41C2961C1004FAA16 /* NavBarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387B1AB31C2961C1004FAA16 /* NavBarManager.swift */; };
 		387B1AB61C296FBC004FAA16 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 387B1AB51C296FBC004FAA16 /* Localizable.strings */; };
@@ -57,6 +58,8 @@
 		13A6B1D01C131FC800F93232 /* FormaterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormaterManager.swift; sourceTree = "<group>"; };
 		13A6B1D71C13A24A00F93232 /* SessionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionTableViewCell.swift; sourceTree = "<group>"; };
 		13A6B1D81C13A24A00F93232 /* SessionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SessionTableViewCell.xib; sourceTree = "<group>"; };
+		13CE08C91C2ABFB6009BC5E9 /* ImagesConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesConstants.swift; sourceTree = "<group>"; };
+		13CE08CB1C2AC209009BC5E9 /* ColorsConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorsConstants.swift; sourceTree = "<group>"; };
 		13CF0E0B1C09ECC100715454 /* myGymSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myGymSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13CF0E0E1C09ECC100715454 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		13CF0E131C09ECC100715454 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -70,7 +73,6 @@
 		3825E6761C24515C00F589FA /* SportCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SportCollectionViewCell.swift; sourceTree = "<group>"; };
 		3825E6771C24515C00F589FA /* SportCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SportCollectionViewCell.xib; sourceTree = "<group>"; };
 		3825E67A1C2453C200F589FA /* SportObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SportObject.swift; sourceTree = "<group>"; };
-		387024811C1987C70012D750 /* WeekManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekManager.swift; sourceTree = "<group>"; };
 		387666021C28383600DE8A62 /* SportDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SportDetailsViewController.swift; sourceTree = "<group>"; };
 		387B1AB31C2961C1004FAA16 /* NavBarManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavBarManager.swift; sourceTree = "<group>"; };
 		387B1AB51C296FBC004FAA16 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
@@ -139,6 +141,8 @@
 		1376A5EA1C09EDC0000AA652 /* Constans */ = {
 			isa = PBXGroup;
 			children = (
+				13CE08C91C2ABFB6009BC5E9 /* ImagesConstants.swift */,
+				13CE08CB1C2AC209009BC5E9 /* ColorsConstants.swift */,
 			);
 			name = Constans;
 			sourceTree = "<group>";
@@ -148,7 +152,6 @@
 			children = (
 				13A6B1D01C131FC800F93232 /* FormaterManager.swift */,
 				13E68F551C0B8B6A00CDCDD0 /* RealmManager.swift */,
-				387024811C1987C70012D750 /* WeekManager.swift */,
 				387B1AB31C2961C1004FAA16 /* NavBarManager.swift */,
 			);
 			name = Managers;
@@ -369,17 +372,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				387024821C1987C70012D750 /* WeekManager.swift in Sources */,
 				1376A5FA1C09F1C2000AA652 /* SessionsViewController.swift in Sources */,
 				13E68F561C0B8B6A00CDCDD0 /* RealmManager.swift in Sources */,
 				387B1AB91C2990CA004FAA16 /* ObjectiveCollectionViewCell.swift in Sources */,
 				3825E6781C24515C00F589FA /* SportCollectionViewCell.swift in Sources */,
+				13CE08CA1C2ABFB6009BC5E9 /* ImagesConstants.swift in Sources */,
 				139163701C1A20E8000B9ECC /* NewsViewController.swift in Sources */,
 				13A6B1D11C131FC800F93232 /* FormaterManager.swift in Sources */,
 				38210E711C2431210001A4CE /* SportsViewController.swift in Sources */,
 				387666031C28383600DE8A62 /* SportDetailsViewController.swift in Sources */,
 				13D0242F1C148F9300A977AC /* SessionObject.swift in Sources */,
 				13CF0E0F1C09ECC100715454 /* AppDelegate.swift in Sources */,
+				13CE08CC1C2AC209009BC5E9 /* ColorsConstants.swift in Sources */,
 				38210E6F1C24177B0001A4CE /* MainTabBarViewController.swift in Sources */,
 				13A6B1D91C13A24A00F93232 /* SessionTableViewCell.swift in Sources */,
 				3825E67B1C2453C200F589FA /* SportObject.swift in Sources */,

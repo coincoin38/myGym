@@ -129,6 +129,7 @@ class RealmManager: NSObject {
     }
     
     // MARK: - Récupération d'objets
+    
     func getAllTeachers() -> Results<(TeacherModel)> {
         return realm.objects(TeacherModel)
     }

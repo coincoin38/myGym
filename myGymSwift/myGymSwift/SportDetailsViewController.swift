@@ -15,6 +15,8 @@ class SportDetailsViewController: UIViewController,UIGestureRecognizerDelegate,U
     @IBOutlet weak var objectivesCollectionView: UICollectionView?
     private let reuseIdentifier = "ObjectiveIdentifier"
 
+    // MARK: - Init
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -44,11 +46,6 @@ class SportDetailsViewController: UIViewController,UIGestureRecognizerDelegate,U
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.Default
        // NavBarManager.SharedInstance.resetNavBar(navigationController!)
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
     func configureStyleNavBar(){
         
@@ -58,12 +55,14 @@ class SportDetailsViewController: UIViewController,UIGestureRecognizerDelegate,U
         navigationController?.interactivePopGestureRecognizer?.delegate = self
         
         //Back button
-        let newBackButton = UIBarButtonItem(title: "Retour", style: UIBarButtonItemStyle.Done, target: self, action: "back:")
+        let newBackButton = UIBarButtonItem(title: NSLocalizedString("BACK", comment:""), style: UIBarButtonItemStyle.Done, target: self, action: "back:")
         self.navigationItem.leftBarButtonItem = newBackButton;
         
         //StatusBar
         UIApplication.sharedApplication().statusBarStyle = .LightContent
     }
+    
+    // MARK: - Actions
     
     func back(sender: UIBarButtonItem) {
         navigationController?.popViewControllerAnimated(true)
@@ -77,6 +76,8 @@ class SportDetailsViewController: UIViewController,UIGestureRecognizerDelegate,U
         return false
     }
     
+    // MARK: - Collection delegate
+
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -93,5 +94,12 @@ class SportDetailsViewController: UIViewController,UIGestureRecognizerDelegate,U
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! ObjectiveCollectionViewCell
         return cell
+    }
+    
+    // MARK: - Memory
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
 }

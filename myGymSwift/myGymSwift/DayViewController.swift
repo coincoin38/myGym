@@ -20,6 +20,7 @@ class DayViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     @IBOutlet weak var dateLabel: UILabel?
     @IBOutlet weak var dayPageIndicator: UIPageControl?
 
+    // MARK: - Init
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,42 +32,11 @@ class DayViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         animateTable()
     }
     
-    func animateTable() {
-        tableView!.reloadData()
-        
-        let cells = tableView!.visibleCells
-        let tableHeight: CGFloat = tableView!.bounds.size.height
-        
-        for i in cells {
-            let cell: UITableViewCell = i as UITableViewCell
-            cell.transform = CGAffineTransformMakeTranslation(0, tableHeight)
-        }
-        
-        var index = 0
-        
-        for a in cells {
-            let cell: UITableViewCell = a as UITableViewCell
-            UIView.animateWithDuration(1.25, delay: 0.05 * Double(index), usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: [], animations: {
-                cell.transform = CGAffineTransformMakeTranslation(0, 0);
-                }, completion: nil)
-            
-            index += 1
-        }
-    }
-
-    @IBAction func rightGesture(sender: UISwipeGestureRecognizer) {
-        detectAnotherDay(false)
-    }
-    
-    @IBAction func leftGesture(sender: UISwipeGestureRecognizer) {
-        detectAnotherDay(true)
-    }
-    
     func detectAnotherDay(isNext:Bool){
         
         let components: NSDateComponents = NSDateComponents()
         components.setValue(-1, forComponent: NSCalendarUnit.Day);
-
+        
         if(isNext){
             components.setValue(1, forComponent: NSCalendarUnit.Day);
         }
@@ -106,14 +76,44 @@ class DayViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func animateTable() {
+        tableView!.reloadData()
+        
+        let cells = tableView!.visibleCells
+        let tableHeight: CGFloat = tableView!.bounds.size.height
+        
+        for i in cells {
+            let cell: UITableViewCell = i as UITableViewCell
+            cell.transform = CGAffineTransformMakeTranslation(0, tableHeight)
+        }
+        
+        var index = 0
+        
+        for a in cells {
+            let cell: UITableViewCell = a as UITableViewCell
+            UIView.animateWithDuration(1.25, delay: 0.05 * Double(index), usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: [], animations: {
+                cell.transform = CGAffineTransformMakeTranslation(0, 0);
+                }, completion: nil)
+            
+            index += 1
+        }
+    }
+    
+    // MARK: - Actions
+
+    @IBAction func rightGesture(sender: UISwipeGestureRecognizer) {
+        detectAnotherDay(false)
+    }
+    
+    @IBAction func leftGesture(sender: UISwipeGestureRecognizer) {
+        detectAnotherDay(true)
     }
     
     @IBAction func dismiss(sender: UIButton) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    // MARK: - TableView delegate
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sessionsArray.count
@@ -128,5 +128,12 @@ class DayViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
+    }
+    
+    // MARK: - Memory
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
 }

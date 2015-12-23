@@ -10,6 +10,8 @@ import UIKit
 
 class FormaterManager: NSObject {
 
+    // MARK: - Dates
+
     func formatyyyMMddFromString(dateString: String) -> NSDate {
 
         let formatter = NSDateFormatter()
@@ -47,6 +49,8 @@ class FormaterManager: NSObject {
         return false
     }
     
+    // MARK: - Colors
+
     func uicolorFromHexa(hexString:String) -> UIColor {
         
         let hexString:String = hexString.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())

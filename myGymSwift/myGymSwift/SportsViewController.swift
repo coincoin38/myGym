@@ -15,6 +15,8 @@ class SportsViewController: UIViewController,UICollectionViewDelegate,UICollecti
     let kShowDetailSport = "showDetailSport"
     @IBOutlet weak var sportsCollectionView: UICollectionView?
     var sport: SportObject = SportObject()
+    
+    // MARK: - Init
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +37,8 @@ class SportsViewController: UIViewController,UICollectionViewDelegate,UICollecti
             }
         }
     }
+    
+    // MARK: - Collection delegate
 
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
@@ -60,6 +64,8 @@ class SportsViewController: UIViewController,UICollectionViewDelegate,UICollecti
         self.performSegueWithIdentifier(kShowDetailSport, sender: self)
     }
     
+    // MARK: - Navigation
+
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
@@ -68,6 +74,8 @@ class SportsViewController: UIViewController,UICollectionViewDelegate,UICollecti
             sdvc.sport = sport
         }
     }
+    
+    // MARK: - Memory
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
