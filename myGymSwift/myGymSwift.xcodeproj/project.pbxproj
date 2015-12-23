@@ -128,12 +128,8 @@
 		1376A5E91C09EDBA000AA652 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				13A6B1D71C13A24A00F93232 /* SessionTableViewCell.swift */,
-				13A6B1D81C13A24A00F93232 /* SessionTableViewCell.xib */,
-				3825E6761C24515C00F589FA /* SportCollectionViewCell.swift */,
-				3825E6771C24515C00F589FA /* SportCollectionViewCell.xib */,
-				387B1AB71C2990CA004FAA16 /* ObjectiveCollectionViewCell.swift */,
-				387B1AB81C2990CA004FAA16 /* ObjectiveCollectionViewCell.xib */,
+				13CE08D01C2AC370009BC5E9 /* CollectionViewCells */,
+				13CE08CF1C2AC359009BC5E9 /* TableViewCells */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -178,6 +174,45 @@
 			name = StoryBoards;
 			sourceTree = "<group>";
 		};
+		13CE08CD1C2AC2E0009BC5E9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				38210E6D1C2417540001A4CE /* TabBarController */,
+				1376A5E81C09EDA7000AA652 /* ViewControllers */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		13CE08CE1C2AC31A009BC5E9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				13D0242D1C148F4800A977AC /* Objects */,
+				1376A5EC1C09EDCF000AA652 /* Stubs */,
+				1376A5E61C09ED88000AA652 /* RealmModels */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		13CE08CF1C2AC359009BC5E9 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				13A6B1D71C13A24A00F93232 /* SessionTableViewCell.swift */,
+				13A6B1D81C13A24A00F93232 /* SessionTableViewCell.xib */,
+			);
+			name = TableViewCells;
+			sourceTree = "<group>";
+		};
+		13CE08D01C2AC370009BC5E9 /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				3825E6761C24515C00F589FA /* SportCollectionViewCell.swift */,
+				3825E6771C24515C00F589FA /* SportCollectionViewCell.xib */,
+				387B1AB71C2990CA004FAA16 /* ObjectiveCollectionViewCell.swift */,
+				387B1AB81C2990CA004FAA16 /* ObjectiveCollectionViewCell.xib */,
+			);
+			name = CollectionViewCells;
+			sourceTree = "<group>";
+		};
 		13CF0E021C09ECC100715454 = {
 			isa = PBXGroup;
 			children = (
@@ -199,15 +234,12 @@
 		13CF0E0D1C09ECC100715454 /* myGymSwift */ = {
 			isa = PBXGroup;
 			children = (
-				38210E6D1C2417540001A4CE /* TabBarController */,
-				1376A5E61C09ED88000AA652 /* RealmModels */,
-				1376A5EC1C09EDCF000AA652 /* Stubs */,
+				13CE08CD1C2AC2E0009BC5E9 /* Controllers */,
 				1376A5EB1C09EDC7000AA652 /* Managers */,
-				1376A5EA1C09EDC0000AA652 /* Constans */,
-				13D0242D1C148F4800A977AC /* Objects */,
+				13CE08CE1C2AC31A009BC5E9 /* Models */,
 				1376A5E91C09EDBA000AA652 /* Cells */,
-				1376A5E81C09EDA7000AA652 /* ViewControllers */,
 				13A6B1D61C13A0C200F93232 /* StoryBoards */,
+				1376A5EA1C09EDC0000AA652 /* Constans */,
 				13CF0E0E1C09ECC100715454 /* AppDelegate.swift */,
 				13CF0E151C09ECC100715454 /* Assets.xcassets */,
 				13CF0E1A1C09ECC100715454 /* Info.plist */,
