@@ -14,18 +14,19 @@ class SportObject: NSObject {
     dynamic var _description = ""
     dynamic var color = UIColor()
     dynamic var image = ""
-    
-    var formater: FormaterManager = FormaterManager()
-
 
     func setSportForCell(sport: SportModel, completion: (sportObject: SportObject) -> Void) {
         
         let fullSport: SportObject = SportObject()
         fullSport.name             = sport.name
         fullSport._description     = sport._description
-        fullSport.color            = formater.uicolorFromHexa(sport.color)
+        fullSport.color            = FormaterManager.SharedInstance.uicolorFromHexa(sport.color)
         fullSport.image            = sport.image
 
         completion(sportObject: fullSport)
+    }
+    
+    deinit{
+        //print("Sport \(name) is being deinitialized")
     }
 }
