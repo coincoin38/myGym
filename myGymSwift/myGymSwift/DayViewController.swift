@@ -16,6 +16,9 @@ class DayViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     var selectedDate : NSDate = NSDate()
     var formater: FormaterManager = FormaterManager()
 
+    let cellIdentifier = "sessionIdentifier"
+    let cellXib = "SessionTableViewCell"
+
     @IBOutlet weak var tableView: UITableView?
     @IBOutlet weak var dateLabel: UILabel?
     @IBOutlet weak var dayPageIndicator: UIPageControl?
@@ -24,7 +27,7 @@ class DayViewController: UIViewController, UITableViewDelegate, UITableViewDataS
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView?.registerNib(UINib(nibName: "SessionTableViewCell", bundle: nil), forCellReuseIdentifier: "sessionIdentifier")
+        tableView?.registerNib(UINib(nibName: cellXib, bundle: nil), forCellReuseIdentifier: cellIdentifier)
         dateLabel?.text = selectedDay
     }
     
@@ -121,7 +124,7 @@ class DayViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("sessionIdentifier", forIndexPath: indexPath) as! SessionTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! SessionTableViewCell
         cell.setData(sessionsArray[indexPath.row])
         return cell
     }

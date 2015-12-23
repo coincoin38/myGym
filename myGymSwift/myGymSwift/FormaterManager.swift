@@ -11,13 +11,19 @@ import UIKit
 class FormaterManager: NSObject {
 
     static let SharedInstance = FormaterManager()
+    let yyyMMdd = "yyy-MM-dd"
+    let EEEE_dd = "EEEE dd"
+    let MMM = "MMM"
+
+    let fr_BI   = "fr_BI"
+    let diez    = "#"
 
     // MARK: - Dates
 
     func formatyyyMMddFromString(dateString: String) -> NSDate {
 
         let formatter = NSDateFormatter()
-        formatter.dateFormat = "yyy-MM-dd"
+        formatter.dateFormat = yyyMMdd
         //formatter.timeZone = NSTimeZone(abbreviation: "UTC")
 
         let dateFromString: NSDate = formatter.dateFromString(dateString)!
@@ -28,8 +34,8 @@ class FormaterManager: NSObject {
     func formatWeekDayAndDate(aDate: NSDate) -> String {
         
         let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "EEEE dd"
-        dateFormatter.locale = NSLocale.init(localeIdentifier: "fr_BI")
+        dateFormatter.dateFormat = EEEE_dd
+        dateFormatter.locale = NSLocale.init(localeIdentifier: fr_BI)
         let newDay =  dateFormatter.stringFromDate(aDate).capitalizedString
         
         return newDay
@@ -58,7 +64,7 @@ class FormaterManager: NSObject {
         let hexString:String = hexString.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
         let scanner = NSScanner(string: hexString)
         
-        if (hexString.hasPrefix("#")) {
+        if (hexString.hasPrefix(diez)) {
             scanner.scanLocation = 1
         }
         

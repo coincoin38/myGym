@@ -24,6 +24,27 @@ class RealmManager: NSObject {
     let kSessionsObject = "sessions";
     let kTeachersObject = "teachers";
     let kSportsObject   = "sports";
+    
+    let kDay          = "day"
+    let kSport_id     = "sport_id"
+    let k_id          = "_id"
+    let kFrom         = "from"
+    let kDuration     = "duration"
+    let kLocation     = "location"
+    let kTeacher_id   = "teacher_id"
+    let kAttendance   = "attendance"
+    let kName         = "name"
+    let kFirst_name   = "first_name"
+    let k_description = "_description"
+    let kPhoto        = "photo"
+    let kColor        = "color"
+    let kAgency       = "agency"
+    let kImage        = "image"
+    
+    let kGetDay       = "day = %@"
+    let kGetId        = "_id = %@"
+    
+    let kJsonExtension = "json"
 
     let realm = try! Realm()
     let formater = FormaterManager()
@@ -48,7 +69,6 @@ class RealmManager: NSObject {
                             self.realm.add(sessionModel)
                         }
                     }
-                    // retrieves all Sessions from the default Realm
                     //print(self.getAllSessions())
                 }
                 
@@ -61,7 +81,6 @@ class RealmManager: NSObject {
                             self.realm.add(teacherModel)
                         }
                     }
-                    // retrieves all Teachers from the default Realm
                     //print(self.getAllTeachers())
                 }
                 
@@ -74,7 +93,6 @@ class RealmManager: NSObject {
                             self.realm.add(sportModel)
                         }
                     }
-                    // retrieves all Sports from the default Realm
                     //print(self.getAllSports())
                 }
             }
@@ -85,15 +103,15 @@ class RealmManager: NSObject {
     func generateSession(dictionary: JSON) -> SessionModel {
         
         // Format string to date
-        let date = formater.formatyyyMMddFromString(dictionary["day"].stringValue)
+        let date = formater.formatyyyMMddFromString(dictionary[kDay].stringValue)
         let session = SessionModel()
-        session._id        = dictionary["_id"].stringValue
-        session.sport_id   = dictionary["sport_id"].stringValue
-        session.from       = dictionary["from"].stringValue
-        session.duration   = dictionary["duration"].stringValue
-        session.location   = dictionary["location"].stringValue
-        session.teacher_id = dictionary["teacher_id"].stringValue
-        session.attendance = dictionary["attendance"].stringValue
+        session._id        = dictionary[k_id].stringValue
+        session.sport_id   = dictionary[kSport_id].stringValue
+        session.from       = dictionary[kFrom].stringValue
+        session.duration   = dictionary[kDuration].stringValue
+        session.location   = dictionary[kLocation].stringValue
+        session.teacher_id = dictionary[kTeacher_id].stringValue
+        session.attendance = dictionary[kAttendance].stringValue
         session.day        = date
 
         return session
@@ -104,12 +122,12 @@ class RealmManager: NSObject {
         
         // Create a teacher object
         let teacher = TeacherModel()
-        teacher._id          = dictionary["_id"].stringValue
-        teacher.name         = dictionary["name"].stringValue
-        teacher.first_name   = dictionary["first_name"].stringValue
-        teacher._description = dictionary["_description"].stringValue
-        teacher.photo        = dictionary["photo"].stringValue
-        teacher.agency       = dictionary["agency"].stringValue
+        teacher._id          = dictionary[k_id].stringValue
+        teacher.name         = dictionary[kName].stringValue
+        teacher.first_name   = dictionary[kFirst_name].stringValue
+        teacher._description = dictionary[k_description].stringValue
+        teacher.photo        = dictionary[kPhoto].stringValue
+        teacher.agency       = dictionary[kAgency].stringValue
         
         return teacher
     }
@@ -119,11 +137,11 @@ class RealmManager: NSObject {
         
         // Create a sport object
         let sport = SportModel()
-        sport._id          = dictionary["_id"].stringValue
-        sport.name         = dictionary["name"].stringValue
-        sport._description = dictionary["_description"].stringValue
-        sport.color        = dictionary["color"].stringValue
-        sport.image        = dictionary["image"].stringValue
+        sport._id          = dictionary[k_id].stringValue
+        sport.name         = dictionary[kName].stringValue
+        sport._description = dictionary[k_description].stringValue
+        sport.color        = dictionary[kColor].stringValue
+        sport.image        = dictionary[kImage].stringValue
         
         return sport
     }
@@ -150,7 +168,7 @@ class RealmManager: NSObject {
     // MARK : - Recherches
     func isSessionWithDate(date: NSDate, completion: (sessions: Results<(SessionModel)>) -> Void) {
         
-        let aday = realm.objects(SessionModel).filter("day = %@", date)
+        let aday = realm.objects(SessionModel).filter(kGetDay, date)
         completion(sessions: aday)
     }
     
@@ -171,11 +189,11 @@ class RealmManager: NSObject {
         let dateDayFive  = NSCalendar.currentCalendar().dateByAddingComponents(components, toDate: dateDayOne, options: NSCalendarOptions(rawValue: 0))
         
         let query = NSCompoundPredicate(type: .OrPredicateType,
-            subpredicates: [NSPredicate(format: "day = %@",dateDayOne),
-                NSPredicate(format: "day = %@",dateDayTwo!),
-                NSPredicate(format: "day = %@",dateDayThree!),
-                NSPredicate(format: "day = %@",dateDayFour!),
-                NSPredicate(format: "day = %@",dateDayFive!)])
+            subpredicates: [NSPredicate(format: kGetDay,dateDayOne),
+                NSPredicate(format: kGetDay,dateDayTwo!),
+                NSPredicate(format: kGetDay,dateDayThree!),
+                NSPredicate(format: kGetDay,dateDayFour!),
+                NSPredicate(format: kGetDay,dateDayFive!)])
         
         let aday = realm.objects(SessionModel).filter(query)
         
@@ -184,13 +202,13 @@ class RealmManager: NSObject {
     
     func getSportWithId(_id: String, completion: (sport: Results<(SportModel)>) -> Void) {
         
-        let asport = realm.objects(SportModel).filter("_id = %@", _id)
+        let asport = realm.objects(SportModel).filter(kGetId, _id)
         completion(sport: asport)
     }
     
     func getTeacherWithId(_id: String, completion: (sport: Results<(TeacherModel)>) -> Void) {
         
-        let ateacher = realm.objects(TeacherModel).filter("_id = %@", _id)
+        let ateacher = realm.objects(TeacherModel).filter(kGetId, _id)
         completion(sport: ateacher)
     }
     
@@ -220,7 +238,7 @@ class RealmManager: NSObject {
     // Transformation d'un stub en data JSON
     func groupsFromFile(fileName: String, object: String, completion: (result: JSON) -> Void) {
         
-        let path = NSBundle.mainBundle().pathForResource(fileName, ofType: "json")
+        let path = NSBundle.mainBundle().pathForResource(fileName, ofType: kJsonExtension)
         let dataJson = NSData(contentsOfFile: path!)
         let json = JSON(data: dataJson!)
         completion(result: json[object])

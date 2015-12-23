@@ -31,7 +31,7 @@ class SessionTableViewCell: UITableViewCell {
         sessionLabel?.text      = session.sportName
         coachLabel?.text        = session.teacherName
         fromLabel?.text         = session.from
-        durationLabel?.text     = session.duration+"min"
+        durationLabel?.text     = session.duration+NSLocalizedString("MINUTES_SHORT", comment:"")
 
         if(Int(session.attendance) == 0){
             attendanceView.backgroundColor = FormaterManager.SharedInstance.uicolorFromHexa(ColorsConstants.tableViewCellFullAttendanceColor)

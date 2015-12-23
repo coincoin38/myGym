@@ -17,25 +17,24 @@ class SessionsViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
     var selectedDay: String = String()
     var selectedDate: NSDate = NSDate()
     var sessionsArray: Array<SessionObject> = Array<SessionObject>()
-    var formater: FormaterManager = FormaterManager()
     
     // MARK: - Init
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        myCalendar?.locale = NSLocale.init(localeIdentifier: "fr_BI")
+        myCalendar?.locale = NSLocale.init(localeIdentifier: FormaterManager.SharedInstance.fr_BI)
         myCalendar?.delegate = self
         myCalendar?.dataSource = self
         myCalendar?.appearance.headerMinimumDissolvedAlpha = 0.0
-        myCalendar?.appearance.headerDateFormat = "MMMM"
+        myCalendar?.appearance.headerDateFormat = FormaterManager.SharedInstance.MMM
     }
     
     // MARK: - FSCalendar delegate
     
     func calendar(calendar: FSCalendar!, didSelectDate date: NSDate!) {
 
-        selectedDay =  formater.formatWeekDayAndDate(date)
+        selectedDay =  FormaterManager.SharedInstance.formatWeekDayAndDate(date)
         selectedDate = date
         
         RealmManager.SharedInstance.isSessionWithDate(date) { (sessions) -> Void in
