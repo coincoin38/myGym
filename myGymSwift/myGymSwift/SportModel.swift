@@ -13,7 +13,7 @@ class SportModel: Object {
     
     dynamic var _id = ""
     dynamic var name = ""
-    dynamic var _description = ""
+    dynamic var description_id = ""
     dynamic var color = ""
     dynamic var image = ""
 }

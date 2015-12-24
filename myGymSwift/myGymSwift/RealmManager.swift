@@ -13,29 +13,40 @@ import SwiftyJSON
 class RealmManager: NSObject {
 
     // MODELS
-    let stub_sessions = 0;
-    let stub_teachers = 1;
-    let stub_sports   = 2;
+    let stub_sessions          = 0
+    let stub_teachers          = 1
+    let stub_sports            = 2
+    let stub_sportsDescription = 3
+    let stub_objectives        = 4
 
-    let kSessionsStub = "sessionsFeed";
-    let kTeachersStub = "teachersFeed";
-    let kSportsStub   = "sportsFeed";
+    let kSessionsStub           = "sessionsFeed"
+    let kTeachersStub           = "teachersFeed"
+    let kSportsStub             = "sportsFeed"
+    let kSportsDescritpionsStub = "sportsDescriptionsFeed"
+    let kObjectivesStub         = "objectivesFeed"
 
-    let kSessionsObject = "sessions";
-    let kTeachersObject = "teachers";
-    let kSportsObject   = "sports";
-    
-    let kDay          = "day"
-    let kSport_id     = "sport_id"
-    let k_id          = "_id"
-    let kFrom         = "from"
-    let kDuration     = "duration"
-    let kLocation     = "location"
-    let kTeacher_id   = "teacher_id"
-    let kAttendance   = "attendance"
-    let kName         = "name"
-    let kFirst_name   = "first_name"
-    let k_description = "_description"
+    let kSessionsObject           = "sessions"
+    let kTeachersObject           = "teachers"
+    let kSportsObject             = "sports"
+    let kSportsDescriptionsObject = "descriptions"
+    let kObjectivesObject         = "objectives"
+
+    let kDay            = "day"
+    let kSport_id       = "sport_id"
+    let k_id            = "_id"
+    let kFrom           = "from"
+    let kDuration       = "duration"
+    let kLocation       = "location"
+    let kTeacher_id     = "teacher_id"
+    let kAttendance     = "attendance"
+    let kName           = "name"
+    let kFirst_name     = "first_name"
+    let k_description   = "_description"
+    let kDescription_id = "description_id"
+    let kContent        = "content"
+    let kFirstPart      = "firstPart"
+    let kSecondPart     = "secondPart"
+
     let kPhoto        = "photo"
     let kColor        = "color"
     let kAgency       = "agency"
@@ -51,7 +62,7 @@ class RealmManager: NSObject {
     
     static let SharedInstance = RealmManager()
     
-    // MARK: - Ajout d'objets
+    // MARK: - Generateur d'objets
     
     // Remplissage de la base de données
     func feedDataBaseWithFile(key: NSInteger) {
@@ -60,44 +71,56 @@ class RealmManager: NSObject {
             
             self.groupsFromFile(stub, object: keyStub) { (result) -> Void in
                 
-                if (key == self.stub_sessions) {
-                    for(_, session)in result {
-                        
-                        let sessionModel = self.generateSession(session)
-                        // Add to the Realm inside a transaction
+                switch key {
+                    
+                case self.stub_sessions:
+                    for session in result {
+                        let sessionModel = self.generateSession(session.1)
                         try! self.realm.write {
                             self.realm.add(sessionModel)
                         }
                     }
                     //print(self.getAllSessions())
-                }
-                
-                if (key == self.stub_teachers) {
-                    for(_, teacher)in result {
-                        
-                        let teacherModel = self.generateTeacher(teacher)
-                        // Add to the Realm inside a transaction
+                case self.stub_teachers:
+                    for teacher in result {
+                        let teacherModel = self.generateTeacher(teacher.1)
                         try! self.realm.write {
                             self.realm.add(teacherModel)
                         }
                     }
                     //print(self.getAllTeachers())
-                }
-                
-                if (key == self.stub_sports) {
-                    for(_, sport)in result {
-                        
-                        let sportModel = self.generateSport(sport)
-                        // Add to the Realm inside a transaction
+                case self.stub_sports:
+                    for sport in result {
+                        let sportModel = self.generateSport(sport.1)
                         try! self.realm.write {
                             self.realm.add(sportModel)
                         }
                     }
                     //print(self.getAllSports())
+                case self.stub_sportsDescription:
+                    for sportDescription in result {
+                        let sportDescriptionModel = self.generateSportDescription(sportDescription.1)
+                        try! self.realm.write {
+                            self.realm.add(sportDescriptionModel)
+                        }
+                    }
+                    //print(self.getAllSportsDescriptions())
+                case self.stub_objectives:
+                    for objective in result {
+                        let objectiveModel = self.generateObjectives(objective.1)
+                        try! self.realm.write {
+                            self.realm.add(objectiveModel)
+                        }
+                    }
+                    //print(self.getAllObjectives())
+                default:
+                    print("no stub for key %@",key)
                 }
             }
         }
     }
+
+    // MARK: - Ajout d'objets
 
     // Création d'un objet sessionModel
     func generateSession(dictionary: JSON) -> SessionModel {
@@ -120,7 +143,6 @@ class RealmManager: NSObject {
     // Création d'un objet teacherModel
     func generateTeacher(dictionary: JSON) -> TeacherModel {
         
-        // Create a teacher object
         let teacher = TeacherModel()
         teacher._id          = dictionary[k_id].stringValue
         teacher.name         = dictionary[kName].stringValue
@@ -135,15 +157,36 @@ class RealmManager: NSObject {
     // Création d'un objet sportModel
     func generateSport(dictionary: JSON) -> SportModel {
         
-        // Create a sport object
         let sport = SportModel()
-        sport._id          = dictionary[k_id].stringValue
-        sport.name         = dictionary[kName].stringValue
-        sport._description = dictionary[k_description].stringValue
-        sport.color        = dictionary[kColor].stringValue
-        sport.image        = dictionary[kImage].stringValue
+        sport._id            = dictionary[k_id].stringValue
+        sport.name           = dictionary[kName].stringValue
+        sport.description_id = dictionary[kDescription_id].stringValue
+        sport.color          = dictionary[kColor].stringValue
+        sport.image          = dictionary[kImage].stringValue
         
         return sport
+    }
+    
+    // Création d'un objet sportModel
+    func generateSportDescription(dictionary: JSON) -> SportDescriptionModel {
+        
+        let sportDescription = SportDescriptionModel()
+        sportDescription._id     = dictionary[k_id].stringValue
+        sportDescription.content = dictionary[kContent].stringValue
+        
+        return sportDescription
+    }
+    
+    // Création d'un objet sportModel
+    func generateObjectives(dictionary: JSON) -> ObjectiveModel {
+        
+        let objective = ObjectiveModel()
+        objective._id        = dictionary[k_id].stringValue
+        objective.firstPart  = dictionary[kFirstPart].stringValue
+        objective.secondPart = dictionary[kSecondPart].stringValue
+        objective.sport_id   = dictionary[kSport_id].stringValue
+
+        return objective
     }
     
     // MARK: - Récupération d'objets
@@ -160,9 +203,17 @@ class RealmManager: NSObject {
         return realm.objects(SportModel)
     }
     
+    func getAllSportsDescriptions() -> Results<(SportDescriptionModel)> {
+        return realm.objects(SportDescriptionModel)
+    }
+    
     func getAllSports(completion: (sports: Results<(SportModel)>) -> Void) {
         let sports = realm.objects(SportModel)
         completion(sports: sports)
+    }
+    
+    func getAllObjectives()->Results<(ObjectiveModel)>{
+        return realm.objects(ObjectiveModel)
     }
     
     // MARK : - Recherches
@@ -224,14 +275,25 @@ class RealmManager: NSObject {
     // Quel stub utiliser
     func returnFileAndObject(keyStubDetection: NSInteger, completion: (stub: String, keyStub: String) -> Void) {
         
-        if (keyStubDetection == stub_sessions) {
+        switch keyStubDetection{
+        
+        case stub_sessions:
             completion(stub: kSessionsStub, keyStub: kSessionsObject);
-        }
-        if (keyStubDetection == stub_teachers) {
+
+        case stub_teachers:
             completion(stub: kTeachersStub, keyStub: kTeachersObject);
-        }
-        if (keyStubDetection == stub_sports) {
+
+        case stub_sports:
             completion(stub: kSportsStub, keyStub: kSportsObject);
+
+        case stub_sportsDescription:
+            completion(stub: kSportsDescritpionsStub, keyStub: kSportsDescriptionsObject);
+
+        case stub_objectives:
+            completion(stub: kObjectivesStub, keyStub: kObjectivesObject);
+
+        default:
+            completion(stub: "", keyStub: "");
         }
     }
     

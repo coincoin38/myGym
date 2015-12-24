@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		03B551E2113C4EEAD66CD5A6 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B0E4BCD6721A36AC0FF04DA /* Pods.framework */; };
 		130EC7031C29FA7600EE9805 /* objectivesFeed.json in Resources */ = {isa = PBXBuildFile; fileRef = 130EC7021C29FA7600EE9805 /* objectivesFeed.json */; };
-		13616EAF1C2C18FF00DC459A /* sportsDescritpionFeed.json in Resources */ = {isa = PBXBuildFile; fileRef = 13616EAE1C2C18FF00DC459A /* sportsDescritpionFeed.json */; };
+		13616EAF1C2C18FF00DC459A /* sportsDescriptionsFeed.json in Resources */ = {isa = PBXBuildFile; fileRef = 13616EAE1C2C18FF00DC459A /* sportsDescriptionsFeed.json */; };
+		13616EB11C2C1D6D00DC459A /* SportDescriptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13616EB01C2C1D6D00DC459A /* SportDescriptionModel.swift */; };
+		13616EB31C2C25B700DC459A /* ObjectiveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13616EB21C2C25B700DC459A /* ObjectiveModel.swift */; };
 		1376A5F11C09EDE0000AA652 /* newsFeed.json in Resources */ = {isa = PBXBuildFile; fileRef = 1376A5ED1C09EDE0000AA652 /* newsFeed.json */; };
 		1376A5F21C09EDE0000AA652 /* sessionsFeed.json in Resources */ = {isa = PBXBuildFile; fileRef = 1376A5EE1C09EDE0000AA652 /* sessionsFeed.json */; };
 		1376A5F31C09EDE0000AA652 /* teachersFeed.json in Resources */ = {isa = PBXBuildFile; fileRef = 1376A5EF1C09EDE0000AA652 /* teachersFeed.json */; };
@@ -46,7 +48,9 @@
 /* Begin PBXFileReference section */
 		0B0E4BCD6721A36AC0FF04DA /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		130EC7021C29FA7600EE9805 /* objectivesFeed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = objectivesFeed.json; sourceTree = "<group>"; };
-		13616EAE1C2C18FF00DC459A /* sportsDescritpionFeed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sportsDescritpionFeed.json; sourceTree = "<group>"; };
+		13616EAE1C2C18FF00DC459A /* sportsDescriptionsFeed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sportsDescriptionsFeed.json; sourceTree = "<group>"; };
+		13616EB01C2C1D6D00DC459A /* SportDescriptionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SportDescriptionModel.swift; sourceTree = "<group>"; };
+		13616EB21C2C25B700DC459A /* ObjectiveModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectiveModel.swift; sourceTree = "<group>"; };
 		1376A5ED1C09EDE0000AA652 /* newsFeed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = newsFeed.json; sourceTree = "<group>"; };
 		1376A5EE1C09EDE0000AA652 /* sessionsFeed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sessionsFeed.json; sourceTree = "<group>"; };
 		1376A5EF1C09EDE0000AA652 /* teachersFeed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = teachersFeed.json; sourceTree = "<group>"; };
@@ -111,6 +115,8 @@
 				1376A5F51C09EE67000AA652 /* SessionModel.swift */,
 				1376A5F71C09EF71000AA652 /* TeacherModel.swift */,
 				139595481C1481E500F43523 /* SportModel.swift */,
+				13616EB01C2C1D6D00DC459A /* SportDescriptionModel.swift */,
+				13616EB21C2C25B700DC459A /* ObjectiveModel.swift */,
 			);
 			name = RealmModels;
 			sourceTree = "<group>";
@@ -159,7 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				139A946F1C143CDD00CF754A /* sportsFeed.json */,
-				13616EAE1C2C18FF00DC459A /* sportsDescritpionFeed.json */,
+				13616EAE1C2C18FF00DC459A /* sportsDescriptionsFeed.json */,
 				1376A5ED1C09EDE0000AA652 /* newsFeed.json */,
 				1376A5EE1C09EDE0000AA652 /* sessionsFeed.json */,
 				1376A5EF1C09EDE0000AA652 /* teachersFeed.json */,
@@ -348,7 +354,7 @@
 				1376A5F11C09EDE0000AA652 /* newsFeed.json in Resources */,
 				3825E6791C24515C00F589FA /* SportCollectionViewCell.xib in Resources */,
 				13CF0E141C09ECC100715454 /* Main.storyboard in Resources */,
-				13616EAF1C2C18FF00DC459A /* sportsDescritpionFeed.json in Resources */,
+				13616EAF1C2C18FF00DC459A /* sportsDescriptionsFeed.json in Resources */,
 				13A6B1DA1C13A24A00F93232 /* SessionTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -409,6 +415,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1376A5FA1C09F1C2000AA652 /* SessionsViewController.swift in Sources */,
+				13616EB11C2C1D6D00DC459A /* SportDescriptionModel.swift in Sources */,
 				13E68F561C0B8B6A00CDCDD0 /* RealmManager.swift in Sources */,
 				387B1AB91C2990CA004FAA16 /* ObjectiveCollectionViewCell.swift in Sources */,
 				3825E6781C24515C00F589FA /* SportCollectionViewCell.swift in Sources */,
@@ -418,6 +425,7 @@
 				38210E711C2431210001A4CE /* SportsViewController.swift in Sources */,
 				387666031C28383600DE8A62 /* SportDetailsViewController.swift in Sources */,
 				13D0242F1C148F9300A977AC /* SessionObject.swift in Sources */,
+				13616EB31C2C25B700DC459A /* ObjectiveModel.swift in Sources */,
 				13CF0E0F1C09ECC100715454 /* AppDelegate.swift in Sources */,
 				13CE08CC1C2AC209009BC5E9 /* ColorsConstants.swift in Sources */,
 				38210E6F1C24177B0001A4CE /* MainTabBarViewController.swift in Sources */,

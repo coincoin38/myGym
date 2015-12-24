@@ -19,7 +19,7 @@ class SportObject: NSObject {
         
         let fullSport: SportObject = SportObject()
         fullSport.name             = sport.name
-        fullSport._description     = sport._description
+        fullSport._description     = sport.description_id
         fullSport.color            = FormaterManager.SharedInstance.uicolorFromHexa(sport.color)
         fullSport.image            = sport.image
 
