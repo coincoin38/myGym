@@ -71,7 +71,13 @@ class SportsViewController: UIViewController,UICollectionViewDelegate,UICollecti
         // Pass the selected object to the new view controller.
         if(segue.identifier == kShowDetailSport) {
             let sdvc = segue.destinationViewController as! SportDetailsViewController
-            sdvc.sport = sport
+            
+            let objectivesObject = ObjectivesObject()
+            objectivesObject.setObjectives(sport, completion: { (objectivesObject) -> Void in
+        
+                sdvc.objectivesArray = objectivesObject
+                sdvc.sport = self.sport
+            })
         }
     }
     

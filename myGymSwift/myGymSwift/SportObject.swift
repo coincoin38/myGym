@@ -10,6 +10,7 @@ import UIKit
 
 class SportObject: NSObject {
     
+    dynamic var _id = ""
     dynamic var name = ""
     dynamic var _description = ""
     dynamic var color = UIColor()
@@ -18,15 +19,16 @@ class SportObject: NSObject {
     func setSportForCell(sport: SportModel, completion: (sportObject: SportObject) -> Void) {
         
         let fullSport: SportObject = SportObject()
+        
+        RealmManager.SharedInstance.getSportDescriptionWithId(sport.description_id, completion: { (description) -> Void in
+            fullSport._description = description[0].content
+        })
+        
+        fullSport._id              = sport._id
         fullSport.name             = sport.name
-        fullSport._description     = sport.description_id
         fullSport.color            = FormaterManager.SharedInstance.uicolorFromHexa(sport.color)
         fullSport.image            = sport.image
-
+        
         completion(sportObject: fullSport)
-    }
-    
-    deinit{
-        //print("Sport \(name) is being deinitialized")
     }
 }

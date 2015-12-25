@@ -14,6 +14,8 @@ class SportDetailsViewController: UIViewController,UIGestureRecognizerDelegate,U
     @IBOutlet weak var sportDescriptionTextView: UITextView!
     @IBOutlet weak var objectivesCollectionView: UICollectionView?
     private let reuseIdentifier = "ObjectiveIdentifier"
+    var objectivesArray: Array<ObjectiveObject> = Array<ObjectiveObject>()
+
 
     // MARK: - Init
 
@@ -88,11 +90,13 @@ class SportDetailsViewController: UIViewController,UIGestureRecognizerDelegate,U
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return objectivesArray.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! ObjectiveCollectionViewCell
+        cell.setData(objectivesArray[indexPath.row])
+
         return cell
     }
     

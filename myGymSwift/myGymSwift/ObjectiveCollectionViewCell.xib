@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -12,36 +12,41 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="150" height="83"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Build" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k29-OX-9g4">
-                        <rect key="frame" x="59" y="8" width="34" height="17"/>
-                        <animations/>
-                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Build" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k29-OX-9g4">
+                        <rect key="frame" x="59" y="3" width="32" height="16"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AEROBIC FITNESS test" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RDi-Kx-YdE">
-                        <rect key="frame" x="0.0" y="35" width="150" height="48"/>
-                        <animations/>
+                        <rect key="frame" x="0.0" y="38" width="150" height="45"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="48" id="G4b-J1-xzM"/>
+                            <constraint firstAttribute="height" constant="45" id="G4b-J1-xzM"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wKt-Ou-SWv">
+                        <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
                 </subviews>
-                <animations/>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
-            <animations/>
             <color key="backgroundColor" red="0.16862745098039217" green="0.16862745098039217" blue="0.15294117647058825" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="RDi-Kx-YdE" secondAttribute="bottom" id="K9v-Wg-7WN"/>
                 <constraint firstItem="RDi-Kx-YdE" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="KIF-lR-VqG"/>
                 <constraint firstItem="k29-OX-9g4" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="U1S-3i-wUs"/>
                 <constraint firstAttribute="trailing" secondItem="RDi-Kx-YdE" secondAttribute="trailing" id="mxb-JT-GSa"/>
-                <constraint firstItem="k29-OX-9g4" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="uds-lz-qqJ"/>
+                <constraint firstItem="k29-OX-9g4" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="3" id="uds-lz-qqJ"/>
             </constraints>
+            <connections>
+                <outlet property="colorView" destination="wKt-Ou-SWv" id="XmJ-TE-wSy"/>
+                <outlet property="firstPartLabel" destination="k29-OX-9g4" id="RIF-qb-Ueg"/>
+                <outlet property="secondePartLabel" destination="RDi-Kx-YdE" id="Wr3-WN-xK3"/>
+            </connections>
         </collectionViewCell>
     </objects>
 </document>

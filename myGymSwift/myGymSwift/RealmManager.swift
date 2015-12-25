@@ -54,7 +54,8 @@ class RealmManager: NSObject {
     
     let kGetDay       = "day = %@"
     let kGetId        = "_id = %@"
-    
+    let kGetSportId   = "sport_id = %@"
+
     let kJsonExtension = "json"
 
     let realm = try! Realm()
@@ -253,14 +254,26 @@ class RealmManager: NSObject {
     
     func getSportWithId(_id: String, completion: (sport: Results<(SportModel)>) -> Void) {
         
-        let asport = realm.objects(SportModel).filter(kGetId, _id)
-        completion(sport: asport)
+        let aSport = realm.objects(SportModel).filter(kGetId, _id)
+        completion(sport: aSport)
     }
     
-    func getTeacherWithId(_id: String, completion: (sport: Results<(TeacherModel)>) -> Void) {
+    func getTeacherWithId(_id: String, completion: (teacher: Results<(TeacherModel)>) -> Void) {
         
-        let ateacher = realm.objects(TeacherModel).filter(kGetId, _id)
-        completion(sport: ateacher)
+        let aTeacher = realm.objects(TeacherModel).filter(kGetId, _id)
+        completion(teacher: aTeacher)
+    }
+    
+    func getSportDescriptionWithId(_id: String, completion: (description: Results<(SportDescriptionModel)>) -> Void) {
+        
+        let aSportDescription = realm.objects(SportDescriptionModel).filter(kGetId, _id)
+        completion(description: aSportDescription)
+    }
+    
+    func getObjectivesWithId(sport_id: String, completion: (objectives: Results<(ObjectiveModel)>) -> Void) {
+        
+        let objectives = realm.objects(ObjectiveModel).filter(kGetSportId, sport_id)
+        completion(objectives: objectives)
     }
     
     // MARK: - Suppression de la base de données

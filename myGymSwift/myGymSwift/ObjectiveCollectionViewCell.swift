@@ -10,9 +10,18 @@ import UIKit
 
 class ObjectiveCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var firstPartLabel: UILabel!
+    @IBOutlet weak var secondePartLabel: UILabel!
+    @IBOutlet weak var colorView: UIView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
+    func setData(objective: ObjectiveObject) {
+        firstPartLabel?.text      = objective.firstPart
+        secondePartLabel?.text    = objective.secondPart
+        colorView.backgroundColor = objective.sportColor
+    }
 }

@@ -25,6 +25,7 @@
 		13A6B1D11C131FC800F93232 /* FormaterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A6B1D01C131FC800F93232 /* FormaterManager.swift */; };
 		13A6B1D91C13A24A00F93232 /* SessionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A6B1D71C13A24A00F93232 /* SessionTableViewCell.swift */; };
 		13A6B1DA1C13A24A00F93232 /* SessionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13A6B1D81C13A24A00F93232 /* SessionTableViewCell.xib */; };
+		13CB0BB91C2D43F600829A65 /* ObjectivesObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CB0BB81C2D43F600829A65 /* ObjectivesObject.swift */; };
 		13CE08CA1C2ABFB6009BC5E9 /* ImagesConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CE08C91C2ABFB6009BC5E9 /* ImagesConstants.swift */; };
 		13CE08CC1C2AC209009BC5E9 /* ColorsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CE08CB1C2AC209009BC5E9 /* ColorsConstants.swift */; };
 		13CF0E0F1C09ECC100715454 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CF0E0E1C09ECC100715454 /* AppDelegate.swift */; };
@@ -32,6 +33,7 @@
 		13CF0E161C09ECC100715454 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13CF0E151C09ECC100715454 /* Assets.xcassets */; };
 		13CF0E191C09ECC100715454 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13CF0E171C09ECC100715454 /* LaunchScreen.storyboard */; };
 		13D0242F1C148F9300A977AC /* SessionObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D0242E1C148F9300A977AC /* SessionObject.swift */; };
+		13E3DB321C2D47000020372D /* ObjectiveObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E3DB311C2D47000020372D /* ObjectiveObject.swift */; };
 		13E68F561C0B8B6A00CDCDD0 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E68F551C0B8B6A00CDCDD0 /* RealmManager.swift */; };
 		38210E6F1C24177B0001A4CE /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38210E6E1C24177B0001A4CE /* MainTabBarViewController.swift */; };
 		38210E711C2431210001A4CE /* SportsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38210E701C2431210001A4CE /* SportsViewController.swift */; };
@@ -64,6 +66,7 @@
 		13A6B1D01C131FC800F93232 /* FormaterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormaterManager.swift; sourceTree = "<group>"; };
 		13A6B1D71C13A24A00F93232 /* SessionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionTableViewCell.swift; sourceTree = "<group>"; };
 		13A6B1D81C13A24A00F93232 /* SessionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SessionTableViewCell.xib; sourceTree = "<group>"; };
+		13CB0BB81C2D43F600829A65 /* ObjectivesObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectivesObject.swift; sourceTree = "<group>"; };
 		13CE08C91C2ABFB6009BC5E9 /* ImagesConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesConstants.swift; sourceTree = "<group>"; };
 		13CE08CB1C2AC209009BC5E9 /* ColorsConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorsConstants.swift; sourceTree = "<group>"; };
 		13CF0E0B1C09ECC100715454 /* myGymSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myGymSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,6 +76,7 @@
 		13CF0E181C09ECC100715454 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		13CF0E1A1C09ECC100715454 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13D0242E1C148F9300A977AC /* SessionObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionObject.swift; sourceTree = "<group>"; };
+		13E3DB311C2D47000020372D /* ObjectiveObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectiveObject.swift; sourceTree = "<group>"; };
 		13E68F551C0B8B6A00CDCDD0 /* RealmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		38210E6E1C24177B0001A4CE /* MainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		38210E701C2431210001A4CE /* SportsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SportsViewController.swift; sourceTree = "<group>"; };
@@ -262,6 +266,8 @@
 			children = (
 				13D0242E1C148F9300A977AC /* SessionObject.swift */,
 				3825E67A1C2453C200F589FA /* SportObject.swift */,
+				13CB0BB81C2D43F600829A65 /* ObjectivesObject.swift */,
+				13E3DB311C2D47000020372D /* ObjectiveObject.swift */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -424,6 +430,7 @@
 				13A6B1D11C131FC800F93232 /* FormaterManager.swift in Sources */,
 				38210E711C2431210001A4CE /* SportsViewController.swift in Sources */,
 				387666031C28383600DE8A62 /* SportDetailsViewController.swift in Sources */,
+				13E3DB321C2D47000020372D /* ObjectiveObject.swift in Sources */,
 				13D0242F1C148F9300A977AC /* SessionObject.swift in Sources */,
 				13616EB31C2C25B700DC459A /* ObjectiveModel.swift in Sources */,
 				13CF0E0F1C09ECC100715454 /* AppDelegate.swift in Sources */,
@@ -433,6 +440,7 @@
 				3825E67B1C2453C200F589FA /* SportObject.swift in Sources */,
 				1376A5F81C09EF71000AA652 /* TeacherModel.swift in Sources */,
 				139595491C1481E500F43523 /* SportModel.swift in Sources */,
+				13CB0BB91C2D43F600829A65 /* ObjectivesObject.swift in Sources */,
 				387B1AB41C2961C1004FAA16 /* NavBarManager.swift in Sources */,
 				1376A5F61C09EE67000AA652 /* SessionModel.swift in Sources */,
 				1376A5FC1C09F1CE000AA652 /* DayViewController.swift in Sources */,
