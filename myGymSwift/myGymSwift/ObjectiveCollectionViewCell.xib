@@ -28,7 +28,12 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wKt-Ou-SWv">
-                        <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                        <rect key="frame" x="5" y="5" width="15" height="15"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="thick" translatesAutoresizingMaskIntoConstraints="NO" id="c1g-bU-rBU">
+                                <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </subviews>
@@ -49,4 +54,7 @@
             </connections>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="thick" width="60" height="60"/>
+    </resources>
 </document>

@@ -15,6 +15,8 @@ class SportsViewController: UIViewController,UICollectionViewDelegate,UICollecti
     let kShowDetailSport = "showDetailSport"
     @IBOutlet weak var sportsCollectionView: UICollectionView?
     var sport: SportObject = SportObject()
+    var objectivesArray: Array<ObjectiveObject> = Array<ObjectiveObject>()
+
     
     // MARK: - Init
 
@@ -60,8 +62,12 @@ class SportsViewController: UIViewController,UICollectionViewDelegate,UICollecti
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        sport = sportsArray[indexPath.row]
-        self.performSegueWithIdentifier(kShowDetailSport, sender: self)
+        let objectivesObject = ObjectivesObject()
+        objectivesObject.setObjectives(self.sportsArray[indexPath.row], completion: { (objectivesObject) -> Void in
+            self.sport = self.sportsArray[indexPath.row]
+            self.objectivesArray = objectivesObject
+            self.performSegueWithIdentifier(self.kShowDetailSport, sender: self)
+        })
     }
     
     // MARK: - Navigation
@@ -71,13 +77,8 @@ class SportsViewController: UIViewController,UICollectionViewDelegate,UICollecti
         // Pass the selected object to the new view controller.
         if(segue.identifier == kShowDetailSport) {
             let sdvc = segue.destinationViewController as! SportDetailsViewController
-            
-            let objectivesObject = ObjectivesObject()
-            objectivesObject.setObjectives(sport, completion: { (objectivesObject) -> Void in
-        
-                sdvc.objectivesArray = objectivesObject
-                sdvc.sport = self.sport
-            })
+            sdvc.sport = sport
+            sdvc.objectivesArray = objectivesArray
         }
     }
     

@@ -24,6 +24,8 @@ class SportDetailsViewController: UIViewController,UIGestureRecognizerDelegate,U
 
         sportDescriptionTextView.text = sport._description
         sportDescriptionTextView.textAlignment = .Justified
+        sportDescriptionTextView.font = UIFont.systemFontOfSize(14, weight: 0)
+        
         objectivesCollectionView?.registerNib(UINib(nibName: "ObjectiveCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
 
         /*
@@ -58,7 +60,10 @@ class SportDetailsViewController: UIViewController,UIGestureRecognizerDelegate,U
         
         //Back button
         let newBackButton = UIBarButtonItem(title: NSLocalizedString("BACK", comment:""), style: UIBarButtonItemStyle.Done, target: self, action: "back:")
+        newBackButton.setTitleTextAttributes([NSForegroundColorAttributeName: FormaterManager.SharedInstance.uicolorFromHexa(ColorsConstants.navBarTextAlternColor),NSFontAttributeName:UIFont.systemFontOfSize(18, weight: 2)], forState: UIControlState.Normal)
+
         self.navigationItem.leftBarButtonItem = newBackButton;
+        
         
         //StatusBar
         UIApplication.sharedApplication().statusBarStyle = .LightContent
