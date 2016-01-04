@@ -5,3 +5,4 @@ use_frameworks!
 pod 'RealmSwift', '~> 0.96'
 pod 'FSCalendar', '~> 1.7'
 pod 'SwiftyJSON', '~> 2.3'
+pod 'JLToast', '~> 1.3'

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import JLToast
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         for var index = 0; index < 5; ++index {
             RealmManager.SharedInstance.feedDataBaseWithFile(index)
         }
+        
+        JLToastView.setDefaultValue(50, forAttributeName: JLToastViewPortraitOffsetYAttributeName, userInterfaceIdiom: .Phone)
 
         return true
     }

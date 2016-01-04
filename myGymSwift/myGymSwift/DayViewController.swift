@@ -7,14 +7,14 @@
 //
 
 import UIKit
-import RealmSwift
+import JLToast
 
 class DayViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var sessionsArray: Array<SessionObject> = Array<SessionObject>()
     var selectedDay: String = String()
     var selectedDate : NSDate = NSDate()
-    var formater: FormaterManager = FormaterManager()
+    var timer = NSTimer()
 
     let cellIdentifier = "sessionIdentifier"
     let cellXib = "SessionTableViewCell"
@@ -70,13 +70,24 @@ class DayViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                     else{
                         self.dayPageIndicator?.currentPage--
                     }
-                    self.selectedDay  = self.formater.formatWeekDayAndDate(newDate)
+                    self.selectedDay  = FormaterManager.SharedInstance.formatWeekDayAndDate(newDate)
                     self.dateLabel?.text = self.selectedDay
                     self.selectedDate = newDate
                     self.animateTable()
                 }
             }
+            else{
+                if(!self.timer.valid){
+                    self.timer = NSTimer.scheduledTimerWithTimeInterval(JLToastDelay.ShortDelay+1.0, target: self, selector: "countUp", userInfo: nil, repeats: false)
+                    JLToast.makeText(NSLocalizedString("NOTHING", comment:"")+"\n"+FormaterManager.SharedInstance.formatWeekDayAndDate(newDate), duration: JLToastDelay.ShortDelay).show()
+                }
+            }
         }
+    }
+    
+    func countUp() {
+        
+        timer.invalidate()
     }
     
     func animateTable() {
@@ -105,7 +116,10 @@ class DayViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     // MARK: - Actions
 
     @IBAction func rightGesture(sender: UISwipeGestureRecognizer) {
-        detectAnotherDay(false)
+        if (self.dayPageIndicator?.currentPage != 0)
+        {
+            detectAnotherDay(false)
+        }
     }
     
     @IBAction func leftGesture(sender: UISwipeGestureRecognizer) {

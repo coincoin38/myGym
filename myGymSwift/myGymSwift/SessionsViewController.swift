@@ -8,7 +8,7 @@
 
 import UIKit
 import FSCalendar
-import RealmSwift
+import JLToast
 
 class SessionsViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource {
 
@@ -17,6 +17,8 @@ class SessionsViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
     var selectedDay: String = String()
     var selectedDate: NSDate = NSDate()
     var sessionsArray: Array<SessionObject> = Array<SessionObject>()
+    var boolToast: Bool = Bool()
+    var timer = NSTimer()
     
     // MARK: - Init
 
@@ -51,10 +53,16 @@ class SessionsViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
                 self.performSegueWithIdentifier(self.kShowDetailDay, sender: self)
             }
             else{
-                let alertController = UIAlertController(title: "", message: NSLocalizedString("NOTHING", comment:""), preferredStyle: .Alert)                
+                
+                if(!self.timer.valid){
+                    self.timer = NSTimer.scheduledTimerWithTimeInterval(JLToastDelay.ShortDelay+1.0, target: self, selector: "countUp", userInfo: nil, repeats: false)
+                    JLToast.makeText(NSLocalizedString("NOTHING", comment:"")+"\n"+self.selectedDay, duration: JLToastDelay.ShortDelay).show()
+                }
+
+                /*let alertController = UIAlertController(title: "", message: NSLocalizedString("NOTHING", comment:""), preferredStyle: .Alert)
                 let defaultAction = UIAlertAction(title: NSLocalizedString("CLOSE", comment:""), style: .Default, handler: nil)
                 alertController.addAction(defaultAction)
-                self.presentViewController(alertController, animated: true, completion: nil)
+                self.presentViewController(alertController, animated: true, completion: nil)*/
             }
         }
     }
@@ -83,6 +91,11 @@ class SessionsViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
             svc.selectedDay   = selectedDay
             svc.selectedDate  = selectedDate
         }
+    }
+    
+    func countUp() {
+        
+        timer.invalidate()
     }
     
     // MARK: - Memory
