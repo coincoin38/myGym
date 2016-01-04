@@ -86,7 +86,6 @@ class DayViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     func countUp() {
-        
         timer.invalidate()
     }
     

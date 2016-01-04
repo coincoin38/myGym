@@ -94,7 +94,6 @@ class SessionsViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
     }
     
     func countUp() {
-        
         timer.invalidate()
     }
     

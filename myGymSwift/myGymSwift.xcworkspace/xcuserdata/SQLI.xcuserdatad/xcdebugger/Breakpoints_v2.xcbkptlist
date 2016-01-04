@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "myGymSwift/DayViewController.swift"
-            timestampString = "473617477.391569"
+            timestampString = "473617764.527864"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
             landmarkName = "rightGesture(_:)"
             landmarkType = "5">
          </BreakpointContent>
