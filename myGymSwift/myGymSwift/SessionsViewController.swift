@@ -58,11 +58,6 @@ class SessionsViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
                     self.timer = NSTimer.scheduledTimerWithTimeInterval(JLToastDelay.ShortDelay+1.0, target: self, selector: "countUp", userInfo: nil, repeats: false)
                     JLToast.makeText(NSLocalizedString("NOTHING", comment:"")+"\n"+self.selectedDay, duration: JLToastDelay.ShortDelay).show()
                 }
-
-                /*let alertController = UIAlertController(title: "", message: NSLocalizedString("NOTHING", comment:""), preferredStyle: .Alert)
-                let defaultAction = UIAlertAction(title: NSLocalizedString("CLOSE", comment:""), style: .Default, handler: nil)
-                alertController.addAction(defaultAction)
-                self.presentViewController(alertController, animated: true, completion: nil)*/
             }
         }
     }
