@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         RealmManager.SharedInstance.cleanDb()
         
-        for var index = 0; index < 5; ++index {
+        for var index = 0; index < 6; ++index {
             RealmManager.SharedInstance.feedDataBaseWithFile(index)
         }
         

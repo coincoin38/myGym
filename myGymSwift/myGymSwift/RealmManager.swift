@@ -125,7 +125,7 @@ class RealmManager: NSObject {
                             self.realm.add(newsModel)
                         }
                     }
-                    //print(self.getAllObjectives())
+                   // print(self.getAllNews())
 
                 default:
                     print("no stub for key %@",key)
@@ -206,11 +206,14 @@ class RealmManager: NSObject {
     // Création d'un objet sportModel
     func generateNews(dictionary: JSON) -> NewsModel {
         
+        let date = formater.formatyyyMMddFromString(dictionary[kDay].stringValue)
+
         let news = NewsModel()
-        news._id        = dictionary[k_id].stringValue
-        news.title  = dictionary[kFirstPart].stringValue
-        news.body = dictionary[kSecondPart].stringValue
-        
+        news._id   = dictionary[k_id].stringValue
+        news.title = dictionary[kTitle].stringValue
+        news.body  = dictionary[kBody].stringValue
+        news.day   = date
+
         return news
     }
     
@@ -239,6 +242,11 @@ class RealmManager: NSObject {
     
     func getAllObjectives()->Results<(ObjectiveModel)>{
         return realm.objects(ObjectiveModel)
+    }
+    
+    func getAllNews(completion: (news: Results<(NewsModel)>) -> Void) {
+        let news = realm.objects(NewsModel)
+        completion(news: news)
     }
     
     // MARK : - Recherches
@@ -328,6 +336,9 @@ class RealmManager: NSObject {
 
         case stub_objectives:
             completion(stub: kObjectivesStub, keyStub: kObjectivesObject);
+
+        case stub_news:
+            completion(stub: kNewsStub, keyStub: kNewsObject);
 
         default:
             completion(stub: "", keyStub: "");

@@ -77,8 +77,7 @@ class SessionsViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
     // MARK: - Navigation
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+
         if(segue.identifier == kShowDetailDay) {
             
             let svc = segue.destinationViewController as! DayViewController

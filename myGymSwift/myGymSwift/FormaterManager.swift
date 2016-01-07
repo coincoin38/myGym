@@ -13,6 +13,8 @@ class FormaterManager: NSObject {
     static let SharedInstance = FormaterManager()
     let yyyMMdd = "yyy-MM-dd"
     let EEEE_dd = "EEEE dd"
+    let dd_MM = "dd/MM"
+
     let MMM = "MMM"
 
     let fr_BI   = "fr_BI"
@@ -29,6 +31,18 @@ class FormaterManager: NSObject {
         let dateFromString: NSDate = formatter.dateFromString(dateString)!
         
         return dateFromString
+    }
+    
+    func formatMMddFromDate(dateDate: NSDate) -> String {
+
+        //format date
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = dd_MM
+        dateFormatter.locale = NSLocale.init(localeIdentifier: fr_BI)
+
+        let stringFromDate = dateFormatter.stringFromDate(dateDate)
+        
+        return stringFromDate
     }
     
     func formatWeekDayAndDate(aDate: NSDate) -> String {
