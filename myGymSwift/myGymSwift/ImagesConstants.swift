@@ -8,12 +8,12 @@
 
 struct ImagesConstants {
 
-    static let tabBarSelectedImage0 = "News_selected"
+    static let tabBarSelectedImage0 = "News_selected_V2"
     static let tabBarSelectedImage1 = "Sessions_selected"
-    static let tabBarSelectedImage2 = "Sports_selected"
+    static let tabBarSelectedImage2 = "Sports_selected_V2"
     
-    static let tabBarDefaultImage0 = "News"
+    static let tabBarDefaultImage0 = "News_unselected_V2"
     static let tabBarDefaultImage1 = "Sessions"
-    static let tabBarDefaultImage2 = "Sports"
+    static let tabBarDefaultImage2 = "Sports_unselected"
 
 }

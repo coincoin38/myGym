@@ -18,18 +18,21 @@ class RealmManager: NSObject {
     let stub_sports            = 2
     let stub_sportsDescription = 3
     let stub_objectives        = 4
+    let stub_news              = 5
 
     let kSessionsStub           = "sessionsFeed"
     let kTeachersStub           = "teachersFeed"
     let kSportsStub             = "sportsFeed"
     let kSportsDescritpionsStub = "sportsDescriptionsFeed"
     let kObjectivesStub         = "objectivesFeed"
+    let kNewsStub               = "newsFeed"
 
     let kSessionsObject           = "sessions"
     let kTeachersObject           = "teachers"
     let kSportsObject             = "sports"
     let kSportsDescriptionsObject = "descriptions"
     let kObjectivesObject         = "objectives"
+    let kNewsObject               = "news"
 
     let kDay            = "day"
     let kSport_id       = "sport_id"
@@ -46,11 +49,12 @@ class RealmManager: NSObject {
     let kContent        = "content"
     let kFirstPart      = "firstPart"
     let kSecondPart     = "secondPart"
-
-    let kPhoto        = "photo"
-    let kColor        = "color"
-    let kAgency       = "agency"
-    let kImage        = "image"
+    let kTitle          = "title"
+    let kBody           = "body"
+    let kPhoto          = "photo"
+    let kColor          = "color"
+    let kAgency         = "agency"
+    let kImage          = "image"
     
     let kGetDay       = "day = %@"
     let kGetId        = "_id = %@"
@@ -114,6 +118,15 @@ class RealmManager: NSObject {
                         }
                     }
                     //print(self.getAllObjectives())
+                case self.stub_news:
+                    for news in result {
+                        let newsModel = self.generateNews(news.1)
+                        try! self.realm.write {
+                            self.realm.add(newsModel)
+                        }
+                    }
+                    //print(self.getAllObjectives())
+
                 default:
                     print("no stub for key %@",key)
                 }
@@ -188,6 +201,17 @@ class RealmManager: NSObject {
         objective.sport_id   = dictionary[kSport_id].stringValue
 
         return objective
+    }
+    
+    // Création d'un objet sportModel
+    func generateNews(dictionary: JSON) -> NewsModel {
+        
+        let news = NewsModel()
+        news._id        = dictionary[k_id].stringValue
+        news.title  = dictionary[kFirstPart].stringValue
+        news.body = dictionary[kSecondPart].stringValue
+        
+        return news
     }
     
     // MARK: - Récupération d'objets

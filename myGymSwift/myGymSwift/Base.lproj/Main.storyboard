@@ -335,10 +335,17 @@
                     <view key="view" contentMode="scaleToFill" id="4Zo-Pk-UGR">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8Na-En-o4G">
+                                <rect key="frame" x="0.0" y="28" width="600" height="523"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="News" image="News" selectedImage="News" id="X58-Ca-slF"/>
+                    <tabBarItem key="tabBarItem" title="News" image="News_unselected_V2" selectedImage="News_selected_V2" id="X58-Ca-slF"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jp4-w7-FA9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -371,7 +378,7 @@
         <scene sceneID="FKA-sb-yNK">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="03M-4n-LC4" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Cours" image="Sports" selectedImage="Sports" id="gdK-MM-IaO"/>
+                    <tabBarItem key="tabBarItem" title="Cours" image="Sports_unselected" selectedImage="Sports_selected_V2" id="gdK-MM-IaO"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="526-5z-QQ9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -391,8 +398,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="News" width="25" height="25"/>
+        <image name="News_selected_V2" width="25" height="25"/>
+        <image name="News_unselected_V2" width="25" height="25"/>
         <image name="Sessions" width="25" height="25"/>
-        <image name="Sports" width="25" height="25"/>
+        <image name="Sports_selected_V2" width="25" height="25"/>
+        <image name="Sports_unselected" width="25" height="25"/>
     </resources>
 </document>
