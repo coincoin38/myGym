@@ -12,58 +12,7 @@ import SwiftyJSON
 
 class RealmManager: NSObject {
 
-    // MODELS
-    let stub_sessions          = 0
-    let stub_teachers          = 1
-    let stub_sports            = 2
-    let stub_sportsDescription = 3
-    let stub_objectives        = 4
-    let stub_news              = 5
-
-    let kSessionsStub           = "sessionsFeed"
-    let kTeachersStub           = "teachersFeed"
-    let kSportsStub             = "sportsFeed"
-    let kSportsDescritpionsStub = "sportsDescriptionsFeed"
-    let kObjectivesStub         = "objectivesFeed"
-    let kNewsStub               = "newsFeed"
-
-    let kSessionsObject           = "sessions"
-    let kTeachersObject           = "teachers"
-    let kSportsObject             = "sports"
-    let kSportsDescriptionsObject = "descriptions"
-    let kObjectivesObject         = "objectives"
-    let kNewsObject               = "news"
-
-    let kDay            = "day"
-    let kSport_id       = "sport_id"
-    let k_id            = "_id"
-    let kFrom           = "from"
-    let kDuration       = "duration"
-    let kLocation       = "location"
-    let kTeacher_id     = "teacher_id"
-    let kAttendance     = "attendance"
-    let kName           = "name"
-    let kFirst_name     = "first_name"
-    let k_description   = "_description"
-    let kDescription_id = "description_id"
-    let kContent        = "content"
-    let kFirstPart      = "firstPart"
-    let kSecondPart     = "secondPart"
-    let kTitle          = "title"
-    let kBody           = "body"
-    let kPhoto          = "photo"
-    let kColor          = "color"
-    let kAgency         = "agency"
-    let kImage          = "image"
-    
-    let kGetDay       = "day = %@"
-    let kGetId        = "_id = %@"
-    let kGetSportId   = "sport_id = %@"
-
-    let kJsonExtension = "json"
-
     let realm = try! Realm()
-    let formater = FormaterManager()
     
     static let SharedInstance = RealmManager()
     
@@ -78,79 +27,102 @@ class RealmManager: NSObject {
                 
                 switch key {
                     
-                case self.stub_sessions:
-                    for session in result {
-                        let sessionModel = self.generateSession(session.1)
-                        try! self.realm.write {
-                            self.realm.add(sessionModel)
-                        }
-                    }
-                    //print(self.getAllSessions())
-                case self.stub_teachers:
-                    for teacher in result {
-                        let teacherModel = self.generateTeacher(teacher.1)
-                        try! self.realm.write {
-                            self.realm.add(teacherModel)
-                        }
-                    }
-                    //print(self.getAllTeachers())
-                case self.stub_sports:
-                    for sport in result {
-                        let sportModel = self.generateSport(sport.1)
-                        try! self.realm.write {
-                            self.realm.add(sportModel)
-                        }
-                    }
-                    //print(self.getAllSports())
-                case self.stub_sportsDescription:
-                    for sportDescription in result {
-                        let sportDescriptionModel = self.generateSportDescription(sportDescription.1)
-                        try! self.realm.write {
-                            self.realm.add(sportDescriptionModel)
-                        }
-                    }
-                    //print(self.getAllSportsDescriptions())
-                case self.stub_objectives:
-                    for objective in result {
-                        let objectiveModel = self.generateObjectives(objective.1)
-                        try! self.realm.write {
-                            self.realm.add(objectiveModel)
-                        }
-                    }
-                    //print(self.getAllObjectives())
-                case self.stub_news:
-                    for news in result {
-                        let newsModel = self.generateNews(news.1)
-                        try! self.realm.write {
-                            self.realm.add(newsModel)
-                        }
-                    }
-                   // print(self.getAllNews())
+                case ModelsConstants.stub_sessions:
+                    self.writeSessionsInDB(result)
+                    
+                case ModelsConstants.stub_teachers:
+                    self.writeTeachersInDB(result)
+                    
+                case ModelsConstants.stub_sports:
+                    self.writeSportsInDB(result)
+                    
+                case ModelsConstants.stub_sportsDescription:
+                    self.writeSportsDescriptionsInDB(result)
+
+                case ModelsConstants.stub_objectives:
+                    self.writeObjectivesInDB(result)
+                    
+                case ModelsConstants.stub_news:
+                    self.writeNewsInDB(result)
 
                 default:
                     print("no stub for key %@",key)
                 }
+                
+                //print(self.getAllSessions())
+                //print(self.getAllTeachers())
+                //print(self.getAllSports())
+                //print(self.getAllSportsDescriptions())
+                //print(self.getAllObjectives())
+                //print(self.getAllNews())
             }
         }
     }
 
+    func writeSessionsInDB(result: JSON) {
+        for object in result {
+            let newObject = self.generateSession(object.1)
+            writeData(newObject)
+        }
+    }
+    
+    func writeTeachersInDB(result: JSON) {
+        for object in result {
+            let newObject = self.generateTeacher(object.1)
+            writeData(newObject)
+        }
+    }
+    
+    func writeSportsInDB(result: JSON) {
+        for object in result {
+            let newObject = self.generateSport(object.1)
+            writeData(newObject)
+        }
+    }
+    
+    func writeSportsDescriptionsInDB(result: JSON) {
+        for object in result {
+            let newObject = self.generateSportDescription(object.1)
+            writeData(newObject)
+        }
+    }
+    
+    func writeObjectivesInDB(result: JSON) {
+        for object in result {
+            let newObject = self.generateObjectives(object.1)
+            writeData(newObject)
+        }
+    }
+    
+    func writeNewsInDB(result: JSON) {
+        for object in result {
+            let newObject = self.generateNews(object.1)
+            writeData(newObject)
+        }
+    }
+    
+    func writeData(object:Object){
+        try! self.realm.write {
+            self.realm.add(object)
+        }
+    }
+    
     // MARK: - Ajout d'objets
 
     // Création d'un objet sessionModel
     func generateSession(dictionary: JSON) -> SessionModel {
         
         // Format string to date
-        let date = formater.formatyyyMMddFromString(dictionary[kDay].stringValue)
+        let date = FormaterManager.SharedInstance.formatyyyMMddFromString(dictionary[ModelsConstants.kDay].stringValue)
         let session = SessionModel()
-        session._id        = dictionary[k_id].stringValue
-        session.sport_id   = dictionary[kSport_id].stringValue
-        session.from       = dictionary[kFrom].stringValue
-        session.duration   = dictionary[kDuration].stringValue
-        session.location   = dictionary[kLocation].stringValue
-        session.teacher_id = dictionary[kTeacher_id].stringValue
-        session.attendance = dictionary[kAttendance].stringValue
+        session._id        = dictionary[ModelsConstants.k_id].stringValue
+        session.sport_id   = dictionary[ModelsConstants.kSport_id].stringValue
+        session.from       = dictionary[ModelsConstants.kFrom].stringValue
+        session.duration   = dictionary[ModelsConstants.kDuration].stringValue
+        session.location   = dictionary[ModelsConstants.kLocation].stringValue
+        session.teacher_id = dictionary[ModelsConstants.kTeacher_id].stringValue
+        session.attendance = dictionary[ModelsConstants.kAttendance].stringValue
         session.day        = date
-
         return session
     }
     
@@ -158,13 +130,12 @@ class RealmManager: NSObject {
     func generateTeacher(dictionary: JSON) -> TeacherModel {
         
         let teacher = TeacherModel()
-        teacher._id          = dictionary[k_id].stringValue
-        teacher.name         = dictionary[kName].stringValue
-        teacher.first_name   = dictionary[kFirst_name].stringValue
-        teacher._description = dictionary[k_description].stringValue
-        teacher.photo        = dictionary[kPhoto].stringValue
-        teacher.agency       = dictionary[kAgency].stringValue
-        
+        teacher._id          = dictionary[ModelsConstants.k_id].stringValue
+        teacher.name         = dictionary[ModelsConstants.kName].stringValue
+        teacher.first_name   = dictionary[ModelsConstants.kFirst_name].stringValue
+        teacher._description = dictionary[ModelsConstants.k_description].stringValue
+        teacher.photo        = dictionary[ModelsConstants.kPhoto].stringValue
+        teacher.agency       = dictionary[ModelsConstants.kAgency].stringValue
         return teacher
     }
     
@@ -172,12 +143,11 @@ class RealmManager: NSObject {
     func generateSport(dictionary: JSON) -> SportModel {
         
         let sport = SportModel()
-        sport._id            = dictionary[k_id].stringValue
-        sport.name           = dictionary[kName].stringValue
-        sport.description_id = dictionary[kDescription_id].stringValue
-        sport.color          = dictionary[kColor].stringValue
-        sport.image          = dictionary[kImage].stringValue
-        
+        sport._id            = dictionary[ModelsConstants.k_id].stringValue
+        sport.name           = dictionary[ModelsConstants.kName].stringValue
+        sport.description_id = dictionary[ModelsConstants.kDescription_id].stringValue
+        sport.color          = dictionary[ModelsConstants.kColor].stringValue
+        sport.image          = dictionary[ModelsConstants.kImage].stringValue
         return sport
     }
     
@@ -185,9 +155,8 @@ class RealmManager: NSObject {
     func generateSportDescription(dictionary: JSON) -> SportDescriptionModel {
         
         let sportDescription = SportDescriptionModel()
-        sportDescription._id     = dictionary[k_id].stringValue
-        sportDescription.content = dictionary[kContent].stringValue
-        
+        sportDescription._id     = dictionary[ModelsConstants.k_id].stringValue
+        sportDescription.content = dictionary[ModelsConstants.kContent].stringValue
         return sportDescription
     }
     
@@ -195,25 +164,23 @@ class RealmManager: NSObject {
     func generateObjectives(dictionary: JSON) -> ObjectiveModel {
         
         let objective = ObjectiveModel()
-        objective._id        = dictionary[k_id].stringValue
-        objective.firstPart  = dictionary[kFirstPart].stringValue
-        objective.secondPart = dictionary[kSecondPart].stringValue
-        objective.sport_id   = dictionary[kSport_id].stringValue
-
+        objective._id        = dictionary[ModelsConstants.k_id].stringValue
+        objective.firstPart  = dictionary[ModelsConstants.kFirstPart].stringValue
+        objective.secondPart = dictionary[ModelsConstants.kSecondPart].stringValue
+        objective.sport_id   = dictionary[ModelsConstants.kSport_id].stringValue
         return objective
     }
     
     // Création d'un objet sportModel
     func generateNews(dictionary: JSON) -> NewsModel {
         
-        let date = formater.formatyyyMMddFromString(dictionary[kDay].stringValue)
+        let date = FormaterManager.SharedInstance.formatyyyMMddFromString(dictionary[ModelsConstants.kDay].stringValue)
 
         let news = NewsModel()
-        news._id   = dictionary[k_id].stringValue
-        news.title = dictionary[kTitle].stringValue
-        news.body  = dictionary[kBody].stringValue
+        news._id   = dictionary[ModelsConstants.k_id].stringValue
+        news.title = dictionary[ModelsConstants.kTitle].stringValue
+        news.body  = dictionary[ModelsConstants.kBody].stringValue
         news.day   = date
-
         return news
     }
     
@@ -251,60 +218,27 @@ class RealmManager: NSObject {
     
     // MARK : - Recherches
     func isSessionWithDate(date: NSDate, completion: (sessions: Results<(SessionModel)>) -> Void) {
-        
-        let aday = realm.objects(SessionModel).filter(kGetDay, date)
-        completion(sessions: aday)
-    }
-    
-    func isSessionsWeekWithDate(dateDayOne: NSDate, completion: (sessions: Results<(SessionModel)>) -> Void) {
-        
-        let components: NSDateComponents = NSDateComponents()
-        components.setValue(1, forComponent: NSCalendarUnit.Day);
-        
-        let dateDayTwo   = NSCalendar.currentCalendar().dateByAddingComponents(components, toDate: dateDayOne, options: NSCalendarOptions(rawValue: 0))
-        
-        components.setValue(2, forComponent: NSCalendarUnit.Day);
-        let dateDayThree = NSCalendar.currentCalendar().dateByAddingComponents(components, toDate: dateDayOne, options: NSCalendarOptions(rawValue: 0))
-        
-        components.setValue(3, forComponent: NSCalendarUnit.Day);
-        let dateDayFour  = NSCalendar.currentCalendar().dateByAddingComponents(components, toDate: dateDayOne, options: NSCalendarOptions(rawValue: 0))
-        
-        components.setValue(4, forComponent: NSCalendarUnit.Day);
-        let dateDayFive  = NSCalendar.currentCalendar().dateByAddingComponents(components, toDate: dateDayOne, options: NSCalendarOptions(rawValue: 0))
-        
-        let query = NSCompoundPredicate(type: .OrPredicateType,
-            subpredicates: [NSPredicate(format: kGetDay,dateDayOne),
-                NSPredicate(format: kGetDay,dateDayTwo!),
-                NSPredicate(format: kGetDay,dateDayThree!),
-                NSPredicate(format: kGetDay,dateDayFour!),
-                NSPredicate(format: kGetDay,dateDayFive!)])
-        
-        let aday = realm.objects(SessionModel).filter(query)
-        
+        let aday = realm.objects(SessionModel).filter(ModelsConstants.kGetDay, date)
         completion(sessions: aday)
     }
     
     func getSportWithId(_id: String, completion: (sport: Results<(SportModel)>) -> Void) {
-        
-        let aSport = realm.objects(SportModel).filter(kGetId, _id)
+        let aSport = realm.objects(SportModel).filter(ModelsConstants.kGetId, _id)
         completion(sport: aSport)
     }
     
     func getTeacherWithId(_id: String, completion: (teacher: Results<(TeacherModel)>) -> Void) {
-        
-        let aTeacher = realm.objects(TeacherModel).filter(kGetId, _id)
+        let aTeacher = realm.objects(TeacherModel).filter(ModelsConstants.kGetId, _id)
         completion(teacher: aTeacher)
     }
     
     func getSportDescriptionWithId(_id: String, completion: (description: Results<(SportDescriptionModel)>) -> Void) {
-        
-        let aSportDescription = realm.objects(SportDescriptionModel).filter(kGetId, _id)
+        let aSportDescription = realm.objects(SportDescriptionModel).filter(ModelsConstants.kGetId, _id)
         completion(description: aSportDescription)
     }
     
     func getObjectivesWithId(sport_id: String, completion: (objectives: Results<(ObjectiveModel)>) -> Void) {
-        
-        let objectives = realm.objects(ObjectiveModel).filter(kGetSportId, sport_id)
+        let objectives = realm.objects(ObjectiveModel).filter(ModelsConstants.kGetSportId, sport_id)
         completion(objectives: objectives)
     }
     
@@ -321,25 +255,25 @@ class RealmManager: NSObject {
     func returnFileAndObject(keyStubDetection: NSInteger, completion: (stub: String, keyStub: String) -> Void) {
         
         switch keyStubDetection{
-        
-        case stub_sessions:
-            completion(stub: kSessionsStub, keyStub: kSessionsObject);
-
-        case stub_teachers:
-            completion(stub: kTeachersStub, keyStub: kTeachersObject);
-
-        case stub_sports:
-            completion(stub: kSportsStub, keyStub: kSportsObject);
-
-        case stub_sportsDescription:
-            completion(stub: kSportsDescritpionsStub, keyStub: kSportsDescriptionsObject);
-
-        case stub_objectives:
-            completion(stub: kObjectivesStub, keyStub: kObjectivesObject);
-
-        case stub_news:
-            completion(stub: kNewsStub, keyStub: kNewsObject);
-
+            
+        case ModelsConstants.stub_sessions:
+            completion(stub: ModelsConstants.kSessionsStub, keyStub: ModelsConstants.kSessionsObject);
+            
+        case ModelsConstants.stub_teachers:
+            completion(stub: ModelsConstants.kTeachersStub, keyStub: ModelsConstants.kTeachersObject);
+            
+        case ModelsConstants.stub_sports:
+            completion(stub: ModelsConstants.kSportsStub, keyStub: ModelsConstants.kSportsObject);
+            
+        case ModelsConstants.stub_sportsDescription:
+            completion(stub: ModelsConstants.kSportsDescritpionsStub, keyStub: ModelsConstants.kSportsDescriptionsObject);
+            
+        case ModelsConstants.stub_objectives:
+            completion(stub: ModelsConstants.kObjectivesStub, keyStub: ModelsConstants.kObjectivesObject);
+            
+        case ModelsConstants.stub_news:
+            completion(stub: ModelsConstants.kNewsStub, keyStub: ModelsConstants.kNewsObject);
+            
         default:
             completion(stub: "", keyStub: "");
         }
@@ -348,7 +282,7 @@ class RealmManager: NSObject {
     // Transformation d'un stub en data JSON
     func groupsFromFile(fileName: String, object: String, completion: (result: JSON) -> Void) {
         
-        let path = NSBundle.mainBundle().pathForResource(fileName, ofType: kJsonExtension)
+        let path = NSBundle.mainBundle().pathForResource(fileName, ofType: ModelsConstants.kJsonExtension)
         let dataJson = NSData(contentsOfFile: path!)
         let json = JSON(data: dataJson!)
         completion(result: json[object])
