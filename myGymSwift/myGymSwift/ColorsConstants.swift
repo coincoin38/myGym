@@ -9,9 +9,17 @@
 struct ColorsConstants {
 
     static let selectionTabBarColor = "E9913B"
+    static let titleNewsCell        = "E9913B"
+
+    static let dayNewsCell = "78706A"
+    
     static let navBarTextDefaultColor = "000000"
+    static let bodyNewsCell          = "000000"
+
     static let navBarTextAlternColor = "FFFFFF"
     static let navBarBackgroundColor = "FFFFFF"
+    
     static let tableViewCellFullAttendanceColor = "B1BE9B"
+    
     static let tableViewCellLowAttendanceColor = "F0F0F0"
 }

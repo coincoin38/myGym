@@ -28,7 +28,14 @@ class NewsTableViewCell: UITableViewCell {
     func setData(news: NewsObject) {
         
         titleLabel?.text  = news.title
+        titleLabel?.textColor = FormaterManager.SharedInstance.uicolorFromHexa(ColorsConstants.selectionTabBarColor)
+
         bodyLabel?.text   = news.body
+        bodyLabel?.textColor = FormaterManager.SharedInstance.uicolorFromHexa(ColorsConstants.bodyNewsCell)
+
         dayLabel?.text    = news.day
+        dayLabel?.textColor    = FormaterManager.SharedInstance.uicolorFromHexa(ColorsConstants.dayNewsCell)
+
+
     }
 }
