@@ -29,35 +29,36 @@ class RealmManager: NSObject {
                     
                 case ModelsConstants.stub_sessions:
                     self.writeSessionsInDB(result)
+                    //print(self.getAllSessions())
                     
                 case ModelsConstants.stub_teachers:
                     self.writeTeachersInDB(result)
-                    
+                    //print(self.getAllTeachers())
+
                 case ModelsConstants.stub_sports:
                     self.writeSportsInDB(result)
-                    
+                    //print(self.getAllSports())
+
                 case ModelsConstants.stub_sportsDescription:
                     self.writeSportsDescriptionsInDB(result)
+                    //print(self.getAllSportsDescriptions())
 
                 case ModelsConstants.stub_objectives:
                     self.writeObjectivesInDB(result)
-                    
+                    //print(self.getAllObjectives())
+
                 case ModelsConstants.stub_news:
                     self.writeNewsInDB(result)
+                    //print(self.getAllNews())
 
                 default:
                     print("no stub for key %@",key)
                 }
-                
-                //print(self.getAllSessions())
-                //print(self.getAllTeachers())
-                //print(self.getAllSports())
-                //print(self.getAllSportsDescriptions())
-                //print(self.getAllObjectives())
-                //print(self.getAllNews())
             }
         }
     }
+
+    // MARK: - Ecriture d'objets dans la DB
 
     func writeSessionsInDB(result: JSON) {
         for object in result {
@@ -107,7 +108,7 @@ class RealmManager: NSObject {
         }
     }
     
-    // MARK: - Ajout d'objets
+    // MARK: - Génération d'objets
 
     // Création d'un objet sessionModel
     func generateSession(dictionary: JSON) -> SessionModel {
