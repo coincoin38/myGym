@@ -49,7 +49,7 @@
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dFP-Br-o3V" userLabel="Separator">
                         <rect key="frame" x="0.0" y="58" width="320" height="1"/>
-                        <color key="backgroundColor" red="0.1019607843" green="0.094117647060000004" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.47058823529411764" green="0.4392156862745098" blue="0.41568627450980389" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="ZUd-uF-DWD"/>
                         </constraints>

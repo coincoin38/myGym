@@ -14,7 +14,9 @@ struct ColorsConstants {
     static let dayNewsCell = "78706A"
     
     static let navBarTextDefaultColor = "000000"
-    static let bodyNewsCell          = "000000"
+    static let bodyNewsCellText          = "000000"
+    static let bodyNewsCellBackgroundDefault    = "FFFFFF"
+    static let bodyNewsCellBackgroundSelection  = "F0F0F0"
 
     static let navBarTextAlternColor = "FFFFFF"
     static let navBarBackgroundColor = "FFFFFF"
