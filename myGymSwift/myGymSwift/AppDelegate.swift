@@ -8,6 +8,7 @@
 
 import UIKit
 import JLToast
+import Alamofire
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,6 +24,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         JLToastView.setDefaultValue(50, forAttributeName: JLToastViewPortraitOffsetYAttributeName, userInterfaceIdiom: .Phone)
+
+        let parameters = [
+            "email":"admin@admin.com",
+            "password":"macprosqli"
+        ]
+        Alamofire.request(.POST, "https://85.168.192.242/api/users/login", parameters: parameters, encoding: .JSON) .responseJSON{ response in switch response.result {
+        case .Success(let JSON):
+            print("Success with JSON: \(JSON)")
+            
+        case .Failure(let error):
+            print("Request failed with error: \(error)")
+            }
+        }
+        
+        
+        Alamofire.request(.GET, "85.168.192.242/api/News?access_token=V1os3gxvoqrdEY8bMsCk3oV5wCkv2OeUmkXrU44ERyVaXmDlZx4G7W76LqV06KPE")
 
         return true
     }
