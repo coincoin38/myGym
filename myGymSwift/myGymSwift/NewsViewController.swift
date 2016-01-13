@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
 
@@ -31,8 +33,38 @@ class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataS
                 })
             }
         }
+        
+        let call       = NetworkConstants.ip_server+NetworkConstants.post_token
+        let parameters = NetworkConstants.login_parameters
+        
+        Alamofire.request(.POST, call, parameters: parameters, encoding: .JSON) .responseJSON{ response in switch response.result {
+        case .Success:
+            let credential = JSON(response.result.value!)
+            print("token : \(credential["id"])")
+            let token = credential["id"]
+            
+            self.getNewsWithToken(token.stringValue)
+            
+        case .Failure(let error):
+            print("Request failed with error: \(error)")
+            }
+        }
     }
     
+    func getNewsWithToken(token:String){
+        let trucMoche = NetworkConstants.ip_server+NetworkConstants.get_news+token+"&filter=%7B%20%22order%22%3A%20%22day%20DESC%22%7D"
+        print(trucMoche)
+        Alamofire.request(.GET,trucMoche).responseJSON{ response in switch response.result {
+        case .Success:
+            let news = JSON(response.result.value!)
+            print("news : \(news)")
+            
+        case .Failure(let error):
+            print("Request failed with error: \(error)")
+            }
+        }
+    }
+
     override func viewWillAppear(animated: Bool) {
         if !alreadyLoading{
             animateTable()

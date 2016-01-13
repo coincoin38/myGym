@@ -24,22 +24,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         JLToastView.setDefaultValue(50, forAttributeName: JLToastViewPortraitOffsetYAttributeName, userInterfaceIdiom: .Phone)
-
-        let parameters = [
-            "email":"admin@admin.com",
-            "password":"macprosqli"
-        ]
-        Alamofire.request(.POST, "https://85.168.192.242/api/users/login", parameters: parameters, encoding: .JSON) .responseJSON{ response in switch response.result {
-        case .Success(let JSON):
-            print("Success with JSON: \(JSON)")
+        
+        Alamofire.Manager.sharedInstance.delegate.sessionDidReceiveChallenge = { session, challenge in
+            var disposition: NSURLSessionAuthChallengeDisposition = .PerformDefaultHandling
+            var credential: NSURLCredential?
             
-        case .Failure(let error):
-            print("Request failed with error: \(error)")
+            if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust {
+                disposition = NSURLSessionAuthChallengeDisposition.UseCredential
+                credential = NSURLCredential(forTrust: challenge.protectionSpace.serverTrust!)
+            } else {
+                if challenge.previousFailureCount > 0 {
+                    disposition = .CancelAuthenticationChallenge
+                } else {
+                    credential = Alamofire.Manager.sharedInstance.session.configuration.URLCredentialStorage?.defaultCredentialForProtectionSpace(challenge.protectionSpace)
+                    
+                    if credential != nil {
+                        disposition = .UseCredential
+                    }
+                }
             }
+            
+            return (disposition, credential)
         }
+
         
-        
-        Alamofire.request(.GET, "85.168.192.242/api/News?access_token=V1os3gxvoqrdEY8bMsCk3oV5wCkv2OeUmkXrU44ERyVaXmDlZx4G7W76LqV06KPE")
+        //Alamofire.request(.GET, "85.168.192.242/api/News?access_token=V1os3gxvoqrdEY8bMsCk3oV5wCkv2OeUmkXrU44ERyVaXmDlZx4G7W76LqV06KPE")
 
         return true
     }
