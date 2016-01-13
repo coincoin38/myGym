@@ -11,6 +11,7 @@ struct NetworkConstants {
     static let ip_server  = "https://85.168.192.242"
     static let post_token = "/api/users/login"
     static let get_news   = "/api/News?access_token="
+    static let order_news = "&filter=%7B%20%22order%22%3A%20%22day%20DESC%22%7D"
     static let login_parameters = [
         "email":"admin@admin.com",
         "password":"macprosqli"
