@@ -12,7 +12,7 @@ class ObjectivesObject: NSObject {
 
     func setObjectives(sport: SportObject, completion: (objectivesObject: Array<ObjectiveObject>) -> Void) {
         
-        RealmManager.SharedInstance.getObjectivesWithId(sport._id, completion: { (objectives) -> Void in
+        RealmManager.SharedInstance.getObjectivesWithSportId(sport._id, completion: { (objectives) -> Void in
 
             var objectivesArray: Array<ObjectiveObject> = Array<ObjectiveObject>()
 

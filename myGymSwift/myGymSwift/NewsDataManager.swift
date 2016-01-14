@@ -20,7 +20,6 @@ class NewsDataManager: NSObject {
                 
                 AlamofireManager.SharedInstance.getOrderedNews({ (news) -> Void in
                     RealmManager.SharedInstance.feedDataBaseWithWS(5, json: news, completion: { (isOk) -> Void in
-                        
                         if isOk{
                             RealmManager.SharedInstance.getAllNews { (news) -> Void in
                                 

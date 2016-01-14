@@ -33,6 +33,7 @@ struct ModelsConstants {
     static let kDay            = "day"
     static let kSport_id       = "sport_id"
     static let k_id            = "_id"
+    static let kId            = "id"
     static let kFrom           = "from"
     static let kDuration       = "duration"
     static let kLocation       = "location"

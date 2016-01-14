@@ -17,35 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        RealmManager.SharedInstance.cleanDb()
-        
-        /*for var index = 0; index < 6; ++index {
-            RealmManager.SharedInstance.feedDataBaseWithFile(index)
-        }*/
-        
+        // RealmManager.SharedInstance.cleanDb()
+        RealmManager.SharedInstance.startFeed()
+        AlamofireManager.SharedInstance.setChallenge()
         JLToastView.setDefaultValue(50, forAttributeName: JLToastViewPortraitOffsetYAttributeName, userInterfaceIdiom: .Phone)
-        
-        Alamofire.Manager.sharedInstance.delegate.sessionDidReceiveChallenge = { session, challenge in
-            var disposition: NSURLSessionAuthChallengeDisposition = .PerformDefaultHandling
-            var credential: NSURLCredential?
-            
-            if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust {
-                disposition = NSURLSessionAuthChallengeDisposition.UseCredential
-                credential = NSURLCredential(forTrust: challenge.protectionSpace.serverTrust!)
-            } else {
-                if challenge.previousFailureCount > 0 {
-                    disposition = .CancelAuthenticationChallenge
-                } else {
-                    credential = Alamofire.Manager.sharedInstance.session.configuration.URLCredentialStorage?.defaultCredentialForProtectionSpace(challenge.protectionSpace)
-                    
-                    if credential != nil {
-                        disposition = .UseCredential
-                    }
-                }
-            }
-            
-            return (disposition, credential)
-        }
 
         return true
     }

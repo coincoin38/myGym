@@ -18,6 +18,12 @@ class RealmManager: NSObject {
     
     // MARK: - Generateur d'objets
     
+    func startFeed(){
+        for var index = 0; index < 6; ++index {
+            RealmManager.SharedInstance.feedDataBaseWithFile(index)
+        }
+    }
+    
     // Remplissage de la base de données avec les stubs
     func feedDataBaseWithFile(key: NSInteger) {
         
@@ -88,45 +94,67 @@ class RealmManager: NSObject {
     func writeSessionsInDB(result: JSON) {
         for object in result {
             let newObject = self.generateSession(object.1)
-            writeData(newObject)
+            getSessionWithId(newObject._id, completion: { (session) -> Void in
+                if (session.count==0){
+                    self.writeData(newObject)
+                }
+            })
         }
     }
     
     func writeTeachersInDB(result: JSON) {
         for object in result {
             let newObject = self.generateTeacher(object.1)
-            writeData(newObject)
+            getTeacherWithId(newObject._id, completion: { (teacher) -> Void in
+                if (teacher.count==0){
+                    self.writeData(newObject)
+                }
+            })
         }
     }
     
     func writeSportsInDB(result: JSON) {
         for object in result {
             let newObject = self.generateSport(object.1)
-            writeData(newObject)
+            getSportWithId(newObject._id, completion: { (sport) -> Void in
+                if (sport.count==0){
+                    self.writeData(newObject)
+                }
+            })
         }
     }
     
     func writeSportsDescriptionsInDB(result: JSON) {
         for object in result {
             let newObject = self.generateSportDescription(object.1)
-            writeData(newObject)
+            getSportDescriptionWithId(newObject._id, completion: { (description) -> Void in
+                if (description.count==0){
+                    self.writeData(newObject)
+                }
+            })
         }
     }
     
     func writeObjectivesInDB(result: JSON) {
         for object in result {
             let newObject = self.generateObjectives(object.1)
-            writeData(newObject)
+            getObjectivesWithId(newObject._id, completion: { (objectives) -> Void in
+                if (objectives.count==0){
+                    self.writeData(newObject)
+                }
+            })
         }
     }
     
     func writeNewsInDB(result: JSON) {
         for object in result {
             let newObject = self.generateNews(object.1)
-            writeData(newObject)
+            getNewsWithId(newObject._id, completion: { (news) -> Void in
+                if (news.count==0){
+                    self.writeData(newObject)
+                }
+            })
         }
-        //print(self.getAllNews())
-
     }
     
     func writeData(object:Object){
@@ -205,7 +233,7 @@ class RealmManager: NSObject {
         let date = FormaterManager.SharedInstance.formatServerDateFromString(dictionary[ModelsConstants.kDay].stringValue)
 
         let news = NewsModel()
-        news._id   = dictionary[ModelsConstants.k_id].stringValue
+        news._id   = dictionary[ModelsConstants.kId].stringValue
         news.title = dictionary[ModelsConstants.kTitle].stringValue
         news._description  = dictionary[ModelsConstants.kDescription].stringValue
         news.day   = date
@@ -250,6 +278,11 @@ class RealmManager: NSObject {
         completion(sessions: aday)
     }
     
+    func getSessionWithId(_id: String, completion: (session: Results<(SessionModel)>) -> Void) {
+        let aSession = realm.objects(SessionModel).filter(ModelsConstants.kGetId, _id)
+        completion(session: aSession)
+    }
+    
     func getSportWithId(_id: String, completion: (sport: Results<(SportModel)>) -> Void) {
         let aSport = realm.objects(SportModel).filter(ModelsConstants.kGetId, _id)
         completion(sport: aSport)
@@ -265,9 +298,19 @@ class RealmManager: NSObject {
         completion(description: aSportDescription)
     }
     
-    func getObjectivesWithId(sport_id: String, completion: (objectives: Results<(ObjectiveModel)>) -> Void) {
+    func getObjectivesWithId(_id: String, completion: (objectives: Results<(ObjectiveModel)>) -> Void) {
+        let objectives = realm.objects(ObjectiveModel).filter(ModelsConstants.kGetId, _id)
+        completion(objectives: objectives)
+    }
+    
+    func getObjectivesWithSportId(sport_id: String, completion: (objectives: Results<(ObjectiveModel)>) -> Void) {
         let objectives = realm.objects(ObjectiveModel).filter(ModelsConstants.kGetSportId, sport_id)
         completion(objectives: objectives)
+    }
+    
+    func getNewsWithId(news_id: String, completion: (news: Results<(NewsModel)>) -> Void) {
+        let aNews = realm.objects(NewsModel).filter(ModelsConstants.kGetId, news_id)
+        completion(news: aNews)
     }
     
     // MARK: - Suppression de la base de données

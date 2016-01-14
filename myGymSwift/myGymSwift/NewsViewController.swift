@@ -11,9 +11,11 @@ import Alamofire
 
 class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
 
-    var newsArray: Array<NewsObject> = Array<NewsObject>()
     let cellIdentifier = "newsIdentifier"
     let cellXib = "NewsTableViewCell"
+    var refreshControl:UIRefreshControl!
+    
+    var newsArray: Array<NewsObject> = Array<NewsObject>()
     let newsDataManager = NewsDataManager()
     
     @IBOutlet weak var tableView: UITableView?
@@ -21,15 +23,34 @@ class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView?.registerNib(UINib(nibName: cellXib, bundle: nil), forCellReuseIdentifier: cellIdentifier)
+        setIHM()
+        getNews()
+    }
+    
+    func setIHM(){
         
+        tableView?.registerNib(UINib(nibName: cellXib, bundle: nil), forCellReuseIdentifier: cellIdentifier)
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Relâcher pour rafraîchir")
+        self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        tableView?.addSubview(refreshControl)
+    }
+    
+    func getNews(){
+    
         newsDataManager.getNewsOrdered { (newsArray) -> Void in
             self.newsArray = newsArray
             self.tableView?.reloadData()
             let range = NSMakeRange(0, 1)
             let sections = NSIndexSet(indexesInRange: range)
             self.tableView?.reloadSections(sections, withRowAnimation: .Fade)
+            self.refreshControl.endRefreshing()
         }
+    }
+    
+    func refresh(sender:AnyObject)
+    {
+        getNews()
     }
     
     // MARK: - TableView delegate
