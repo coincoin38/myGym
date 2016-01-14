@@ -21,7 +21,7 @@ class NewsObject: NSObject {
         
         fullNews._id               = news._id
         fullNews.title             = news.title
-        fullNews.body              = news.body
+        fullNews.body              = news._description
         fullNews.day               = FormaterManager.SharedInstance.formatMMddFromDate(news.day)
 
         completion(newsObject: fullNews)

@@ -14,7 +14,7 @@ class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     var newsArray: Array<NewsObject> = Array<NewsObject>()
     let cellIdentifier = "newsIdentifier"
     let cellXib = "NewsTableViewCell"
-    var alreadyLoading: Bool = Bool()
+    let newsDataManager = NewsDataManager()
     
     @IBOutlet weak var tableView: UITableView?
 
@@ -23,55 +23,13 @@ class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         
         tableView?.registerNib(UINib(nibName: cellXib, bundle: nil), forCellReuseIdentifier: cellIdentifier)
         
-        // BDD Realm
-        RealmManager.SharedInstance.getAllNews { (news) -> Void in
-            
-            for new in news {
-                let newsObject = NewsObject()
-                
-                newsObject.setNewsForCell(new, completion: { (newsObject) -> Void in
-                    self.newsArray.append(newsObject)
-                })
-            }
+        newsDataManager.getNewsOrdered { (newsArray) -> Void in
+            self.newsArray = newsArray
+            self.tableView?.reloadData()
+            let range = NSMakeRange(0, 1)
+            let sections = NSIndexSet(indexesInRange: range)
+            self.tableView?.reloadSections(sections, withRowAnimation: .Fade)
         }
-
-        // WS Alamofire
-        AlamofireManager.SharedInstance.getToken { (Bool) -> Void in
-            if Bool{
-                AlamofireManager.SharedInstance.getOrderedNews({ (news) -> Void in
-                    print(news)
-                })
-            }
-        }
-    }
-
-    override func viewWillAppear(animated: Bool) {
-        if !alreadyLoading{
-            animateTable()
-        }
-    }
-    
-    func animateTable() {
-        
-        let cells = tableView!.visibleCells
-        let tableHeight: CGFloat = tableView!.bounds.size.height
-        
-        for i in cells {
-            let cell: UITableViewCell = i as UITableViewCell
-            cell.transform = CGAffineTransformMakeTranslation(0, tableHeight)
-        }
-        
-        var index = 0
-        
-        for a in cells {
-            let cell: UITableViewCell = a as UITableViewCell
-            UIView.animateWithDuration(1.25, delay: 0.05 * Double(index), usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: [], animations: {
-                cell.transform = CGAffineTransformMakeTranslation(0, 0);
-                }, completion: nil)
-            
-            index += 1
-        }
-        alreadyLoading = true
     }
     
     // MARK: - TableView delegate

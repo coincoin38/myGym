@@ -11,7 +11,8 @@ import UIKit
 class FormaterManager: NSObject {
 
     static let SharedInstance = FormaterManager()
-    let yyyMMdd = "yyy-MM-dd"
+    let yyyyMMdd = "yyyy-MM-dd"
+    let formatServerDate = "yyyy-MM-dd'T'HH:mm:ss'.'SSSZ"
     let EEEE_dd = "EEEE dd"
     let dd_MM = "dd/MM"
 
@@ -25,9 +26,20 @@ class FormaterManager: NSObject {
     func formatyyyMMddFromString(dateString: String) -> NSDate {
 
         let formatter = NSDateFormatter()
-        formatter.dateFormat = yyyMMdd
+        formatter.dateFormat = yyyyMMdd
         //formatter.timeZone = NSTimeZone(abbreviation: "UTC")
 
+        let dateFromString: NSDate = formatter.dateFromString(dateString)!
+        
+        return dateFromString
+    }
+    
+    func formatServerDateFromString(dateString: String) -> NSDate {
+        
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = formatServerDate
+        //formatter.timeZone = NSTimeZone(abbreviation: "UTC")
+        
         let dateFromString: NSDate = formatter.dateFromString(dateString)!
         
         return dateFromString

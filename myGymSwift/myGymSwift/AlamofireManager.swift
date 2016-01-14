@@ -28,7 +28,7 @@ class AlamofireManager: NSObject {
             
                 case .Success:
                     let credential = JSON(response.result.value!)
-                    print("token : \(credential["id"])")
+                    //print("token : \(credential["id"])")
                     self.token = credential["id"].stringValue
                     completion(true)
                 
@@ -39,20 +39,19 @@ class AlamofireManager: NSObject {
         }
     }
     
-    func getOrderedNews(completion: (news: Array<(NewsObject)>) -> Void) {
+    func getOrderedNews(completion: (news: JSON) -> Void) {
 
         let uri = get_news+token+get_ordered_news
         Alamofire.request(.GET,uri).responseJSON{
             
             response in switch response.result {
                 case .Success:
-                    let news = JSON(response.result.value!)
-                    print("news : \(news)")
-            
+                    completion(news:JSON(response.result.value!))
+                
                 case .Failure(let error):
                     print("Request failed with error: \(error)")
+                    completion(news:[])
             }
         }
-        completion(news:[])
     }
 }

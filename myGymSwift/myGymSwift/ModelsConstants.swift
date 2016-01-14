@@ -41,6 +41,7 @@ struct ModelsConstants {
     static let kName           = "name"
     static let kFirst_name     = "first_name"
     static let k_description   = "_description"
+    static let kDescription   = "description"
     static let kDescription_id = "description_id"
     static let kContent        = "content"
     static let kFirstPart      = "firstPart"

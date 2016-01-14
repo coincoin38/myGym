@@ -18,7 +18,7 @@ class RealmManager: NSObject {
     
     // MARK: - Generateur d'objets
     
-    // Remplissage de la base de données
+    // Remplissage de la base de données avec les stubs
     func feedDataBaseWithFile(key: NSInteger) {
         
         returnFileAndObject(key) { (stub, keyStub) -> Void in
@@ -42,15 +42,46 @@ class RealmManager: NSObject {
                 case ModelsConstants.stub_objectives:
                     self.writeObjectivesInDB(result)
                     //print(self.getAllObjectives())
-                case ModelsConstants.stub_news:
+                /*case ModelsConstants.stub_news:
                     self.writeNewsInDB(result)
-                    //print(self.getAllNews())
+                    //print(self.getAllNews())*/
                 default:
                     print("no stub for key %@",key)
                 }
             }
         }
     }
+    
+    // Remplissage de la base de données avec les WS
+    func feedDataBaseWithWS(key: NSInteger,json:JSON, completion:(bool:Bool) -> Void) {
+        
+            switch key {
+                
+            case ModelsConstants.stub_sessions:
+                self.writeSessionsInDB(json)
+                //print(self.getAllSessions())
+            case ModelsConstants.stub_teachers:
+                self.writeTeachersInDB(json)
+                //print(self.getAllTeachers())
+            case ModelsConstants.stub_sports:
+                self.writeSportsInDB(json)
+                //print(self.getAllSports())
+            case ModelsConstants.stub_sportsDescription:
+                self.writeSportsDescriptionsInDB(json)
+                //print(self.getAllSportsDescriptions())
+            case ModelsConstants.stub_objectives:
+                self.writeObjectivesInDB(json)
+                //print(self.getAllObjectives())
+            case ModelsConstants.stub_news:
+                self.writeNewsInDB(json)
+                completion(bool: true)
+                //print(self.getAllNews())
+            default:
+                print("no ws for key %@",key)
+                completion(bool: false)
+            }
+    }
+
 
     // MARK: - Ecriture d'objets dans la DB
 
@@ -94,6 +125,8 @@ class RealmManager: NSObject {
             let newObject = self.generateNews(object.1)
             writeData(newObject)
         }
+        //print(self.getAllNews())
+
     }
     
     func writeData(object:Object){
@@ -169,12 +202,12 @@ class RealmManager: NSObject {
     // Création d'un objet sportModel
     func generateNews(dictionary: JSON) -> NewsModel {
         
-        let date = FormaterManager.SharedInstance.formatyyyMMddFromString(dictionary[ModelsConstants.kDay].stringValue)
+        let date = FormaterManager.SharedInstance.formatServerDateFromString(dictionary[ModelsConstants.kDay].stringValue)
 
         let news = NewsModel()
         news._id   = dictionary[ModelsConstants.k_id].stringValue
         news.title = dictionary[ModelsConstants.kTitle].stringValue
-        news.body  = dictionary[ModelsConstants.kBody].stringValue
+        news._description  = dictionary[ModelsConstants.kDescription].stringValue
         news.day   = date
         return news
     }

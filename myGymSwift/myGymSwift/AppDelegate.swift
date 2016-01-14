@@ -19,9 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         RealmManager.SharedInstance.cleanDb()
         
-        for var index = 0; index < 6; ++index {
+        /*for var index = 0; index < 6; ++index {
             RealmManager.SharedInstance.feedDataBaseWithFile(index)
-        }
+        }*/
         
         JLToastView.setDefaultValue(50, forAttributeName: JLToastViewPortraitOffsetYAttributeName, userInterfaceIdiom: .Phone)
         
@@ -46,9 +46,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             return (disposition, credential)
         }
-
-        
-        //Alamofire.request(.GET, "85.168.192.242/api/News?access_token=V1os3gxvoqrdEY8bMsCk3oV5wCkv2OeUmkXrU44ERyVaXmDlZx4G7W76LqV06KPE")
 
         return true
     }

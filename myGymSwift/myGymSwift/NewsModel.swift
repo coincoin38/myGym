@@ -13,6 +13,6 @@ class NewsModel: Object {
     
     dynamic var _id = ""
     dynamic var title = ""
-    dynamic var body = ""
+    dynamic var _description = ""
     dynamic var day = NSDate()
 }
