@@ -15,9 +15,10 @@ class AlamofireManager: NSObject {
     
     var token = ""
     
-    let login_params = NetworkConstants.login_parameters
-    let post_token   = NetworkConstants.ip_server+NetworkConstants.post_token
-    let ordered_news = NetworkConstants.ip_server+NetworkConstants.get_news+"%@"+NetworkConstants.order_news
+    let login_params     = NetworkConstants.login_parameters
+    let post_token       = NetworkConstants.ip_server+NetworkConstants.post_token
+    let get_news         = NetworkConstants.ip_server+NetworkConstants.get_news
+    let get_ordered_news = NetworkConstants.order_news
 
     func getToken(completion: (Bool) -> Void) {
         
@@ -40,7 +41,8 @@ class AlamofireManager: NSObject {
     
     func getOrderedNews(completion: (news: Array<(NewsObject)>) -> Void) {
 
-        Alamofire.request(.GET,String(format:ordered_news,token)).responseJSON{
+        let uri = get_news+token+get_ordered_news
+        Alamofire.request(.GET,uri).responseJSON{
             
             response in switch response.result {
                 case .Success:
