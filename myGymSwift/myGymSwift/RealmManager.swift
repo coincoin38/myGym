@@ -59,7 +59,7 @@ class RealmManager: NSObject {
     }
     
     // Remplissage de la base de données avec les WS
-    func feedDataBaseWithWS(key: NSInteger,json:JSON, completion:(bool:Bool) -> Void) {
+    func writeDataFromWS(key: NSInteger,json:JSON, completion:(bool:Bool) -> Void) {
         
             switch key {
                 
@@ -267,9 +267,20 @@ class RealmManager: NSObject {
         return realm.objects(ObjectiveModel)
     }
     
-    func getAllNews(completion: (news: Results<(NewsModel)>) -> Void) {
+    func getAllNewsFromDB(completion: (news: Array<NewsObject>) -> Void) {
         let news = realm.objects(NewsModel)
-        completion(news: news)
+        var newsArray: Array<NewsObject> = Array<NewsObject>()
+        
+        for new in news {
+            let newsObject = NewsObject()
+            
+            newsObject.setNewsForCell(new, completion: { (newsObject) -> Void in
+                
+                newsArray.append(newsObject)
+                
+            })
+        }
+        completion(news: newsArray)
     }
     
     // MARK : - Recherches

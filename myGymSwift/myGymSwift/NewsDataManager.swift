@@ -7,53 +7,49 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 class NewsDataManager: NSObject {
-
-    var newsArray: Array<NewsObject> = Array<NewsObject>()
-
+    
     func getNewsOrdered(completion: (newsArray: Array<NewsObject>) -> Void){
         
+        // Récupération du token
         AlamofireManager.SharedInstance.getToken { (isTokenOK) -> Void in
             
             if isTokenOK{
                 
-                AlamofireManager.SharedInstance.getOrderedNews({ (news) -> Void in
-                    RealmManager.SharedInstance.feedDataBaseWithWS(5, json: news, completion: { (isOk) -> Void in
-                        if isOk{
-                            RealmManager.SharedInstance.getAllNews { (news) -> Void in
-                                
-                                for new in news {
-                                    let newsObject = NewsObject()
-                                    
-                                    newsObject.setNewsForCell(new, completion: { (newsObject) -> Void in
-                                        self.newsArray.append(newsObject)
-                                    })
-                                }
-                                RealmManager.SharedInstance.getAllNews({ (news) -> Void in
-                                    //print(news)
-                                    completion(newsArray: self.newsArray)
-                                })
-                            }
-                        }
+                AlamofireManager.SharedInstance.downloadOrderedNews({ (news) -> Void in
+                    
+                    self.feedDBWithDownloadedNews(news, completion: { (newsFromDB) -> Void in
+                        completion(newsArray: newsFromDB)
                     })
+                })
+            }
+            else{
+                
+                self.getNewsfromDB({ (newsFromDB) -> Void in
+                    completion(newsArray: newsFromDB)
                 })
             }
         }
     }
     
-    func getNewsOrderedFromStubs(completion: (newsArray: Array<NewsObject>) -> Void){
+    func feedDBWithDownloadedNews(news: JSON,completion: (newsArray: Array<NewsObject>) -> Void){
         
-        RealmManager.SharedInstance.getAllNews { (news) -> Void in
+        RealmManager.SharedInstance.writeDataFromWS(5, json: news, completion: { (isOk) -> Void in
             
-            for new in news {
-                let newsObject = NewsObject()
-                
-                newsObject.setNewsForCell(new, completion: { (newsObject) -> Void in
-                    self.newsArray.append(newsObject)
+            if isOk{
+                self.getNewsfromDB({ (newsFromDB) -> Void in
+                    completion(newsArray: newsFromDB)
                 })
             }
+        })
+    }
+    
+    func getNewsfromDB(completion: (newsArray: Array<NewsObject>) -> Void){
+        
+        RealmManager.SharedInstance.getAllNewsFromDB { (news) -> Void in
+            completion(newsArray:news)
         }
-        completion(newsArray: self.newsArray)
     }
 }

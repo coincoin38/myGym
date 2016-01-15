@@ -69,7 +69,7 @@ class AlamofireManager: NSObject {
         }
     }
     
-    func getOrderedNews(completion: (news: JSON) -> Void) {
+    func downloadOrderedNews(completion: (news: JSON) -> Void) {
 
         let uri = get_news+token+get_ordered_news
         Alamofire.request(.GET,uri).responseJSON{
