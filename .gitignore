@@ -62,4 +62,4 @@ fastlane/report.xml
 fastlane/screenshots
 
 #Classes
-.NetworkConstants.swift
+NetworkConstants.swift
