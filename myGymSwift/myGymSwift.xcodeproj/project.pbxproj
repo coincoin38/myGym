@@ -38,7 +38,6 @@
 		13D0242F1C148F9300A977AC /* SessionObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D0242E1C148F9300A977AC /* SessionObject.swift */; };
 		13E3DB321C2D47000020372D /* ObjectiveObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E3DB311C2D47000020372D /* ObjectiveObject.swift */; };
 		13E68F561C0B8B6A00CDCDD0 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E68F551C0B8B6A00CDCDD0 /* RealmManager.swift */; };
-		380E15CD1C46A789006A75DD /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380E15CC1C46A789006A75DD /* NetworkConstants.swift */; };
 		380E15CF1C46A9F0006A75DD /* AlamofireManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380E15CE1C46A9F0006A75DD /* AlamofireManager.swift */; };
 		380E15D11C47B5BB006A75DD /* NewsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380E15D01C47B5BB006A75DD /* NewsDataManager.swift */; };
 		38210E6F1C24177B0001A4CE /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38210E6E1C24177B0001A4CE /* MainTabBarViewController.swift */; };
@@ -89,7 +88,6 @@
 		13D0242E1C148F9300A977AC /* SessionObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionObject.swift; sourceTree = "<group>"; };
 		13E3DB311C2D47000020372D /* ObjectiveObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectiveObject.swift; sourceTree = "<group>"; };
 		13E68F551C0B8B6A00CDCDD0 /* RealmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
-		380E15CC1C46A789006A75DD /* NetworkConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
 		380E15CE1C46A9F0006A75DD /* AlamofireManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireManager.swift; sourceTree = "<group>"; };
 		380E15D01C47B5BB006A75DD /* NewsDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDataManager.swift; sourceTree = "<group>"; };
 		38210E6E1C24177B0001A4CE /* MainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
@@ -169,7 +167,6 @@
 				13CE08C91C2ABFB6009BC5E9 /* ImagesConstants.swift */,
 				13CE08CB1C2AC209009BC5E9 /* ColorsConstants.swift */,
 				38F943B91C3FA05200643571 /* ModelsConstants.swift */,
-				380E15CC1C46A789006A75DD /* NetworkConstants.swift */,
 			);
 			name = Constans;
 			sourceTree = "<group>";
@@ -445,7 +442,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				380E15CD1C46A789006A75DD /* NetworkConstants.swift in Sources */,
 				380E15D11C47B5BB006A75DD /* NewsDataManager.swift in Sources */,
 				1376A5FA1C09F1C2000AA652 /* SessionsViewController.swift in Sources */,
 				13616EB11C2C1D6D00DC459A /* SportDescriptionModel.swift in Sources */,
