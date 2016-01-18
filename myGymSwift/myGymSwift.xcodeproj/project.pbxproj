@@ -45,6 +45,7 @@
 		3825E6781C24515C00F589FA /* SportCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3825E6761C24515C00F589FA /* SportCollectionViewCell.swift */; };
 		3825E6791C24515C00F589FA /* SportCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3825E6771C24515C00F589FA /* SportCollectionViewCell.xib */; };
 		3825E67B1C2453C200F589FA /* SportObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3825E67A1C2453C200F589FA /* SportObject.swift */; };
+		3865A5271C4D101E00D7F82B /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3865A5261C4D101E00D7F82B /* NetworkConstants.swift */; };
 		387666031C28383600DE8A62 /* SportDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387666021C28383600DE8A62 /* SportDetailsViewController.swift */; };
 		387B1AB41C2961C1004FAA16 /* NavBarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387B1AB31C2961C1004FAA16 /* NavBarManager.swift */; };
 		387B1AB61C296FBC004FAA16 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 387B1AB51C296FBC004FAA16 /* Localizable.strings */; };
@@ -95,6 +96,7 @@
 		3825E6761C24515C00F589FA /* SportCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SportCollectionViewCell.swift; sourceTree = "<group>"; };
 		3825E6771C24515C00F589FA /* SportCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SportCollectionViewCell.xib; sourceTree = "<group>"; };
 		3825E67A1C2453C200F589FA /* SportObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SportObject.swift; sourceTree = "<group>"; };
+		3865A5261C4D101E00D7F82B /* NetworkConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
 		387666021C28383600DE8A62 /* SportDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SportDetailsViewController.swift; sourceTree = "<group>"; };
 		387B1AB31C2961C1004FAA16 /* NavBarManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavBarManager.swift; sourceTree = "<group>"; };
 		387B1AB51C296FBC004FAA16 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				13CE08C91C2ABFB6009BC5E9 /* ImagesConstants.swift */,
 				13CE08CB1C2AC209009BC5E9 /* ColorsConstants.swift */,
 				38F943B91C3FA05200643571 /* ModelsConstants.swift */,
+				3865A5261C4D101E00D7F82B /* NetworkConstants.swift */,
 			);
 			name = Constans;
 			sourceTree = "<group>";
@@ -445,6 +448,7 @@
 				380E15D11C47B5BB006A75DD /* NewsDataManager.swift in Sources */,
 				1376A5FA1C09F1C2000AA652 /* SessionsViewController.swift in Sources */,
 				13616EB11C2C1D6D00DC459A /* SportDescriptionModel.swift in Sources */,
+				3865A5271C4D101E00D7F82B /* NetworkConstants.swift in Sources */,
 				13E68F561C0B8B6A00CDCDD0 /* RealmManager.swift in Sources */,
 				387B1AB91C2990CA004FAA16 /* ObjectiveCollectionViewCell.swift in Sources */,
 				38F943571C3D2A3900643571 /* NewsModel.swift in Sources */,

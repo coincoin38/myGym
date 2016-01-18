@@ -83,7 +83,7 @@ class RealmManager: NSObject {
                 completion(bool: true)
                 //print(self.getAllNews())
             default:
-                print("no ws for key %@",key)
+                //print("no ws for key %@",key)
                 completion(bool: false)
             }
     }

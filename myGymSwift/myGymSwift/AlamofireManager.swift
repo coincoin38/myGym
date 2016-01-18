@@ -47,22 +47,21 @@ class AlamofireManager: NSObject {
     
     func getToken(completion: (Bool) -> Void) {
         if (self.token != ""){
-           completion(true)
+            completion(true)
         }
         else{
+            print("Authentification : \(post_token)...")
             Alamofire.request(.POST, post_token, parameters: login_params, encoding: .JSON) .responseJSON{
-                
-                response in switch response.result {
-                    
-                case .Success:
+                response in
+                if response.response!.statusCode == 200 {
                     let credential = JSON(response.result.value!)
                     print("Token ok")
-                    //print("token : \(credential["id"])")
+                    //print("...Token ok: \(credential)")
                     self.token = credential["id"].stringValue
                     completion(true)
                     
-                case .Failure(let error):
-                    print("Request failed with error: \(error)")
+                } else {
+                    print("Request failed with error: \(response.response!.statusCode)")
                     completion(false)
                 }
             }
@@ -70,18 +69,18 @@ class AlamofireManager: NSObject {
     }
     
     func downloadOrderedNews(completion: (news: JSON) -> Void) {
-
-        let uri = get_news+token+get_ordered_news
-        Alamofire.request(.GET,uri).responseJSON{
-            
-            response in switch response.result {
-                case .Success:
-                    print("News ok")
-                    completion(news:JSON(response.result.value!))
-                
-                case .Failure(let error):
-                    print("Request failed with error: \(error)")
-                    completion(news:[])
+       
+        let uriNews = get_news+token+get_ordered_news
+        //print("Get news : \(uriNews)...")
+        Alamofire.request(.GET,uriNews).responseJSON{
+            response in
+            if response.response!.statusCode == 200 {
+                print("News ok")
+                //print("...News ok : \(response.result.value)")
+                completion(news:JSON(response.result.value!))
+            } else {
+                print("Request failed with error: \(response.response!.statusCode)")
+                completion(news:[])
             }
         }
     }
