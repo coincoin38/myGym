@@ -72,6 +72,17 @@ class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.performSegueWithIdentifier(kShowDetailNews, sender: self)
     }
+    
+    // MARK: - Navigation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if(segue.identifier == kShowDetailNews) {
+            let ndvc = segue.destinationViewController as! NewsDetailsViewController
+            ndvc.news = newsArray[(tableView?.indexPathForSelectedRow?.row)!]
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

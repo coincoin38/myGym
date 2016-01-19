@@ -40,7 +40,6 @@ class AlamofireManager: NSObject {
                     }
                 }
             }
-            
             return (disposition, credential)
         }
     }
@@ -70,6 +69,7 @@ class AlamofireManager: NSObject {
                     }
                 case .Failure(let error):
                     print("Request failed with error: \(error)")
+                    completion(false)
                 }
             }
         }

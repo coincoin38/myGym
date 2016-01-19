@@ -23,12 +23,12 @@ class NewsTableViewCell: UITableViewCell {
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        if selected{
+        /*if selected{
             backgroundColor = FormaterManager.SharedInstance.uicolorFromHexa(ColorsConstants.bodyNewsCellBackgroundSelection)
         }
         else{
             backgroundColor = FormaterManager.SharedInstance.uicolorFromHexa(ColorsConstants.bodyNewsCellBackgroundDefault)
-        }
+        }*/
     }
     
     override func setHighlighted(highlighted: Bool, animated: Bool) {

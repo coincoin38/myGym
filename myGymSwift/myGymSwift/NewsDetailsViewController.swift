@@ -9,7 +9,13 @@
 import UIKit
 
 class NewsDetailsViewController: UIViewController {
+    
+    var news: NewsObject = NewsObject()
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
     override func viewWillAppear(animated: Bool) {
         navigationController?.setNavigationBarHidden(navigationController?.navigationBarHidden == false, animated: true)
     }
