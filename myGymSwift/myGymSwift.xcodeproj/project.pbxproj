@@ -46,6 +46,7 @@
 		3825E6791C24515C00F589FA /* SportCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3825E6771C24515C00F589FA /* SportCollectionViewCell.xib */; };
 		3825E67B1C2453C200F589FA /* SportObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3825E67A1C2453C200F589FA /* SportObject.swift */; };
 		3865A5271C4D101E00D7F82B /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3865A5261C4D101E00D7F82B /* NetworkConstants.swift */; };
+		3865A5291C4E46B400D7F82B /* NewsDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3865A5281C4E46B400D7F82B /* NewsDetailsViewController.swift */; };
 		387666031C28383600DE8A62 /* SportDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387666021C28383600DE8A62 /* SportDetailsViewController.swift */; };
 		387B1AB41C2961C1004FAA16 /* NavBarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387B1AB31C2961C1004FAA16 /* NavBarManager.swift */; };
 		387B1AB61C296FBC004FAA16 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 387B1AB51C296FBC004FAA16 /* Localizable.strings */; };
@@ -97,6 +98,7 @@
 		3825E6771C24515C00F589FA /* SportCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SportCollectionViewCell.xib; sourceTree = "<group>"; };
 		3825E67A1C2453C200F589FA /* SportObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SportObject.swift; sourceTree = "<group>"; };
 		3865A5261C4D101E00D7F82B /* NetworkConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
+		3865A5281C4E46B400D7F82B /* NewsDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailsViewController.swift; sourceTree = "<group>"; };
 		387666021C28383600DE8A62 /* SportDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SportDetailsViewController.swift; sourceTree = "<group>"; };
 		387B1AB31C2961C1004FAA16 /* NavBarManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavBarManager.swift; sourceTree = "<group>"; };
 		387B1AB51C296FBC004FAA16 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				1391636F1C1A20E8000B9ECC /* NewsViewController.swift */,
+				3865A5281C4E46B400D7F82B /* NewsDetailsViewController.swift */,
 				1376A5F91C09F1C2000AA652 /* SessionsViewController.swift */,
 				1376A5FB1C09F1CE000AA652 /* DayViewController.swift */,
 				38210E701C2431210001A4CE /* SportsViewController.swift */,
@@ -473,6 +476,7 @@
 				13CB0BB91C2D43F600829A65 /* ObjectivesObject.swift in Sources */,
 				387B1AB41C2961C1004FAA16 /* NavBarManager.swift in Sources */,
 				1376A5F61C09EE67000AA652 /* SessionModel.swift in Sources */,
+				3865A5291C4E46B400D7F82B /* NewsDetailsViewController.swift in Sources */,
 				1376A5FC1C09F1CE000AA652 /* DayViewController.swift in Sources */,
 				380E15CF1C46A9F0006A75DD /* AlamofireManager.swift in Sources */,
 				138C3F721C3F004700470ACB /* NewsObject.swift in Sources */,

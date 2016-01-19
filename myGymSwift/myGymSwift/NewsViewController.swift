@@ -18,6 +18,8 @@ class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     var newsArray: Array<NewsObject> = Array<NewsObject>()
     let newsDataManager = NewsDataManager()
     
+    let kShowDetailNews = "showDetailNews"
+
     @IBOutlet weak var tableView: UITableView?
 
     override func viewDidLoad() {
@@ -29,6 +31,7 @@ class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     
     func setIHM(){
         
+        navigationController?.setNavigationBarHidden(navigationController?.navigationBarHidden == false, animated: true)
         tableView?.registerNib(UINib(nibName: cellXib, bundle: nil), forCellReuseIdentifier: cellIdentifier)
         self.refreshControl = UIRefreshControl()
         self.refreshControl.attributedTitle = NSAttributedString(string: "Relâcher pour rafraîchir")
@@ -67,7 +70,7 @@ class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+        self.performSegueWithIdentifier(kShowDetailNews, sender: self)
     }
 
     override func didReceiveMemoryWarning() {

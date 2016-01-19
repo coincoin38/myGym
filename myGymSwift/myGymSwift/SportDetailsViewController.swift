@@ -39,14 +39,14 @@ class SportDetailsViewController: UIViewController,UIGestureRecognizerDelegate,U
     }
     
     override func viewWillAppear(animated: Bool) {
-        navigationController?.setNavigationBarHidden(navigationController?.navigationBarHidden == false, animated: true) //or animated: false
+        navigationController?.setNavigationBarHidden(navigationController?.navigationBarHidden == false, animated: true)
         configureStyleNavBar()
     }
     
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(navigationController?.navigationBarHidden == false, animated: true) //or animated: false
+        navigationController?.setNavigationBarHidden(navigationController?.navigationBarHidden == false, animated: true)
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.Default
        // NavBarManager.SharedInstance.resetNavBar(navigationController!)
     }
