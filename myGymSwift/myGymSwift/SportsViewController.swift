@@ -16,26 +16,41 @@ class SportsViewController: UIViewController,UICollectionViewDelegate,UICollecti
     @IBOutlet weak var sportsCollectionView: UICollectionView?
     var sport: SportObject = SportObject()
     var objectivesArray: Array<ObjectiveObject> = Array<ObjectiveObject>()
+    let sportsDataManager = SportsDataManager()
+    let sportsDescriptionsDataManager = SportsDescriptionsDataManager()
 
-    
     // MARK: - Init
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setIHM()
+        
+        getSportsDescriptions()
+    }
+    
+    func setIHM(){
+        
         navigationController?.setNavigationBarHidden(navigationController?.navigationBarHidden == false, animated: true)
-
         sportsCollectionView?.registerNib(UINib(nibName: "SportCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
-        RealmManager.SharedInstance.getAllSports { (sports) -> Void in
-            
-            self.sportsArray.removeAll()
-            
-            for sport in sports {
-                let sportObject = SportObject()
-                
-                sportObject.setSportForCell(sport, completion: { (sportObject) -> Void in
-                    self.sportsArray.append(sportObject)
-                })
+    }
+
+    func getSports(){
+        
+        sportsDataManager.getSports { (sportsArray) -> Void in
+            self.sportsArray = sportsArray
+            self.sportsCollectionView?.reloadData()
+        }
+    }
+    
+    func getSportsDescriptions(){
+        
+        //sportsCollectionView?.userInteractionEnabled=false
+        
+        sportsDescriptionsDataManager.getSportsDescriptions { (isOk) -> Void in
+        
+            if isOk{
+                self.getSports()
+                //self.sportsCollectionView?.userInteractionEnabled=true
             }
         }
     }

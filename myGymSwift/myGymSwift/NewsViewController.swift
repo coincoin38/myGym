@@ -24,7 +24,6 @@ class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataS
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setIHM()
         getNews()
     }

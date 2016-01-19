@@ -53,11 +53,13 @@ struct ModelsConstants {
     static let kColor          = "color"
     static let kAgency         = "agency"
     static let kImage          = "image"
+    static let kKey_sport       = "key_sport"
     
     static let kGetDay       = "day = %@"
     static let kGetId        = "_id = %@"
     static let kGetSportId   = "sport_id = %@"
-    
+    static let kGetKey_sport   = "key_sport = %@"
+
     static let kJsonExtension = "json"
 
 }

@@ -47,6 +47,8 @@
 		3825E67B1C2453C200F589FA /* SportObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3825E67A1C2453C200F589FA /* SportObject.swift */; };
 		3865A5271C4D101E00D7F82B /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3865A5261C4D101E00D7F82B /* NetworkConstants.swift */; };
 		3865A5291C4E46B400D7F82B /* NewsDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3865A5281C4E46B400D7F82B /* NewsDetailsViewController.swift */; };
+		3865A52B1C4E85DA00D7F82B /* SportsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3865A52A1C4E85DA00D7F82B /* SportsDataManager.swift */; };
+		3865A52D1C4E972D00D7F82B /* SportsDescriptionsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3865A52C1C4E972D00D7F82B /* SportsDescriptionsDataManager.swift */; };
 		387666031C28383600DE8A62 /* SportDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387666021C28383600DE8A62 /* SportDetailsViewController.swift */; };
 		387B1AB41C2961C1004FAA16 /* NavBarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387B1AB31C2961C1004FAA16 /* NavBarManager.swift */; };
 		387B1AB61C296FBC004FAA16 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 387B1AB51C296FBC004FAA16 /* Localizable.strings */; };
@@ -99,6 +101,8 @@
 		3825E67A1C2453C200F589FA /* SportObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SportObject.swift; sourceTree = "<group>"; };
 		3865A5261C4D101E00D7F82B /* NetworkConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
 		3865A5281C4E46B400D7F82B /* NewsDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailsViewController.swift; sourceTree = "<group>"; };
+		3865A52A1C4E85DA00D7F82B /* SportsDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SportsDataManager.swift; sourceTree = "<group>"; };
+		3865A52C1C4E972D00D7F82B /* SportsDescriptionsDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SportsDescriptionsDataManager.swift; sourceTree = "<group>"; };
 		387666021C28383600DE8A62 /* SportDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SportDetailsViewController.swift; sourceTree = "<group>"; };
 		387B1AB31C2961C1004FAA16 /* NavBarManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavBarManager.swift; sourceTree = "<group>"; };
 		387B1AB51C296FBC004FAA16 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
@@ -185,6 +189,8 @@
 				387B1AB31C2961C1004FAA16 /* NavBarManager.swift */,
 				380E15CE1C46A9F0006A75DD /* AlamofireManager.swift */,
 				380E15D01C47B5BB006A75DD /* NewsDataManager.swift */,
+				3865A52A1C4E85DA00D7F82B /* SportsDataManager.swift */,
+				3865A52C1C4E972D00D7F82B /* SportsDescriptionsDataManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -471,8 +477,10 @@
 				13A6B1D91C13A24A00F93232 /* SessionTableViewCell.swift in Sources */,
 				3825E67B1C2453C200F589FA /* SportObject.swift in Sources */,
 				1376A5F81C09EF71000AA652 /* TeacherModel.swift in Sources */,
+				3865A52D1C4E972D00D7F82B /* SportsDescriptionsDataManager.swift in Sources */,
 				38F943BA1C3FA05200643571 /* ModelsConstants.swift in Sources */,
 				139595491C1481E500F43523 /* SportModel.swift in Sources */,
+				3865A52B1C4E85DA00D7F82B /* SportsDataManager.swift in Sources */,
 				13CB0BB91C2D43F600829A65 /* ObjectivesObject.swift in Sources */,
 				387B1AB41C2961C1004FAA16 /* NavBarManager.swift in Sources */,
 				1376A5F61C09EE67000AA652 /* SessionModel.swift in Sources */,

@@ -39,12 +39,12 @@ class RealmManager: NSObject {
                 case ModelsConstants.stub_teachers:
                     self.writeTeachersInDB(result)
                     //print(self.getAllTeachers())
-                case ModelsConstants.stub_sports:
+                /*case ModelsConstants.stub_sports:
                     self.writeSportsInDB(result)
-                    //print(self.getAllSports())
-                case ModelsConstants.stub_sportsDescription:
+                    //print(self.getAllSports())*/
+                /*case ModelsConstants.stub_sportsDescription:
                     self.writeSportsDescriptionsInDB(result)
-                    //print(self.getAllSportsDescriptions())
+                    //print(self.getAllSportsDescriptions())*/
                 case ModelsConstants.stub_objectives:
                     self.writeObjectivesInDB(result)
                     //print(self.getAllObjectives())
@@ -71,9 +71,11 @@ class RealmManager: NSObject {
                 //print(self.getAllTeachers())
             case ModelsConstants.stub_sports:
                 self.writeSportsInDB(json)
+                completion(bool: true)
                 //print(self.getAllSports())
             case ModelsConstants.stub_sportsDescription:
                 self.writeSportsDescriptionsInDB(json)
+                completion(bool: true)
                 //print(self.getAllSportsDescriptions())
             case ModelsConstants.stub_objectives:
                 self.writeObjectivesInDB(json)
@@ -115,10 +117,10 @@ class RealmManager: NSObject {
     
     func writeSportsInDB(result: JSON) {
         for object in result {
-            let newObject = self.generateSport(object.1)
-            getSportWithId(newObject._id, completion: { (sport) -> Void in
+            let sportObject = self.generateSport(object.1)
+            getSportWithId(sportObject._id, completion: { (sport) -> Void in
                 if (sport.count==0){
-                    self.writeData(newObject)
+                    self.writeData(sportObject)
                 }
             })
         }
@@ -127,7 +129,7 @@ class RealmManager: NSObject {
     func writeSportsDescriptionsInDB(result: JSON) {
         for object in result {
             let newObject = self.generateSportDescription(object.1)
-            getSportDescriptionWithId(newObject._id, completion: { (description) -> Void in
+            getSportDescriptionWithId(newObject.key_sport, completion: { (description) -> Void in
                 if (description.count==0){
                     self.writeData(newObject)
                 }
@@ -199,7 +201,7 @@ class RealmManager: NSObject {
     func generateSport(dictionary: JSON) -> SportModel {
         
         let sport = SportModel()
-        sport._id            = dictionary[ModelsConstants.k_id].stringValue
+        sport._id            = dictionary[ModelsConstants.kId].stringValue
         sport.name           = dictionary[ModelsConstants.kName].stringValue
         sport.description_id = dictionary[ModelsConstants.kDescription_id].stringValue
         sport.color          = dictionary[ModelsConstants.kColor].stringValue
@@ -211,7 +213,7 @@ class RealmManager: NSObject {
     func generateSportDescription(dictionary: JSON) -> SportDescriptionModel {
         
         let sportDescription = SportDescriptionModel()
-        sportDescription._id     = dictionary[ModelsConstants.k_id].stringValue
+        sportDescription.key_sport     = dictionary[ModelsConstants.kKey_sport].stringValue
         sportDescription.content = dictionary[ModelsConstants.kContent].stringValue
         return sportDescription
     }
@@ -258,9 +260,20 @@ class RealmManager: NSObject {
         return realm.objects(SportDescriptionModel)
     }
     
-    func getAllSports(completion: (sports: Results<(SportModel)>) -> Void) {
+    func getAllSportsFromDB(completion: (sports: Array<(SportObject)>) -> Void) {
         let sports = realm.objects(SportModel)
-        completion(sports: sports)
+        var sportsArray: Array<SportObject> = Array<SportObject>()
+
+        for sport in sports {
+            let sportObject = SportObject()
+            
+            sportObject.setSportForCell(sport, completion: { (sportObject) -> Void in
+                
+                sportsArray.append(sportObject)
+                
+            })
+        }
+        completion(sports: sportsArray)
     }
     
     func getAllObjectives()->Results<(ObjectiveModel)>{
@@ -305,7 +318,7 @@ class RealmManager: NSObject {
     }
     
     func getSportDescriptionWithId(_id: String, completion: (description: Results<(SportDescriptionModel)>) -> Void) {
-        let aSportDescription = realm.objects(SportDescriptionModel).filter(ModelsConstants.kGetId, _id)
+        let aSportDescription = realm.objects(SportDescriptionModel).filter(ModelsConstants.kGetKey_sport, _id)
         completion(description: aSportDescription)
     }
     

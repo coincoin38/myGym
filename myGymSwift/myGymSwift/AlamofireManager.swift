@@ -15,10 +15,12 @@ class AlamofireManager: NSObject {
     
     var token = ""
     
-    let login_params     = NetworkConstants.login_parameters
-    let post_token       = NetworkConstants.ip_server+NetworkConstants.post_token
-    let get_news         = NetworkConstants.ip_server+NetworkConstants.get_news
-    let get_ordered_news = NetworkConstants.order_news
+    let login_params            = NetworkConstants.login_parameters
+    let post_token              = NetworkConstants.ip_server+NetworkConstants.post_token
+    let get_news                = NetworkConstants.ip_server+NetworkConstants.get_news
+    let get_ordered_news        = NetworkConstants.order_news
+    let get_sports              = NetworkConstants.ip_server+NetworkConstants.get_sports
+    let get_sports_descriptions = NetworkConstants.ip_server+NetworkConstants.get_sports_descritptions
 
     func setChallenge(){
     
@@ -92,6 +94,54 @@ class AlamofireManager: NSObject {
                 } else {
                     print("Request failed with error: \(response.response!.statusCode)")
                     completion(news:[])
+                }
+            case .Failure(let error):
+                print("Request failed with error: \(error)")
+            }
+        }
+    }
+    
+    func downloadSports(completion: (sports: JSON) -> Void) {
+        
+        let uriSports = get_sports+token
+        //print("Get news : \(uriNews)...")
+        Alamofire.request(.GET,uriSports).responseJSON{
+            response in
+            
+            switch response.result {
+                
+            case .Success:
+                if response.response!.statusCode == 200 {
+                    print("Sports ok")
+                    //print("...Sports ok : \(response.result.value)")
+                    completion(sports:JSON(response.result.value!))
+                } else {
+                    print("Request failed with error: \(response.response!.statusCode)")
+                    completion(sports:[])
+                }
+            case .Failure(let error):
+                print("Request failed with error: \(error)")
+            }
+        }
+    }
+    
+    func downloadSportsDescriptions(completion: (sportsDescriptions: JSON) -> Void) {
+        
+        let uriSportsDescriptions = get_sports_descriptions+token
+        //print("Get news : \(uriNews)...")
+        Alamofire.request(.GET,uriSportsDescriptions).responseJSON{
+            response in
+            
+            switch response.result {
+                
+            case .Success:
+                if response.response!.statusCode == 200 {
+                    print("Sports descriptions ok")
+                    //print("...Sports descriptions ok : \(response.result.value)")
+                    completion(sportsDescriptions:JSON(response.result.value!))
+                } else {
+                    print("Request failed with error: \(response.response!.statusCode)")
+                    completion(sportsDescriptions:[])
                 }
             case .Failure(let error):
                 print("Request failed with error: \(error)")
