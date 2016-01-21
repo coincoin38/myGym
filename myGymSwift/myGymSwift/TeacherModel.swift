@@ -8,6 +8,8 @@
 
 import Foundation
 import RealmSwift
+import SwiftyJSON
+
 
 class TeacherModel: Object {
     
@@ -17,4 +19,15 @@ class TeacherModel: Object {
     dynamic var _description = ""
     dynamic var photo = ""
     dynamic var agency = ""
+    
+    func setData(dictionary: JSON) -> TeacherModel{
+        
+        id           = dictionary[ModelsConstants.kId].stringValue
+        name         = dictionary[ModelsConstants.kName].stringValue
+        first_name   = dictionary[ModelsConstants.kFirst_name].stringValue
+        _description = dictionary[ModelsConstants.k_description].stringValue
+        photo        = dictionary[ModelsConstants.kPhoto].stringValue
+        agency       = dictionary[ModelsConstants.kAgency].stringValue
+        return self
+    }
 }

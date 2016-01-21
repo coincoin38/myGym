@@ -8,6 +8,7 @@
 
 import Foundation
 import RealmSwift
+import SwiftyJSON
 
 class NewsModel: Object {
     
@@ -15,4 +16,14 @@ class NewsModel: Object {
     dynamic var title = ""
     dynamic var _description = ""
     dynamic var day = NSDate()
+    
+    func setData(dictionary: JSON) -> NewsModel{
+        
+        let date = FormaterManager.SharedInstance.formatServerDateFromString(dictionary[ModelsConstants.kDay].stringValue)
+        id            = dictionary[ModelsConstants.kId].stringValue
+        title         = dictionary[ModelsConstants.kTitle].stringValue
+        _description  = dictionary[ModelsConstants.kDescription].stringValue
+        day           = date
+        return self
+    }
 }
