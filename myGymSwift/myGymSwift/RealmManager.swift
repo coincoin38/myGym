@@ -96,7 +96,7 @@ class RealmManager: NSObject {
     func writeSessionsInDB(result: JSON) {
         for object in result {
             let newObject = self.generateSession(object.1)
-            getSessionWithId(newObject._id, completion: { (session) -> Void in
+            getSessionWithId(newObject.id, completion: { (session) -> Void in
                 if (session.count==0){
                     self.writeData(newObject)
                 }
@@ -107,7 +107,7 @@ class RealmManager: NSObject {
     func writeTeachersInDB(result: JSON) {
         for object in result {
             let newObject = self.generateTeacher(object.1)
-            getTeacherWithId(newObject._id, completion: { (teacher) -> Void in
+            getTeacherWithId(newObject.id, completion: { (teacher) -> Void in
                 if (teacher.count==0){
                     self.writeData(newObject)
                 }
@@ -118,7 +118,7 @@ class RealmManager: NSObject {
     func writeSportsInDB(result: JSON) {
         for object in result {
             let sportObject = self.generateSport(object.1)
-            getSportWithId(sportObject._id, completion: { (sport) -> Void in
+            getSportWithId(sportObject.id, completion: { (sport) -> Void in
                 if (sport.count==0){
                     self.writeData(sportObject)
                 }
@@ -140,7 +140,7 @@ class RealmManager: NSObject {
     func writeObjectivesInDB(result: JSON) {
         for object in result {
             let newObject = self.generateObjectives(object.1)
-            getObjectivesWithId(newObject._id, completion: { (objectives) -> Void in
+            getObjectivesWithId(newObject.id, completion: { (objectives) -> Void in
                 if (objectives.count==0){
                     self.writeData(newObject)
                 }
@@ -151,7 +151,7 @@ class RealmManager: NSObject {
     func writeNewsInDB(result: JSON) {
         for object in result {
             let newObject = self.generateNews(object.1)
-            getNewsWithId(newObject._id, completion: { (news) -> Void in
+            getNewsWithId(newObject.id, completion: { (news) -> Void in
                 if (news.count==0){
                     self.writeData(newObject)
                 }
@@ -173,7 +173,7 @@ class RealmManager: NSObject {
         // Format string to date
         let date = FormaterManager.SharedInstance.formatyyyMMddFromString(dictionary[ModelsConstants.kDay].stringValue)
         let session = SessionModel()
-        session._id        = dictionary[ModelsConstants.k_id].stringValue
+        session.id        = dictionary[ModelsConstants.kId].stringValue
         session.sport_id   = dictionary[ModelsConstants.kSport_id].stringValue
         session.from       = dictionary[ModelsConstants.kFrom].stringValue
         session.duration   = dictionary[ModelsConstants.kDuration].stringValue
@@ -188,7 +188,7 @@ class RealmManager: NSObject {
     func generateTeacher(dictionary: JSON) -> TeacherModel {
         
         let teacher = TeacherModel()
-        teacher._id          = dictionary[ModelsConstants.k_id].stringValue
+        teacher.id           = dictionary[ModelsConstants.kId].stringValue
         teacher.name         = dictionary[ModelsConstants.kName].stringValue
         teacher.first_name   = dictionary[ModelsConstants.kFirst_name].stringValue
         teacher._description = dictionary[ModelsConstants.k_description].stringValue
@@ -201,7 +201,7 @@ class RealmManager: NSObject {
     func generateSport(dictionary: JSON) -> SportModel {
         
         let sport = SportModel()
-        sport._id            = dictionary[ModelsConstants.kId].stringValue
+        sport.id             = dictionary[ModelsConstants.kId].stringValue
         sport.name           = dictionary[ModelsConstants.kName].stringValue
         sport.description_id = dictionary[ModelsConstants.kDescription_id].stringValue
         sport.color          = dictionary[ModelsConstants.kColor].stringValue
@@ -222,7 +222,7 @@ class RealmManager: NSObject {
     func generateObjectives(dictionary: JSON) -> ObjectiveModel {
         
         let objective = ObjectiveModel()
-        objective._id        = dictionary[ModelsConstants.k_id].stringValue
+        objective.id        = dictionary[ModelsConstants.kId].stringValue
         objective.firstPart  = dictionary[ModelsConstants.kFirstPart].stringValue
         objective.secondPart = dictionary[ModelsConstants.kSecondPart].stringValue
         objective.sport_id   = dictionary[ModelsConstants.kSport_id].stringValue
@@ -235,7 +235,7 @@ class RealmManager: NSObject {
         let date = FormaterManager.SharedInstance.formatServerDateFromString(dictionary[ModelsConstants.kDay].stringValue)
 
         let news = NewsModel()
-        news._id   = dictionary[ModelsConstants.kId].stringValue
+        news.id   = dictionary[ModelsConstants.kId].stringValue
         news.title = dictionary[ModelsConstants.kTitle].stringValue
         news._description  = dictionary[ModelsConstants.kDescription].stringValue
         news.day   = date

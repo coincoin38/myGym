@@ -11,7 +11,7 @@ import RealmSwift
 
 class NewsModel: Object {
     
-    dynamic var _id = ""
+    dynamic var id = ""
     dynamic var title = ""
     dynamic var _description = ""
     dynamic var day = NSDate()

@@ -11,7 +11,7 @@ import RealmSwift
 
 class TeacherModel: Object {
     
-    dynamic var _id = ""
+    dynamic var id = ""
     dynamic var name = ""
     dynamic var first_name = ""
     dynamic var _description = ""

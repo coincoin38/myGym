@@ -11,7 +11,7 @@ import RealmSwift
 
 class SportModel: Object {
     
-    dynamic var _id = ""
+    dynamic var id = ""
     dynamic var name = ""
     dynamic var description_id = ""
     dynamic var color = ""

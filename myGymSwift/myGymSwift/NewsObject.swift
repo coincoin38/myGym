@@ -10,7 +10,7 @@ import UIKit
 
 class NewsObject: NSObject {
     
-    dynamic var _id = ""
+    dynamic var id = ""
     dynamic var title = ""
     dynamic var body = ""
     dynamic var day = ""
@@ -19,7 +19,7 @@ class NewsObject: NSObject {
         
         let fullNews: NewsObject = NewsObject()
         
-        fullNews._id               = news._id
+        fullNews.id                = news.id
         fullNews.title             = news.title
         fullNews.body              = news._description
         fullNews.day               = FormaterManager.SharedInstance.formatMMddFromDate(news.day)

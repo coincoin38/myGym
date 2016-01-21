@@ -3,7 +3,7 @@
     "page_count": 1,
     "teachers": [
                  {
-                 "_id": "1",
+                 "id": "1",
                  "name": "Georges",
                  "first_name": "Saint-Pierre",
                  "_description": "wesh gros",
@@ -11,7 +11,7 @@
                  "agency": "Lyon"
                  },
                  {
-                 "_id": "2",
+                 "id": "2",
                  "name": "Anderson",
                  "first_name": "Silva",
                  "_description": "wesh gros",
@@ -19,7 +19,7 @@
                  "agency": "Lyon"
                  },
                  {
-                 "_id": "3",
+                 "id": "3",
                  "name": "Wanderlei",
                  "first_name": "Silva",
                  "_description": "wesh gros",
@@ -27,10 +27,10 @@
                  "agency": "Lyon"
                  },
                  {
-                 "_id": "4",
+                 "id": "4",
                  "name": "Chael",
                  "first_name": "Sonen",
-                 "_description": "wesh gros",
+                 "description": "wesh gros",
                  "photo": "empty",
                  "agency": "Lyon"
                  }

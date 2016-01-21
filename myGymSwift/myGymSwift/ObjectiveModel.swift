@@ -11,7 +11,7 @@ import RealmSwift
 
 class ObjectiveModel: Object {
     
-    dynamic var _id = ""
+    dynamic var id = ""
     dynamic var firstPart = ""
     dynamic var secondPart = ""
     dynamic var sport_id = ""
