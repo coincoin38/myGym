@@ -24,7 +24,6 @@ class SportsViewController: UIViewController,UICollectionViewDelegate,UICollecti
     override func viewDidLoad() {
         super.viewDidLoad()
         setIHM()
-        
         getSportsDescriptions()
     }
     
@@ -44,13 +43,10 @@ class SportsViewController: UIViewController,UICollectionViewDelegate,UICollecti
     
     func getSportsDescriptions(){
         
-        //sportsCollectionView?.userInteractionEnabled=false
-        
         sportsDescriptionsDataManager.getSportsDescriptions { (isOk) -> Void in
         
             if isOk{
                 self.getSports()
-                //self.sportsCollectionView?.userInteractionEnabled=true
             }
         }
     }

@@ -35,7 +35,7 @@ class RealmManager: NSObject {
                     
                 case ModelsConstants.stub_sessions:
                     self.writeSessionsInDB(result)
-                    print(self.getAllSessions())
+                    //print(self.getAllSessions())
                 case ModelsConstants.stub_teachers:
                     self.writeTeachersInDB(result)
                     //print(self.getAllTeachers())

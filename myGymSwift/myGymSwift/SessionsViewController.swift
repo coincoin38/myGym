@@ -30,6 +30,15 @@ class SessionsViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
         myCalendar?.dataSource = self
         myCalendar?.appearance.headerMinimumDissolvedAlpha = 0.0
         myCalendar?.appearance.headerDateFormat = FormaterManager.SharedInstance.MMM
+        myCalendar?.userInteractionEnabled = false
+        getSports()
+    }
+    
+    func getSports(){
+        let sportsDataManager = SportsDataManager()
+        sportsDataManager.getSports { (sportsArray) -> Void in
+            self.myCalendar?.userInteractionEnabled = true
+        }
     }
     
     // MARK: - FSCalendar delegate
