@@ -11,13 +11,27 @@ import UIKit
 class NewsDetailsViewController: UIViewController {
     
     var news: NewsObject = NewsObject()
+    @IBOutlet weak var bodytNewsTextView: UITextView!
+    @IBOutlet weak var dateNewsLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setIHM()
+    }
+    
+    func setIHM(){
+        bodytNewsTextView.scrollEnabled = false
+        title = news.title
+        bodytNewsTextView.text = news.body+news.body+news.body
     }
     
     override func viewWillAppear(animated: Bool) {
         navigationController?.setNavigationBarHidden(navigationController?.navigationBarHidden == false, animated: true)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        //Fix pour empêcher le scroll to bottom par défaut
+        bodytNewsTextView.scrollEnabled = true
     }
     
     override func viewWillDisappear(animated: Bool) {

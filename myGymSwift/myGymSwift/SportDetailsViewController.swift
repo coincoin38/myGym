@@ -21,21 +21,14 @@ class SportDetailsViewController: UIViewController,UIGestureRecognizerDelegate,U
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setIHM()
+    }
+    
+    func setIHM(){
         sportDescriptionTextView.text = sport._description
         sportDescriptionTextView.textAlignment = .Justified
         sportDescriptionTextView.font = UIFont.systemFontOfSize(14, weight: 0)
-        
         objectivesCollectionView?.registerNib(UINib(nibName: "ObjectiveCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
-
-        /*
-        let url = NSURL (string: "https://youtu.be/8YOq_NOmI6I");
-        let requestObj = NSURLRequest(URL: url!);
-        videoWebView.loadRequest(requestObj);
-        
-        sportLabel.text = String(format: NSLocalizedString("WHAT_IS_SPORT", comment:""),sport.name)
-
-        */
     }
     
     override func viewWillAppear(animated: Bool) {
