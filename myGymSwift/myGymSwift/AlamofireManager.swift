@@ -21,6 +21,8 @@ class AlamofireManager: NSObject {
     let get_ordered_news        = NetworkConstants.order_news
     let get_sports              = NetworkConstants.ip_server+NetworkConstants.get_sports
     let get_sports_descriptions = NetworkConstants.ip_server+NetworkConstants.get_sports_descritptions
+    
+    // MARK: - Certificat SSL porvisoire
 
     func setChallenge(){
     
@@ -45,6 +47,8 @@ class AlamofireManager: NSObject {
             return (disposition, credential)
         }
     }
+    
+    // MARK: - Token/Post
     
     func getToken(completion: (Bool) -> Void) {
         if (self.token != ""){
@@ -77,75 +81,47 @@ class AlamofireManager: NSObject {
         }
     }
     
-    func downloadOrderedNews(completion: (news: JSON) -> Void) {
-       
-        let uriNews = get_news+token+get_ordered_news
-        //print("Get news : \(uriNews)...")
-        Alamofire.request(.GET,uriNews).responseJSON{
+    // MARK: - Download/Get
+    
+    func genericDownload(url:String,completion: (data: JSON) -> Void){
+        
+        Alamofire.request(.GET,url).responseJSON{
             response in
             
             switch response.result {
                 
             case .Success:
                 if response.response!.statusCode == 200 {
-                    print("News ok")
+                    print("Dowonload ok")
                     //print("...News ok : \(response.result.value)")
-                    completion(news:JSON(response.result.value!))
+                    completion(data:JSON(response.result.value!))
                 } else {
                     print("Request failed with error: \(response.response!.statusCode)")
-                    completion(news:[])
+                    completion(data:[])
                 }
             case .Failure(let error):
                 print("Request failed with error: \(error)")
+                completion(data:[])
             }
         }
     }
     
+    func downloadOrderedNews(completion: (news: JSON) -> Void) {
+        genericDownload(get_news+token+get_ordered_news) { (data) -> Void in
+            completion(news: data)
+        }
+    }
+    
     func downloadSports(completion: (sports: JSON) -> Void) {
-        
-        let uriSports = get_sports+token
-        //print("Get news : \(uriNews)...")
-        Alamofire.request(.GET,uriSports).responseJSON{
-            response in
-            
-            switch response.result {
-                
-            case .Success:
-                if response.response!.statusCode == 200 {
-                    print("Sports ok")
-                    //print("...Sports ok : \(response.result.value)")
-                    completion(sports:JSON(response.result.value!))
-                } else {
-                    print("Request failed with error: \(response.response!.statusCode)")
-                    completion(sports:[])
-                }
-            case .Failure(let error):
-                print("Request failed with error: \(error)")
-            }
+        genericDownload(get_sports+token) { (data) -> Void in
+            completion(sports: data)
         }
     }
     
     func downloadSportsDescriptions(completion: (sportsDescriptions: JSON) -> Void) {
         
-        let uriSportsDescriptions = get_sports_descriptions+token
-        //print("Get news : \(uriNews)...")
-        Alamofire.request(.GET,uriSportsDescriptions).responseJSON{
-            response in
-            
-            switch response.result {
-                
-            case .Success:
-                if response.response!.statusCode == 200 {
-                    print("Sports descriptions ok")
-                    //print("...Sports descriptions ok : \(response.result.value)")
-                    completion(sportsDescriptions:JSON(response.result.value!))
-                } else {
-                    print("Request failed with error: \(response.response!.statusCode)")
-                    completion(sportsDescriptions:[])
-                }
-            case .Failure(let error):
-                print("Request failed with error: \(error)")
-            }
+        genericDownload( get_sports_descriptions+token) { (data) -> Void in
+            completion(sportsDescriptions: data)
         }
     }
 }
