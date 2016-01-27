@@ -46,7 +46,7 @@
                             <constraint firstAttribute="height" constant="1" id="KHH-8A-gHF"/>
                         </constraints>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="wave" translatesAutoresizingMaskIntoConstraints="NO" id="L2b-9r-atl">
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_winfitness2" translatesAutoresizingMaskIntoConstraints="NO" id="L2b-9r-atl">
                         <rect key="frame" x="0.0" y="0.0" width="74" height="74"/>
                     </imageView>
                 </subviews>
@@ -75,6 +75,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="wave" width="364" height="364"/>
+        <image name="logo_winfitness2" width="159" height="158"/>
     </resources>
 </document>
