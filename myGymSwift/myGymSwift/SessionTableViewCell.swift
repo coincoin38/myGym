@@ -26,10 +26,20 @@ class SessionTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setData(session: SessionObject) {
-        sessionLabel?.textColor = session.colorSport
-        sessionLabel?.text      = session.sportName
-        coachLabel?.text        = session.teacherName
+    func setData(session: SessionModel) {
+        
+        RealmManager.SharedInstance.getSportWithId(session.sport_id) { (sport) -> Void in
+            if(sport.count>0){
+                self.sessionLabel?.textColor = FormaterManager.SharedInstance.uicolorFromHexa(sport[0].color)
+                self.sessionLabel?.text      = sport[0].name
+            }
+        }
+        RealmManager.SharedInstance.getTeacherWithId(session.teacher_id) { (teacher) -> Void in
+            if(teacher.count>0){
+                self.coachLabel?.text        = teacher[0].name + " " + teacher[0].first_name
+            }
+        }
+        
         fromLabel?.text         = session.from
         durationLabel?.text     = session.duration+NSLocalizedString("MINUTES_SHORT", comment:"")
 

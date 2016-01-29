@@ -41,15 +41,15 @@ class NewsTableViewCell: UITableViewCell {
         }
     }
     
-    func setData(news: NewsObject) {
+    func setData(news: NewsModel) {
         
         titleLabel?.text      = news.title
         titleLabel?.textColor = FormaterManager.SharedInstance.uicolorFromHexa(ColorsConstants.selectionTabBarColor)
 
-        bodyLabel?.text      = news.body
+        bodyLabel?.text      = news._description
         bodyLabel?.textColor = FormaterManager.SharedInstance.uicolorFromHexa(ColorsConstants.bodyNewsCellText)
 
-        dayLabel?.text         = news.day
+        dayLabel?.text         = FormaterManager.SharedInstance.formatMMddFromDate(news.day)
         dayLabel?.textColor    = FormaterManager.SharedInstance.uicolorFromHexa(ColorsConstants.dayNewsCell)
         
         titleLeftMarginConstraint.constant = 82

@@ -10,7 +10,7 @@ import UIKit
 
 class ObjectivesObject: NSObject {
 
-    func setObjectives(sport: SportObject, completion: (objectivesObject: Array<ObjectiveObject>) -> Void) {
+    func setObjectives(sport: SportModel, completion: (objectivesObject: Array<ObjectiveObject>) -> Void) {
         
         RealmManager.SharedInstance.getObjectivesWithSportId(sport.id, completion: { (objectives) -> Void in
 
@@ -21,7 +21,7 @@ class ObjectivesObject: NSObject {
                 let obj: ObjectiveObject = ObjectiveObject()
                 obj.firstPart  = objective.firstPart
                 obj.secondPart = objective.secondPart
-                obj.sportColor = sport.color
+                obj.sportColor = FormaterManager.SharedInstance.uicolorFromHexa(sport.color)
                 
                 objectivesArray.append(obj)
                 

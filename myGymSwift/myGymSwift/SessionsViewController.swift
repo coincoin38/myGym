@@ -16,7 +16,7 @@ class SessionsViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
     let kShowDetailDay = "showDetailDay"
     var selectedDay: String = String()
     var selectedDate: NSDate = NSDate()
-    var sessionsArray: Array<SessionObject> = Array<SessionObject>()
+    var sessionsArray: Array<SessionModel> = Array<SessionModel>()
     var boolToast: Bool = Bool()
     var timer = NSTimer()
     
@@ -53,11 +53,9 @@ class SessionsViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
             self.sessionsArray.removeAll()
             
             for session in sessions {
-                let sessionObject = SessionObject()
-                sessionObject.setSessionForCell(session, completion: { (sessionObject) -> Void in
-                    self.sessionsArray.append(sessionObject)
-                })
+                self.sessionsArray.append(session)
             }
+            
             if(sessions.count > 0) {
                 self.performSegueWithIdentifier(self.kShowDetailDay, sender: self)
             }

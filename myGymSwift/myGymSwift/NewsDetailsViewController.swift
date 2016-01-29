@@ -10,7 +10,7 @@ import UIKit
 
 class NewsDetailsViewController: UIViewController {
     
-    var news: NewsObject = NewsObject()
+    var news: NewsModel = NewsModel()
     @IBOutlet weak var bodytNewsTextView: UITextView!
     @IBOutlet weak var dateNewsLabel: UILabel!
 
@@ -22,7 +22,7 @@ class NewsDetailsViewController: UIViewController {
     func setIHM(){
         bodytNewsTextView.scrollEnabled = false
         title = news.title
-        bodytNewsTextView.text = news.body+news.body+news.body
+        bodytNewsTextView.text = news._description
     }
     
     override func viewWillAppear(animated: Bool) {

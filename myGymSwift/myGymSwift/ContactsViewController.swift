@@ -10,16 +10,20 @@ import UIKit
 import CoreLocation
 import MapKit
 
-class ContactsViewController: UIViewController{
+class ContactsViewController: UIViewController,UIGestureRecognizerDelegate{
+
+    @IBOutlet weak var planImage: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        openMapForPlace()
+        let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "openPlan:")
+        planImage.addGestureRecognizer(tap)
+        tap.delegate = self
     }
-
-    func openMapForPlace() {
-        
+    
+    func openPlan(gr:UITapGestureRecognizer)
+    {
         let lat1 : NSString = "45.744127"
         let lng1 : NSString = "4.871262"
         
@@ -35,8 +39,9 @@ class ContactsViewController: UIViewController{
         ]
         let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
         let mapItem = MKMapItem(placemark: placemark)
-        mapItem.name = "Win Fitness"
+        mapItem.name = "WIN FITNESS"
         mapItem.openInMapsWithLaunchOptions(options)
         
     }
+
 }

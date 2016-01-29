@@ -10,7 +10,7 @@ import SwiftyJSON
 
 class NewsDataManager: NSObject {
     
-    func getNewsOrdered(completion: (newsArray: Array<NewsObject>) -> Void){
+    func getNewsOrdered(completion: (newsArray: Array<NewsModel>) -> Void){
         
         // Récupération du token
         AlamofireManager.SharedInstance.getToken { (isTokenOK) -> Void in
@@ -33,7 +33,7 @@ class NewsDataManager: NSObject {
         }
     }
     
-    func feedDBWithDownloadedNews(news: JSON,completion: (newsArray: Array<NewsObject>) -> Void){
+    func feedDBWithDownloadedNews(news: JSON,completion: (newsArray: Array<NewsModel>) -> Void){
         
         RealmManager.SharedInstance.writeDataFromWS(5, json: news, completion: { (isOk) -> Void in
             
@@ -45,7 +45,7 @@ class NewsDataManager: NSObject {
         })
     }
     
-    func getNewsfromDB(completion: (newsArray: Array<NewsObject>) -> Void){
+    func getNewsfromDB(completion: (newsArray: Array<NewsModel>) -> Void){
         
         RealmManager.SharedInstance.getAllNewsFromDB { (news) -> Void in
             completion(newsArray:news)

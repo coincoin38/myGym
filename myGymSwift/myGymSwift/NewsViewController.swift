@@ -15,7 +15,7 @@ class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     let cellXib = "NewsTableViewCell"
     var refreshControl:UIRefreshControl!
     
-    var newsArray: Array<NewsObject> = Array<NewsObject>()
+    var newsArray: Array<NewsModel> = Array<NewsModel>()
     let newsDataManager = NewsDataManager()
     
     let kShowDetailNews = "showDetailNews"

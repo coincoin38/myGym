@@ -10,7 +10,7 @@ import SwiftyJSON
 
 class SportsDataManager: NSObject {
     
-    func getSports(completion: (sportsArray: Array<SportObject>) -> Void){
+    func getSports(completion: (sportsArray: Array<SportModel>) -> Void){
         
         // Récupération du token
         AlamofireManager.SharedInstance.getToken { (isTokenOK) -> Void in
@@ -33,7 +33,7 @@ class SportsDataManager: NSObject {
         }
     }
     
-    func feedDBWithDownloadedSports(sports: JSON,completion: (newsArray: Array<SportObject>) -> Void){
+    func feedDBWithDownloadedSports(sports: JSON,completion: (newsArray: Array<SportModel>) -> Void){
         
         RealmManager.SharedInstance.writeDataFromWS(2, json: sports, completion: { (isOk) -> Void in
             
@@ -45,11 +45,27 @@ class SportsDataManager: NSObject {
         })
     }
     
-    func getSportsfromDB(completion: (sportsArray: Array<SportObject>) -> Void){
+    func getSportsfromDB(completion: (sportsArray: Array<SportModel>) -> Void){
         
         RealmManager.SharedInstance.getAllSportsFromDB { (sports) -> Void in
             completion(sportsArray:sports)
 
         }
     }
+    
+    func getObjectivesFromDB(sport:SportModel, completion: (objectives: Array<ObjectiveModel>) -> Void){
+        
+        RealmManager.SharedInstance.getObjectivesWithSportId(sport.id, completion: { (objectives) -> Void in
+            
+            var objectivesArray: Array<ObjectiveModel> = Array<ObjectiveModel>()
+            
+            for objective in objectives{
+                
+                objectivesArray.append(objective)
+                
+            }
+            completion(objectives: objectivesArray)
+        })
+    }
+   
 }

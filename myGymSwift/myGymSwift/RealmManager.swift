@@ -207,38 +207,16 @@ class RealmManager: NSObject {
         return realm.objects(SportDescriptionModel)
     }
     
-    func getAllSportsFromDB(completion: (sports: Array<(SportObject)>) -> Void) {
-        let sports = realm.objects(SportModel)
-        var sportsArray: Array<SportObject> = Array<SportObject>()
-
-        for sport in sports {
-            let sportObject = SportObject()
-            
-            sportObject.setSportForCell(sport, completion: { (sportObject) -> Void in
-                
-                sportsArray.append(sportObject)
-                
-            })
-        }
-        completion(sports: sportsArray)
+    func getAllSportsFromDB(completion: (sports: Array<(SportModel)>) -> Void) {
+        completion(sports: Array<SportModel>(realm.objects(SportModel)))
     }
     
     func getAllObjectives()->Results<(ObjectiveModel)>{
         return realm.objects(ObjectiveModel)
     }
     
-    func getAllNewsFromDB(completion: (news: Array<NewsObject>) -> Void) {
-        let news = realm.objects(NewsModel)
-        var newsArray: Array<NewsObject> = Array<NewsObject>()
-        
-        for new in news {
-            let newsObject = NewsObject()
-            
-            newsObject.setNewsForCell(new, completion: { (newsObject) -> Void in
-                newsArray.append(newsObject)
-            })
-        }
-        completion(news: newsArray)
+    func getAllNewsFromDB(completion: (news: Array<NewsModel>) -> Void) {
+        completion(news: Array<NewsModel>(realm.objects(NewsModel)))
     }
     
     // MARK : - Recherches

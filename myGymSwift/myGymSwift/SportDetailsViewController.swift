@@ -10,11 +10,11 @@ import UIKit
 
 class SportDetailsViewController: UIViewController,UIGestureRecognizerDelegate,UIWebViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource {
 
-    var sport: SportObject = SportObject()
+    var sport: SportModel = SportModel()
     @IBOutlet weak var sportDescriptionTextView: UITextView!
     @IBOutlet weak var objectivesCollectionView: UICollectionView?
     private let reuseIdentifier = "ObjectiveIdentifier"
-    var objectivesArray: Array<ObjectiveObject> = Array<ObjectiveObject>()
+    var objectivesArray: Array<ObjectiveModel> = Array<ObjectiveModel>()
 
 
     // MARK: - Init
@@ -25,7 +25,12 @@ class SportDetailsViewController: UIViewController,UIGestureRecognizerDelegate,U
     }
     
     func setIHM(){
-        sportDescriptionTextView.text = sport._description
+        RealmManager.SharedInstance.getSportDescriptionWithId(sport.description_id, completion: { (description) -> Void in
+            if(description.count>0){
+                self.sportDescriptionTextView.text = description[0].content
+            }
+        })
+        
         sportDescriptionTextView.textAlignment = .Justified
         sportDescriptionTextView.font = UIFont.systemFontOfSize(14, weight: 0)
         objectivesCollectionView?.registerNib(UINib(nibName: "ObjectiveCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
@@ -48,7 +53,7 @@ class SportDetailsViewController: UIViewController,UIGestureRecognizerDelegate,U
         
         //NavBar
         title = sport.name
-        NavBarManager.SharedInstance.configureNavBarWithColors(navigationController!, backgroundColor: sport.color, textColor: FormaterManager.SharedInstance.uicolorFromHexa(ColorsConstants.navBarTextAlternColor))
+        NavBarManager.SharedInstance.configureNavBarWithColors(navigationController!, backgroundColor: FormaterManager.SharedInstance.uicolorFromHexa(sport.color), textColor: FormaterManager.SharedInstance.uicolorFromHexa(ColorsConstants.navBarTextAlternColor))
         navigationController?.interactivePopGestureRecognizer?.delegate = self
         
         //Back button
@@ -93,7 +98,7 @@ class SportDetailsViewController: UIViewController,UIGestureRecognizerDelegate,U
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! ObjectiveCollectionViewCell
-        cell.setData(objectivesArray[indexPath.row])
+        cell.setData(objectivesArray[indexPath.row], sport: sport)
 
         return cell
     }

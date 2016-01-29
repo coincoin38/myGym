@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CgF-ig-eeg">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Les Mills-->
@@ -424,49 +425,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n3S-fk-qDl">
-                                <rect key="frame" x="158" y="88" width="285" height="128"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Venez nous rencontrer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="foy-OG-GkM">
-                                        <rect key="frame" x="55" y="18" width="174" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="138 avenue des Frères Lumières" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bHE-na-A9s">
-                                        <rect key="frame" x="19" y="53" width="247" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="69008 Lyon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAG-eb-8gB">
-                                        <rect key="frame" x="95" y="88" width="93" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bandeau_win_fitness_cut" translatesAutoresizingMaskIntoConstraints="NO" id="eVb-tM-vqa">
+                                <rect key="frame" x="0.0" y="20" width="600" height="266"/>
+                            </imageView>
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plan" translatesAutoresizingMaskIntoConstraints="NO" id="zX5-G5-91a">
+                                <rect key="frame" x="20" y="286" width="560" height="257"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="Udx-xZ-ZbR"/>
-                                    <constraint firstAttribute="width" constant="285" id="Wn7-Rp-USq"/>
+                                    <constraint firstAttribute="height" constant="257" id="hXT-rD-eoP"/>
                                 </constraints>
-                            </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plan_winfitness" translatesAutoresizingMaskIntoConstraints="NO" id="zX5-G5-91a">
-                                <rect key="frame" x="20" y="237" width="560" height="294"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="n3S-fk-qDl" firstAttribute="centerX" secondItem="pxi-hj-gc1" secondAttribute="centerX" id="4mE-HN-V5t"/>
-                            <constraint firstItem="zX5-G5-91a" firstAttribute="leading" secondItem="pxi-hj-gc1" secondAttribute="leading" constant="20" id="5ZV-E7-kfl"/>
-                            <constraint firstAttribute="trailing" secondItem="zX5-G5-91a" secondAttribute="trailing" constant="20" id="7Y8-LU-Q57"/>
-                            <constraint firstItem="inO-GE-9t2" firstAttribute="top" secondItem="zX5-G5-91a" secondAttribute="bottom" constant="20" id="RUb-ZB-Xql"/>
-                            <constraint firstItem="zX5-G5-91a" firstAttribute="top" secondItem="n3S-fk-qDl" secondAttribute="bottom" constant="21" id="hdw-pf-ekV"/>
-                            <constraint firstItem="n3S-fk-qDl" firstAttribute="top" secondItem="J86-y7-Z5c" secondAttribute="bottom" constant="68" id="iVs-Mf-dVL"/>
+                            <constraint firstItem="inO-GE-9t2" firstAttribute="top" secondItem="zX5-G5-91a" secondAttribute="bottom" constant="8" id="AFr-rc-1ax"/>
+                            <constraint firstAttribute="trailing" secondItem="eVb-tM-vqa" secondAttribute="trailing" id="D3L-63-38f"/>
+                            <constraint firstItem="eVb-tM-vqa" firstAttribute="leading" secondItem="pxi-hj-gc1" secondAttribute="leading" id="I1O-VT-IQ8"/>
+                            <constraint firstItem="zX5-G5-91a" firstAttribute="leading" secondItem="pxi-hj-gc1" secondAttribute="leadingMargin" id="LcP-MS-Lzo"/>
+                            <constraint firstItem="zX5-G5-91a" firstAttribute="trailing" secondItem="pxi-hj-gc1" secondAttribute="trailingMargin" id="YR7-2Y-fKY"/>
+                            <constraint firstItem="zX5-G5-91a" firstAttribute="top" secondItem="eVb-tM-vqa" secondAttribute="bottom" id="bsx-iU-yQ6"/>
+                            <constraint firstItem="eVb-tM-vqa" firstAttribute="top" secondItem="J86-y7-Z5c" secondAttribute="bottom" id="nBl-c7-pCb"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Contacts" id="Mug-qQ-iQl"/>
+                    <connections>
+                        <outlet property="planImage" destination="zX5-G5-91a" id="jwa-dg-GHf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B3O-xF-5C6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -519,6 +502,7 @@
         <image name="Sessions" width="25" height="25"/>
         <image name="Sports_selected_V2" width="25" height="25"/>
         <image name="Sports_unselected" width="25" height="25"/>
-        <image name="plan_winfitness" width="437" height="245"/>
+        <image name="bandeau_win_fitness_cut" width="465" height="201"/>
+        <image name="plan" width="655" height="368"/>
     </resources>
 </document>

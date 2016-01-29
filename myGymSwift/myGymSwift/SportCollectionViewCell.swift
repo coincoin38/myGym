@@ -20,12 +20,13 @@ class SportCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
     
-    func setData(sport: SportObject) {
+    func setData(sport: SportModel) {
+
         titleLabel?.text           = sport.name
-        footerView.backgroundColor = sport.color
+        footerView.backgroundColor = FormaterManager.SharedInstance.uicolorFromHexa(sport.color)
         footerView.alpha           = 0.75
         sportImage.image           = UIImage(named: sport.image)
-        voileView.backgroundColor  = sport.color
+        voileView.backgroundColor  = FormaterManager.SharedInstance.uicolorFromHexa(sport.color)
     }
     
     override var highlighted: Bool {

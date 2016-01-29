@@ -10,12 +10,12 @@ import UIKit
 
 class SportsViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
 
-    var sportsArray: Array<SportObject> = Array<SportObject>()
+    var sportsArray: Array<SportModel> = Array<SportModel>()
     private let reuseIdentifier = "SportIdentifier"
     let kShowDetailSport = "showDetailSport"
     @IBOutlet weak var sportsCollectionView: UICollectionView?
-    var sport: SportObject = SportObject()
-    var objectivesArray: Array<ObjectiveObject> = Array<ObjectiveObject>()
+    var sport: SportModel = SportModel()
+    var objectivesArray: Array<ObjectiveModel> = Array<ObjectiveModel>()
     let sportsDataManager = SportsDataManager()
     let sportsDescriptionsDataManager = SportsDescriptionsDataManager()
 
@@ -73,12 +73,11 @@ class SportsViewController: UIViewController,UICollectionViewDelegate,UICollecti
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let objectivesObject = ObjectivesObject()
-        objectivesObject.setObjectives(self.sportsArray[indexPath.row], completion: { (objectivesObject) -> Void in
-            self.sport = self.sportsArray[indexPath.row]
-            self.objectivesArray = objectivesObject
-            self.performSegueWithIdentifier(self.kShowDetailSport, sender: self)
+        self.sport = self.sportsArray[indexPath.row]
+        self.sportsDataManager.getObjectivesFromDB(self.sport, completion: { (objectives) -> Void in
+            self.objectivesArray = objectives
         })
+        self.performSegueWithIdentifier(self.kShowDetailSport, sender: self)
     }
     
     // MARK: - Navigation

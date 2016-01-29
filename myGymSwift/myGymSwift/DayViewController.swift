@@ -11,7 +11,7 @@ import JLToast
 
 class DayViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    var sessionsArray: Array<SessionObject> = Array<SessionObject>()
+    var sessionsArray: Array<SessionModel> = Array<SessionModel>()
     var selectedDay: String = String()
     var selectedDate : NSDate = NSDate()
     var timer = NSTimer()
@@ -57,11 +57,9 @@ class DayViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                 self.sessionsArray.removeAll()
                 
                 for session in sessions {
-                    let sessionObject = SessionObject()
-                    sessionObject.setSessionForCell(session, completion: { (sessionObject) -> Void in
-                        self.sessionsArray.append(sessionObject)
-                    })
+                    self.sessionsArray.append(session)
                 }
+                
                 if(self.sessionsArray.count > 0) {
                     
                     if(isNext){
