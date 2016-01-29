@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CgF-ig-eeg">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Les Mills-->
@@ -425,25 +425,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bandeau_win_fitness_cut" translatesAutoresizingMaskIntoConstraints="NO" id="eVb-tM-vqa">
-                                <rect key="frame" x="0.0" y="20" width="600" height="266"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" image="bandeau_win_fitness_cut" translatesAutoresizingMaskIntoConstraints="NO" id="eVb-tM-vqa">
+                                <rect key="frame" x="0.0" y="20" width="600" height="262"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="eVb-tM-vqa" secondAttribute="height" multiplier="300:131" id="c0L-ha-h5E"/>
+                                </constraints>
                             </imageView>
                             <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plan" translatesAutoresizingMaskIntoConstraints="NO" id="zX5-G5-91a">
-                                <rect key="frame" x="20" y="286" width="560" height="257"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="257" id="hXT-rD-eoP"/>
-                                </constraints>
+                                <rect key="frame" x="5" y="290" width="590" height="261"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="inO-GE-9t2" firstAttribute="top" secondItem="zX5-G5-91a" secondAttribute="bottom" constant="8" id="AFr-rc-1ax"/>
-                            <constraint firstAttribute="trailing" secondItem="eVb-tM-vqa" secondAttribute="trailing" id="D3L-63-38f"/>
-                            <constraint firstItem="eVb-tM-vqa" firstAttribute="leading" secondItem="pxi-hj-gc1" secondAttribute="leading" id="I1O-VT-IQ8"/>
-                            <constraint firstItem="zX5-G5-91a" firstAttribute="leading" secondItem="pxi-hj-gc1" secondAttribute="leadingMargin" id="LcP-MS-Lzo"/>
-                            <constraint firstItem="zX5-G5-91a" firstAttribute="trailing" secondItem="pxi-hj-gc1" secondAttribute="trailingMargin" id="YR7-2Y-fKY"/>
-                            <constraint firstItem="zX5-G5-91a" firstAttribute="top" secondItem="eVb-tM-vqa" secondAttribute="bottom" id="bsx-iU-yQ6"/>
-                            <constraint firstItem="eVb-tM-vqa" firstAttribute="top" secondItem="J86-y7-Z5c" secondAttribute="bottom" id="nBl-c7-pCb"/>
+                            <constraint firstItem="zX5-G5-91a" firstAttribute="leading" secondItem="pxi-hj-gc1" secondAttribute="leading" constant="5" id="5zM-a8-s10"/>
+                            <constraint firstItem="eVb-tM-vqa" firstAttribute="leading" secondItem="pxi-hj-gc1" secondAttribute="leading" id="DiT-Qj-JSw"/>
+                            <constraint firstItem="eVb-tM-vqa" firstAttribute="top" secondItem="J86-y7-Z5c" secondAttribute="bottom" id="KQZ-q9-sc4"/>
+                            <constraint firstAttribute="trailing" secondItem="eVb-tM-vqa" secondAttribute="trailing" id="eTP-os-3kF"/>
+                            <constraint firstItem="zX5-G5-91a" firstAttribute="top" secondItem="eVb-tM-vqa" secondAttribute="bottom" constant="8" id="f9M-kV-Jea"/>
+                            <constraint firstAttribute="trailing" secondItem="zX5-G5-91a" secondAttribute="trailing" constant="5" id="kCl-9I-VRg"/>
+                            <constraint firstItem="inO-GE-9t2" firstAttribute="top" secondItem="zX5-G5-91a" secondAttribute="bottom" id="kHz-ps-f7i"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Contacts" id="Mug-qQ-iQl"/>

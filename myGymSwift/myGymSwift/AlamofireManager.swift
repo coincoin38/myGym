@@ -92,8 +92,8 @@ class AlamofireManager: NSObject {
                 
             case .Success:
                 if response.response!.statusCode == 200 {
-                    print("Dowonload ok")
-                    //print("...News ok : \(response.result.value)")
+                    print("Download ok")
+                    //print("...Content : \(response.result.value)")
                     completion(data:JSON(response.result.value!))
                 } else {
                     print("Request failed with error: \(response.response!.statusCode)")

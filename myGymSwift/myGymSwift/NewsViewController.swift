@@ -33,7 +33,7 @@ class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         navigationController?.setNavigationBarHidden(navigationController?.navigationBarHidden == false, animated: true)
         tableView?.registerNib(UINib(nibName: cellXib, bundle: nil), forCellReuseIdentifier: cellIdentifier)
         self.refreshControl = UIRefreshControl()
-        self.refreshControl.attributedTitle = NSAttributedString(string: "Relâcher pour rafraîchir")
+        self.refreshControl.attributedTitle = NSAttributedString(string: NSLocalizedString("PULL_TO_REFRESH", comment:""))
         self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
         tableView?.addSubview(refreshControl)
     }
@@ -75,8 +75,7 @@ class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     // MARK: - Navigation
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+
         if(segue.identifier == kShowDetailNews) {
             let ndvc = segue.destinationViewController as! NewsDetailsViewController
             ndvc.news = newsArray[(tableView?.indexPathForSelectedRow?.row)!]

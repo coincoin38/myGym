@@ -35,22 +35,10 @@ class RealmManager: NSObject {
                     
                 case ModelsConstants.stub_sessions:
                     self.writeSessionsInDB(result)
-                    //print(self.getAllSessions())
                 case ModelsConstants.stub_teachers:
                     self.writeTeachersInDB(result)
-                    //print(self.getAllTeachers())
-                /*case ModelsConstants.stub_sports:
-                    self.writeSportsInDB(result)
-                    //print(self.getAllSports())*/
-                /*case ModelsConstants.stub_sportsDescription:
-                    self.writeSportsDescriptionsInDB(result)
-                    //print(self.getAllSportsDescriptions())*/
                 case ModelsConstants.stub_objectives:
                     self.writeObjectivesInDB(result)
-                    //print(self.getAllObjectives())
-                /*case ModelsConstants.stub_news:
-                    self.writeNewsInDB(result)
-                    //print(self.getAllNews())*/
                 default:
                     print("no stub for key %@",key)
                 }
@@ -225,24 +213,24 @@ class RealmManager: NSObject {
         completion(sessions: realm.objects(SessionModel).filter(ModelsConstants.kGetDay, date))
     }
     
-    func getSessionWithId(_id: String, completion: (session: Results<(SessionModel)>) -> Void) {
-        completion(session: realm.objects(SessionModel).filter(ModelsConstants.kGetId, _id))
+    func getSessionWithId(id: String, completion: (session: Results<(SessionModel)>) -> Void) {
+        completion(session: realm.objects(SessionModel).filter(ModelsConstants.kGetId, id))
     }
     
-    func getSportWithId(_id: String, completion: (sport: Results<(SportModel)>) -> Void) {
-        completion(sport: realm.objects(SportModel).filter(ModelsConstants.kGetId, _id))
+    func getSportWithId(id: String, completion: (sport: Results<(SportModel)>) -> Void) {
+        completion(sport: realm.objects(SportModel).filter(ModelsConstants.kGetId, id))
     }
     
-    func getTeacherWithId(_id: String, completion: (teacher: Results<(TeacherModel)>) -> Void) {
-        completion(teacher: realm.objects(TeacherModel).filter(ModelsConstants.kGetId, _id))
+    func getTeacherWithId(id: String, completion: (teacher: Results<(TeacherModel)>) -> Void) {
+        completion(teacher: realm.objects(TeacherModel).filter(ModelsConstants.kGetId, id))
     }
     
     func getSportDescriptionWithId(_id: String, completion: (description: Results<(SportDescriptionModel)>) -> Void) {
         completion(description: realm.objects(SportDescriptionModel).filter(ModelsConstants.kGetKey_sport, _id))
     }
     
-    func getObjectivesWithId(_id: String, completion: (objectives: Results<(ObjectiveModel)>) -> Void) {
-        completion(objectives: realm.objects(ObjectiveModel).filter(ModelsConstants.kGetId, _id))
+    func getObjectivesWithId(id: String, completion: (objectives: Results<(ObjectiveModel)>) -> Void) {
+        completion(objectives: realm.objects(ObjectiveModel).filter(ModelsConstants.kGetId, id))
     }
     
     func getObjectivesWithSportId(sport_id: String, completion: (objectives: Results<(ObjectiveModel)>) -> Void) {
