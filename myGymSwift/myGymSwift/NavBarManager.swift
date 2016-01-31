@@ -21,6 +21,6 @@ class NavBarManager: NSObject {
     func configureNavBarWithColors(navigationController:UINavigationController, backgroundColor: UIColor, textColor:UIColor){
         navigationController.navigationBar.tintColor = textColor
         navigationController.navigationBar.barTintColor = backgroundColor
-        navigationController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: textColor,NSFontAttributeName:UIFont.systemFontOfSize(18, weight: 2)]
+        navigationController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: textColor]
     }
 }

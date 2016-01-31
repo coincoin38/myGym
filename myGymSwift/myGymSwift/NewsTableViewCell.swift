@@ -19,6 +19,14 @@ class NewsTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        /*let border = CALayer()
+        let width = CGFloat(1.0)
+        border.borderColor = UIColor.whiteColor().CGColor
+        border.frame = CGRect(x: 0, y: self.frame.size.height - width, width:  self.frame.size.width, height: self.frame.size.height)
+        
+        border.borderWidth = width
+        self.layer.addSublayer(border)
+        self.layer.masksToBounds = true*/
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -43,7 +51,7 @@ class NewsTableViewCell: UITableViewCell {
     
     func setData(news: NewsModel) {
         
-        titleLabel?.text      = news.title
+        titleLabel?.text      = "Bonne année"//news.title
         titleLabel?.textColor = FormaterManager.SharedInstance.uicolorFromHexa(ColorsConstants.selectionTabBarColor)
 
         bodyLabel?.text      = news._description
@@ -55,5 +63,22 @@ class NewsTableViewCell: UITableViewCell {
         titleLeftMarginConstraint.constant = 82
         bodyLeftMarginConstraint .constant = 82
 
+    }
+    
+    func setDataV2(news: NewsModel) {
+      
+        titleLabel?.text      = "Bienvenue à notre nouveau coach"  //news.title
+        dayLabel?.text         = FormaterManager.SharedInstance.formatMMddFromDate(news.day)
+        //titleLabel?.textColor = FormaterManager.SharedInstance.uicolorFromHexa(ColorsConstants.selectionTabBarColor)
+        
+        /*bodyLabel?.text      = news._description
+        bodyLabel?.textColor = FormaterManager.SharedInstance.uicolorFromHexa(ColorsConstants.bodyNewsCellText)
+        
+        dayLabel?.text         = FormaterManager.SharedInstance.formatMMddFromDate(news.day)
+        dayLabel?.textColor    = FormaterManager.SharedInstance.uicolorFromHexa(ColorsConstants.dayNewsCell)
+        
+        titleLeftMarginConstraint.constant = 82
+        bodyLeftMarginConstraint .constant = 82*/
+        
     }
 }

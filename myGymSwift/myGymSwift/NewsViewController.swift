@@ -13,6 +13,8 @@ class NewsViewController: UIViewController,UITableViewDelegate, UITableViewDataS
 
     let cellIdentifier = "newsIdentifier"
     let cellXib = "NewsTableViewCell"
+    let cellXibV2 = "NewsTableViewCellV2"
+
     var refreshControl:UIRefreshControl!
     
     var newsArray: Array<NewsModel> = Array<NewsModel>()

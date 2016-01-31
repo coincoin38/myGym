@@ -23,6 +23,9 @@ class NewsDetailsViewController: UIViewController {
         bodytNewsTextView.scrollEnabled = false
         title = news.title
         bodytNewsTextView.text = news._description
+        NavBarManager.SharedInstance.configureNavBarWithColors(navigationController!, backgroundColor: FormaterManager.SharedInstance.uicolorFromHexa(ColorsConstants.selectionTabBarColor)
+, textColor: FormaterManager.SharedInstance.uicolorFromHexa(ColorsConstants.navBarTextAlternColor))
+
     }
     
     override func viewWillAppear(animated: Bool) {

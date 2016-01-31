@@ -14,11 +14,11 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J6z-ci-51a">
-                        <rect key="frame" x="281" y="8" width="31" height="21"/>
+                        <rect key="frame" x="286" y="8" width="26" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="foP-1l-Vq3"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="12"/>
+                        <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="10"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Iv-C5-0q0">
@@ -26,16 +26,16 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="nIG-Uj-WDQ"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="11"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mGp-Fr-bTh">
-                        <rect key="frame" x="8" y="8" width="265" height="36"/>
+                        <rect key="frame" x="8" y="8" width="270" height="36"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="36" id="aqf-fK-aTd"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -46,10 +46,11 @@
                             <constraint firstAttribute="height" constant="1" id="KHH-8A-gHF"/>
                         </constraints>
                     </view>
-                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_winfitness2" translatesAutoresizingMaskIntoConstraints="NO" id="L2b-9r-atl">
-                        <rect key="frame" x="0.0" y="0.0" width="74" height="74"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_winfitness" translatesAutoresizingMaskIntoConstraints="NO" id="L2b-9r-atl">
+                        <rect key="frame" x="5" y="5" width="64" height="64"/>
                     </imageView>
                 </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="J6z-ci-51a" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="34G-KU-S58"/>
                     <constraint firstItem="4Iv-C5-0q0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="4rk-NN-QpN"/>
@@ -75,6 +76,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="logo_winfitness2" width="159" height="158"/>
+        <image name="logo_winfitness" width="114" height="114"/>
     </resources>
 </document>

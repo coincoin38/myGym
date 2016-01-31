@@ -147,22 +147,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="38M-JJ-3p5" customClass="FSCalendar">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="552"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w8I-xP-JKq">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="2"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="2" id="Hri-vG-W5e"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
+                                <rect key="frame" x="18" y="46" width="564" height="485"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="w8I-xP-JKq" secondAttribute="trailing" id="O8G-Yg-ZeM"/>
-                                    <constraint firstItem="w8I-xP-JKq" firstAttribute="leading" secondItem="38M-JJ-3p5" secondAttribute="leading" id="cdG-Cl-79y"/>
-                                    <constraint firstItem="w8I-xP-JKq" firstAttribute="top" secondItem="38M-JJ-3p5" secondAttribute="top" id="qyK-SP-J0l"/>
-                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="titleDefaultColor">
                                         <color key="value" red="0.1019607843" green="0.094117647060000004" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -185,10 +171,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="38M-JJ-3p5" firstAttribute="leading" secondItem="0eN-gV-dQ3" secondAttribute="leading" id="1zv-jd-Opl"/>
-                            <constraint firstItem="38M-JJ-3p5" firstAttribute="top" secondItem="cUf-Ze-UQz" secondAttribute="bottom" constant="-20" id="9FD-J1-oYy"/>
-                            <constraint firstAttribute="trailing" secondItem="38M-JJ-3p5" secondAttribute="trailing" id="a12-Xs-whj"/>
-                            <constraint firstItem="Hr3-qs-nNO" firstAttribute="top" secondItem="38M-JJ-3p5" secondAttribute="bottom" constant="-1" id="p8S-Ze-ZIi"/>
+                            <constraint firstItem="Hr3-qs-nNO" firstAttribute="top" secondItem="38M-JJ-3p5" secondAttribute="bottom" constant="20" id="0pz-sb-Kgu"/>
+                            <constraint firstItem="38M-JJ-3p5" firstAttribute="leading" secondItem="0eN-gV-dQ3" secondAttribute="leading" constant="18" id="JbI-eO-X8k"/>
+                            <constraint firstItem="38M-JJ-3p5" firstAttribute="top" secondItem="cUf-Ze-UQz" secondAttribute="bottom" constant="26" id="RMI-TM-mXe"/>
+                            <constraint firstAttribute="trailing" secondItem="38M-JJ-3p5" secondAttribute="trailing" constant="18" id="oc7-d8-F2e"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Calendrier" image="Sessions" selectedImage="Sessions" id="XKu-zB-Vnm"/>
